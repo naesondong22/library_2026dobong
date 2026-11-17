@@ -2281,30 +2281,26 @@ a {
   .architectural-room-viewport {
     width: 100%;
     height: auto;
-    min-height: 300px;
-    padding-top: 8px;
+    min-height: 330px;
+    padding-top: 32px;
     justify-content: flex-start;
     flex-shrink: 0;
     touch-action: pan-y;
   }
   .traced-shapes-gallery {
-    min-height: 210px !important;
-    height: 220px;
+    min-height: 270px !important;
+    height: 290px;
     flex: none;
   }
   .traced-shapes-strip {
-    top: 50%;
+    top: 52%;
     gap: 32px;
   }
   .user-vector-slot {
     width: 88vw;
   }
   .room-symbol-map-dock {
-    margin: 4px auto 8px;
-    padding: 4px 12px;
-  }
-  .symbol-map-mini-board {
-    height: 76px;
+    display: none !important;
   }
   .monologue-story-panel {
     position: static;
@@ -2323,7 +2319,7 @@ a {
     display: none !important;
   }
   .vector-side-arrow {
-    top: 118px;
+    top: calc(50% + 16px);
     width: 34px;
     height: 34px;
     font-size: 15px;

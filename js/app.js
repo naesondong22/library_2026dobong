@@ -2378,8 +2378,10 @@ class ArchiveApp {
     const huin = this.spacesMap.huingomusin;
 
     const conceptParagraphs = Array.isArray(info.conceptText)
-      ? info.conceptText.join(' ')
-      : info.leadCopy || '';
+      ? info.conceptText.join('\n')
+      : (typeof info.conceptText === 'string' && info.conceptText.trim()
+          ? info.conceptText
+          : info.leadCopy || '');
 
     container.innerHTML = `
       <div class="project-info-container">
