@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>관리자 스튜디오 (ADMIN STUDIO) — 사람 책 도서관: 이야기와 함께 걷기</title>
+  <link rel="stylesheet" href="css/admin.css?v=33" />
+  <script>
+    window.addEventListener('error', function(e) {
+      var t = e.target;
+      if (!t || !t.src || t.dataset.triedFallback) return;
+      if (t.tagName === 'IMG' || t.tagName === 'AUDIO') {
+        t.dataset.triedFallback = 'true';
+        try {
+          var u = new URL(t.src);
+          var pathname = decodeURI(u.pathname);
+          var isNFD = pathname !== pathname.normalize('NFC');
+          var altPath = isNFD ? pathname.normalize('NFC') : pathname.normalize('NFD');
+          u.pathname = encodeURI(altPath);
+          t.src = u.toString();
+        } catch(err) {}
+      }
+    }, true);
+  </script>
+</head>
+
+<body>
+
+  <!-- ==================== 0. 관리자 전용 로그인 게이트 ==================== -->
+  <div class="admin-login-overlay" id="adminLoginOverlay">
+    <div class="login-card">
+      <div class="login-kicker">DOBONG DREAM THEATER · ADMIN ONLY</div>
+      <h2 class="login-title">〈사람 책 도서관〉 관리자 로그인</h2>
+      <p class="login-sub">
+        인가된 관리자만 접근할 수 있는 보안 스튜디오입니다.<br />
+        관리자 아이디와 비밀번호를 입력해 주세요.
+      </p>
+
+      <form id="adminLoginForm">
+        <div class="form-group">
+          <label for="loginIdInput">관리자 아이디 (ADMIN ID)</label>
+          <input type="text" class="adm-input" id="loginIdInput" placeholder="admin" required />
+        </div>
+        <div class="form-group">
+          <label for="loginPwInput">비밀번호 (PASSWORD)</label>
+          <input type="password" class="adm-input" id="loginPwInput" placeholder="••••••••" required />
+        </div>
+        <div id="loginErrorMsg" style="color:var(--adm-red); font-size:12px; margin-bottom:10px; display:none;">
+          아이디 또는 비밀번호가 일치하지 않습니다.
+        </div>
+        <div style="display:flex; gap:8px; margin-top:16px;">
+          <button type="submit" class="adm-btn primary" style="flex:1; justify-content:center; padding:11px;">
+            🔐 관리자 스튜디오 로그인
+          </button>
+          <a href="index.html" class="adm-btn" style="padding:11px;">사이트로 돌아가기</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== 1. 상단 관리자 헤더 & 전 대시보드 환경음 바 ==================== -->
+  <header class="admin-header">
+    <div class="admin-header-top">
+      <div class="admin-brand">
+        <span class="admin-badge">ADMIN STUDIO v2.0</span>
+        <h1 class="admin-title">〈사람 책 도서관: 이야기와 함께 걷기〉 통합 아카이브 스튜디오</h1>
+      </div>
+
+      <div class="admin-toolbar">
+        <button class="adm-btn primary" id="btnSyncToDisk" style="background:#20b9e2; color:#fff; font-weight:900; border:none; box-shadow:0 0 10px rgba(32,185,226,0.6);" title="현재 작성한 모든 내용과 사진을 실제 배포용 파일(js/data.js 및 image/uploaded/)에 영구 저장합니다">
+          ⚡ 배포용 파일로 영구 저장 (js/data.js 동기화)
+        </button>
+        <button class="adm-btn" id="btnSaveDraftTop" title="현재 편집 상태를 드래프트로 임시저장">
+          💾 드래프트 저장
+        </button>
+        <button class="adm-btn publish-cta" id="btnPublishTop" title="현재 편집본을 실제 웹사이트(index.html)에 즉시 퍼블리시">
+          🚀 라이브 퍼블리시 (Publish)
+        </button>
+        <button class="adm-btn" id="btnInspectStorage"
+          title="STORAGE_KEY, DRAFT_STORAGE_KEY, IndexedDB 저장 현황 진단 및 복구">🔍 저장소 진단/복구</button>
+        <button class="adm-btn" id="btnExportJson">⬇ JSON 백업</button>
+        <label class="adm-btn" style="cursor:pointer;">
+          ⬆ JSON 복원
+          <input type="file" id="inputImportJson" accept=".json" style="display:none;" />
+        </label>
+        <button class="adm-btn danger" id="btnResetDummy">↺ 초기화</button>
+        <a href="index.html" class="adm-btn" target="_blank">↗ 라이브 사이트 열기</a>
+        <button class="adm-btn" id="btnAdminLogout" title="관리자 로그아웃">로그아웃</button>
+      </div>
+    </div>
+
+    <!-- 모든 대시보드 상단에서 상시 제어 가능한 환경음(Ambient Sound) & 음성 모니터 바 -->
+    <div class="global-ambient-bar" id="globalAmbientBar"></div>
+  </header>
+
+  <!-- ==================== 2. 5대 직관적 관리 워크스페이스 본문 ==================== -->
+  <div class="admin-body">
+    <aside class="admin-sidebar">
+      <div class="sidebar-group-label">PAGES &amp; SOUND MANAGER</div>
+
+      <button class="sidebar-tab active" data-adm-tab="project_info">
+        <div class="tab-main-row">
+          <span>1. 프로젝트 인포 관리</span>
+          <span>📌</span>
+        </div>
+        <span class="tab-sub">사람 책 도서관 소개글 · 로고 · 기획 의도 및 도서관 설명</span>
+      </button>
+
+      <button class="sidebar-tab" data-adm-tab="monologue">
+        <div class="tab-main-row">
+          <span>2. Monologue 관리</span>
+          <span>🗺️</span>
+        </div>
+        <span class="tab-sub">메인 타이포 · 20개 거점 산책 경로 · 공간사진 &amp; 독백음성</span>
+      </button>
+
+      <button class="sidebar-tab" data-adm-tab="timework">
+        <div class="tab-main-row">
+          <span>3. TimeWork 관리</span>
+          <span>📖</span>
+        </div>
+        <span class="tab-sub">7페이지 책 펼침면 1:1 직관 편집 · 좌/우 사진 · 풋노트 · 우리의 기록</span>
+      </button>
+
+      <button class="sidebar-tab" data-adm-tab="ambient">
+        <div class="tab-main-row">
+          <span>4. 환경음(Ambient) 관리</span>
+          <span>🔊</span>
+        </div>
+        <span class="tab-sub">환경음 라이브러리 목록 · 랜덤 재생(Shuffle) 켜기 · 오디오 바로 업로드</span>
+      </button>
+
+      <button class="sidebar-tab" data-adm-tab="preview_publish">
+        <div class="tab-main-row">
+          <span>5. 프리뷰 &amp; 퍼블리시</span>
+          <span>🚀</span>
+        </div>
+        <span class="tab-sub">라이브 사이트 프리뷰 확인 및 라이브 퍼블리시</span>
+      </button>
+    </aside>
+
+    <main class="admin-content">
+
+      <!-- [워크스페이스 1] 프로젝트 인포 관리 (PROJECT_INFO) -->
+      <section id="adm-panel-project_info" class="adm-panel active">
+        <div id="admProjectInfoContainer"></div>
+      </section>
+
+      <!-- [워크스페이스 2] Monologue 관리 (좌측 슬라이드 + 20개 거점 산책경로/공간사진/음성) -->
+      <section id="adm-panel-monologue" class="adm-panel">
+        <div id="admMonologueContainer"></div>
+      </section>
+
+      <!-- [워크스페이스 3] TimeWork 관리 (10페이지 책 페이지 1:1 직관 편집, 파일 바로 업로드) -->
+      <section id="adm-panel-timework" class="adm-panel">
+        <div id="admTimeWorkContainer"></div>
+      </section>
+
+      <!-- [워크스페이스 4] 환경음(Ambient) 라이브러리 & 랜덤 재생 관리 -->
+      <section id="adm-panel-ambient" class="adm-panel">
+        <div id="admAmbientContainer"></div>
+      </section>
+
+      <!-- [워크스페이스 5] 프리뷰와 퍼블리시 -->
+      <section id="adm-panel-preview_publish" class="adm-panel">
+        <div id="admPreviewPublishContainer"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast-banner" id="adminToast">저장되었습니다.</div>
+
+  <script src="js/data.js?v=34"></script>
+  <script src="js/audio-engine.js?v=34"></script>
+  <script src="js/admin.js?v=34"></script>
+</body>
+
+</html>

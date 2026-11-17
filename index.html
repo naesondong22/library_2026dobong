@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사람 책 도서관: 이야기와 함께 걷기</title>
+  <link rel="stylesheet" href="css/style.css?v=33" />
+  <script>
+    // Mac(NFD) vs Linux/Web(NFC) 이미지 및 오디오 404 자동 상호 복구
+    window.addEventListener('error', function(e) {
+      var t = e.target;
+      if (!t || !t.src || t.dataset.triedFallback) return;
+      if (t.tagName === 'IMG' || t.tagName === 'AUDIO') {
+        t.dataset.triedFallback = 'true';
+        try {
+          var u = new URL(t.src);
+          var pathname = decodeURI(u.pathname);
+          var isNFD = pathname !== pathname.normalize('NFC');
+          var altPath = isNFD ? pathname.normalize('NFC') : pathname.normalize('NFD');
+          u.pathname = encodeURI(altPath);
+          t.src = u.toString();
+        } catch(err) {}
+      }
+    }, true);
+  </script>
+</head>
+<body>
+
+  <!-- ==================== 상단 모던 산세리프 네비게이션 ==================== -->
+  <header class="site-header">
+    <!-- 맨 왼쪽 상단: 도봉꿈의극단/image/선과요소/사용/로고.png를 사람 책 도서관 옆에 배치, 클릭 시 PROJECT_INFO 열람 -->
+    <button class="brand-area" id="brandHomeBtn" data-nav-view="project_info" title="사람 책 도서관 소개 (PROJECT_INFO)">
+      <div class="brand-titles">
+        <span class="brand-tag-blue">2026 도봉꿈의극단</span>
+        <span class="brand-main">사람 책 도서관</span>
+      </div>
+    </button>
+
+    <nav class="main-nav" aria-label="주요 메뉴">
+      <button class="nav-tab active" data-nav-view="monologue">
+        <span>Monologue</span>
+      </button>
+      <button class="nav-tab" data-nav-view="timework">
+        <span>TimeWork</span>
+      </button>
+      <button class="nav-tab" data-nav-view="index">
+        <span>INDEX</span>
+      </button>
+    </nav>
+
+    <div class="header-actions">
+      <div class="ambient-user-control" id="ambientUserControl">
+        <div class="sound-status-pill" id="globalSoundPill" title="환경음 켜기 / 끄기">
+          <span class="sound-dot"></span>
+          <span id="globalSoundText">SOUND</span>
+        </div>
+        <input type="range"
+               id="userAmbientVolumeSlider"
+               class="user-ambient-vol-slider"
+               min="0"
+               max="1"
+               step="0.05"
+               value="0.45"
+               title="전체 환경음 소리 크기 조절"
+               aria-label="전체 환경음 소리 크기" />
+      </div>
+      <a href="admin.html" class="admin-link-btn" title="관리자 스튜디오">
+        <span>ADMIN</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ==================== 메인 뷰 영역 ==================== -->
+  <main class="app-main">
+
+    <!-- 1. Monologue (주 페이지 — 지도형태 스케치 기반 선적·평면적 지도 & 형태를 그대로 딴 공간요소 탐색) -->
+    <section id="view-monologue" class="view-section active">
+      <div class="monologue-layout" id="monologueLayoutRoot">
+        <!-- 상단 탐색 바 (지도 / 채움 ↔ 마을극장 흰고무신 즉시 전환) -->
+        <div class="monologue-hud-top" id="monologueHudTop"></div>
+
+        <!-- 단계 1: 선과요소/지도형태 기반 선적·평면적 지도 + 거점(Station) + 노브 -->
+        <div class="monologue-map-stage" id="monologueMapStage">
+          <div class="map-canvas-wrap" id="mapCanvasWrap"></div>
+        </div>
+
+        <!-- 단계 2 & 3: 기둥·벽·놀이기구 등을 그대로 딴 형태의 벡터 면들 (스크롤/드래그/클릭 이동 & 클릭 시 B&W 배경 + 느린 흰 빛 타이포그래피) -->
+        <div class="monologue-space-stage hidden" id="monologueSpaceStage">
+          <div class="architectural-room-viewport" id="architecturalRoomViewport"></div>
+          <aside class="monologue-story-panel" id="monologueStoryPanel"></aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. TimeWork (흰 배경 · 파란 글씨의 책 페이지 디자인 + 좌우 채움/마을극장 사진 분할 + 책날 세로 책갈피 + 작업물 콜라주) -->
+    <section id="view-timework" class="view-section">
+      <div id="timeworkViewContent"></div>
+    </section>
+
+    <!-- 3. 사람 책 도서관 (PROJECT_INFO — 상단 맨 왼쪽 '사람 책 도서관' 클릭 시 열리는 페이지) -->
+    <section id="view-project_info" class="view-section">
+      <div id="projectInfoContent"></div>
+    </section>
+
+    <!-- 4. INDEX -->
+    <section id="view-index" class="view-section">
+      <div id="indexViewContent"></div>
+    </section>
+
+  </main>
+
+  <script src="js/data.js?v=35"></script>
+  <script src="js/audio-engine.js?v=35"></script>
+  <script src="js/app.js?v=35"></script>
+</body>
+</html>

@@ -1,0 +1,2275 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* ==========================================================================
+   사람 책 도서관: 이야기와 함께 걷기 — 메인 스타일시트
+   ========================================================================== */
+
+:root {
+  --bg-paper: #F7F6F2;
+  --bg-white: #FFFFFF;
+  --ink-black: #111215;
+  --ink-dark: #25272C;
+  --ink-muted: #686C75;
+
+  --c-blue: #20b9e2;
+  --c-cyan-bright: #49d7ea;
+  --c-orange: #FF5520;
+  --c-green: #009E52;
+  --c-yellow: #FFD600;
+  --c-pink: #FF66CC;
+  --c-mint: #86E086;
+
+  --line-blue: #20b9e2;
+
+  --mono-bg: #070709;
+  --mono-light: #FFFFFF;
+
+  --header-h: 64px;
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-white);
+  color: var(--ink-black);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+button, input, select, textarea {
+  font-family: var(--font-sans);
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   상단 헤더 (맨 왼쪽: 로고.png + 사람 책 도서관 -> PROJECT_INFO)
+   ========================================================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  background: #FFFFFF;
+  border-bottom: 1.5px solid var(--c-blue);
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  z-index: 900;
+}
+
+.brand-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px;
+  border-right: 1.5px solid var(--c-blue);
+  background: #ffffff;
+  transition: background-color 0.15s, color 0.15s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.brand-area:hover {
+  background: #FFF8FA;
+}
+
+.brand-area.active {
+  background: #FFF0F8;
+  color: var(--c-blue);
+}
+
+/* 도봉꿈의극단/image/선과요소/사용/로고.png */
+.brand-user-logo {
+  height: 40px;
+  width: auto;
+  max-width: 60px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.brand-area:hover .brand-user-logo {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.brand-titles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.brand-tag-blue {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  background: var(--c-blue);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+
+.brand-main {
+  font-size: 15.5px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  line-height: 1.2;
+  color: var(--ink-black);
+}
+
+.main-nav {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 28px;
+  border-right: 1.5px solid var(--c-blue);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.nav-tab:hover {
+  background: rgba(0, 82, 255, 0.05);
+}
+
+.nav-tab.active[data-nav-view="monologue"] {
+  background: var(--c-blue);
+  color: #ffffff;
+}
+
+.nav-tab.active[data-nav-view="timework"] {
+  background: var(--c-orange);
+  color: #ffffff;
+}
+
+.nav-tab.active[data-nav-view="index"] {
+  background: var(--c-green);
+  color: #ffffff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+}
+
+.ambient-user-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sound-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border: 1.5px solid var(--c-blue);
+  color: var(--c-blue);
+  background: #ffffff;
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.user-ambient-vol-slider {
+  width: 68px;
+  accent-color: var(--c-blue);
+  cursor: pointer;
+}
+
+.sound-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink-muted);
+}
+
+.sound-status-pill.playing .sound-dot {
+  background: var(--c-green);
+  box-shadow: 0 0 8px var(--c-green);
+}
+
+.admin-link-btn {
+  padding: 6px 13px;
+  background: var(--ink-black);
+  color: var(--c-yellow);
+  font-size: 11.5px;
+  font-weight: 800;
+  border: 1.5px solid var(--c-blue);
+}
+
+/* ==========================================================================
+   Main App View Wrapper
+   ========================================================================== */
+.app-main {
+  padding-top: var(--header-h);
+  min-height: 100vh;
+}
+
+.view-section {
+  display: none;
+  min-height: calc(100vh - var(--header-h));
+}
+
+.view-section.active {
+  display: block;
+}
+
+/* ==========================================================================
+   1. MONOLOGUE VIEW
+   ========================================================================== */
+.monologue-layout {
+  min-height: calc(100vh - var(--header-h));
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  transition: background-color 0.45s ease, color 0.45s ease;
+}
+
+.monologue-layout.monotone-spotlight-active {
+  background: var(--mono-bg);
+  color: var(--mono-light);
+}
+
+/* 상단 탐색창: 지도 ↔ 채움 ↔ 마을극장 흰고무신 언제든 전환 */
+.monologue-hud-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 24px;
+  border-bottom: 1.5px solid var(--c-blue);
+  background: #ffffff;
+  z-index: 40;
+}
+
+.monologue-layout.monotone-spotlight-active .monologue-hud-top {
+  background: #0A0B0E;
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.hud-nav-left,
+.hud-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hud-pill-btn {
+  padding: 6px 15px;
+  border: 1.5px solid var(--c-blue);
+  background: #ffffff;
+  color: var(--c-blue);
+  font-size: 13px;
+  font-weight: 800;
+  transition: all 0.16s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hud-pill-btn:hover {
+  background: #F3F4F6;
+}
+
+.hud-pill-btn.active {
+  background: var(--c-blue);
+  color: #ffffff;
+}
+
+.hud-pill-btn.space-chaeum.active {
+  background: var(--c-pink);
+  color: #ffffff;
+  border-color: var(--c-pink);
+}
+
+.hud-pill-btn.space-huin.active {
+  background: var(--c-mint);
+  color: #000000;
+  border-color: var(--c-mint);
+}
+
+.monologue-layout.monotone-spotlight-active .hud-pill-btn {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: #14151C;
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Stage 1: 도봉꿈의극단/image/선과요소/사용/지도.png + 좌측(1.3/4) 확대 패닝 슬라이드
+   - 좌측 약 1.3/4(32.5%) 영역: 사진이 확대되어 왼쪽에서 오른쪽으로 이동하며,
+     이동 길이의 중간을 조금 넘으면 다음 슬라이드로 자연스럽게 크로스페이드 전환
+   - 좌측 사진들이 먼저 등장하고, 3초 후에 우측 지도.png가 페이드인으로 자연스럽게 등장
+   - 채움 지도와 흰고무신 지도는 오른쪽으로 붙여 배치
+   -------------------------------------------------------------------------- */
+.monologue-map-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  height: calc(100vh - var(--header-h));
+  min-height: calc(100vh - var(--header-h));
+  background: #FFFFFF;
+  position: relative;
+  padding: 24px 20px 80px 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.monologue-map-stage.hidden {
+  display: none;
+}
+
+.map-canvas-wrap {
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  background: #FFFFFF;
+}
+
+.user-map-stage-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+  position: relative;
+}
+
+/* 왼쪽 중상단에 스크롤과 무관하게 고정된 타이포그래피 (지도 이미지 아래 레이어에 위치) */
+.monologue-hero-typo {
+  position: fixed;
+  left: 36px;
+  top: calc(38% + (var(--header-h) + 46px) / 2);
+  transform: translateY(-50%);
+  width: auto;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0;
+  border: none !important;
+  background: transparent !important;
+  z-index: 4;
+  pointer-events: none;
+  transition: top 0.25s ease, left 0.25s ease;
+}
+
+.monologue-hero-typo.align-center {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  text-align: center;
+}
+
+.mono-typo-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.badge-blue-box {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: var(--c-blue);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  border-radius: 2px;
+}
+
+.mono-typo-sub {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ink-muted);
+}
+
+.mono-typo-title {
+  font-size: clamp(38px, 4.6vw, 68px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: var(--c-blue);
+  margin: 0 0 14px 0;
+  word-break: keep-all;
+}
+
+.mono-typo-lead {
+  font-size: clamp(20px, 2.3vw, 28px);
+  font-weight: 800;
+  color: var(--ink-dark);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+}
+
+.mono-typo-desc {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  margin: 0 0 22px 0;
+  word-break: keep-all;
+}
+
+.mono-typo-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mono-space-quick-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1.5px solid var(--c-blue);
+  background: #ffffff;
+  color: var(--c-blue);
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-radius: 2px;
+}
+
+.mono-space-quick-btn:hover {
+  background: var(--c-blue);
+  color: #ffffff;
+}
+
+/* 지도 영역: 타이포그래피 위 레이어(z-index: 15)에 겹쳐서 화면 양쪽에 조금만 남기고 가득 채움 */
+.monologue-right-map-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+  position: relative;
+  z-index: 15;
+  pointer-events: auto;
+}
+
+.monologue-right-map-wrap.is-faded-in {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.user-map-legend {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.user-map-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border: 1.5px solid var(--c-blue);
+  color: var(--c-blue);
+  background: #ffffff;
+  font-size: 12.5px;
+  font-weight: 800;
+  transition: background-color 0.15s ease;
+}
+
+.user-map-legend-item:hover {
+  background: var(--bg-paper);
+}
+
+.legend-circle-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.space-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.hud-left-group,
+.hud-right-group,
+.hud-space-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hud-space-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border: 1.5px solid var(--c-blue);
+  color: var(--c-blue);
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  transition: all 0.15s ease;
+}
+
+.hud-space-tab.active {
+  background: var(--c-blue);
+  color: #ffffff;
+}
+
+.hud-pill-btn.active-map {
+  background: var(--c-blue);
+  color: #ffffff;
+}
+
+/* 지도.png (3750 x 3400 비율) 캔버스 박스 — 화면 양쪽에 조금만 남기고 크기 확대, 1초 후 페이드인 */
+.user-map-board {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 3750 / 3400;
+  margin: 0 auto;
+  user-select: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+.user-map-board.is-fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 마우스를 원에 가져다 댔을 때: 실 같은 선들이 해당 원을 중심으로 쭈욱 당겨지는 듯한 텐션감 */
+.user-map-board.is-tension-pull {
+  transform: scale(1.045, 1.032);
+}
+
+/* 원을 클릭했을 때: 텐션이 원래대로 돌아가면서 세부 공간 페이지로 자연스럽게 진입 */
+.user-map-board.is-tension-release {
+  transform: scale(1, 1);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.36s cubic-bezier(0.34, 1.4, 0.64, 1);
+  pointer-events: none;
+}
+
+/* 도봉꿈의극단/image/선과요소/사용/지도.png 원본 (선 굵기와 원 연결 100% 원본 그대로 유지) */
+.user-map-orig-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 고정된 히트 영역(.map-circle-pin)과 내부 시각적 원(.map-circle-disc)을 분리하여
+   마우스 호버 시 경계면 떨림(jitter) 현상을 100% 방지 */
+.map-circle-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+  border: none;
+  outline: none;
+  z-index: 3;
+}
+
+.map-circle-pin:hover {
+  z-index: 10;
+}
+
+/* 마우스를 올리기 전에는 투명(opacity: 0)하여 아래의 원본 지도.png(원+선)가 100% 그대로 보이고,
+   마우스를 올리면 부드럽게 커지면서 원 안에 공간 사진이 페이드인됨 */
+.map-circle-disc {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 0.34s ease,
+              transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+.map-circle-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.map-circle-pin:hover .map-circle-disc {
+  opacity: 1;
+  transform: scale(1.22);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   Stage 2 & 3: 세부 공간요소 페이지
+   - 불필요한 위치 설명 텍스트 제거, 중앙 벡터요소 양옆에 직관적인 화살표 배치
+   - 하단에는 지도.png의 원과 검은 선 심볼을 놓아 현재 산책 위치를 표시
+   - 우측 독백 정보창은 벡터요소를 클릭했을 때만 열림
+   -------------------------------------------------------------------------- */
+.monologue-space-stage {
+  flex: 1;
+  display: block;
+  width: 100%;
+  min-height: calc(100vh - var(--header-h) - 52px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 우측 독백 정보창이 열려도 중앙 벡터요소·공간사진의 중심 좌표가 1px도 흔들리지 않도록 전체 폭 유지 */
+.monologue-space-stage.has-story-open {
+  display: block;
+}
+
+.monologue-space-stage.hidden {
+  display: none;
+}
+
+.architectural-room-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - var(--header-h) - 52px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #FFFFFF;
+  transition: background-color 0.55s ease;
+  user-select: none;
+  cursor: grab;
+}
+
+.architectural-room-viewport:active {
+  cursor: grabbing;
+}
+
+/* 특정 벡터요소를 클릭해 독백 재생 & 핀라이트 조명이 켜진 상태 */
+.architectural-room-viewport.spotlight-mode {
+  background: #08080B;
+}
+
+/* 벡터요소 파노라마 갤러리 트랙 (정중앙 배치 보장) */
+.traced-shapes-gallery {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* 중앙 벡터요소 그래픽 영역 내부에 위치하는 직관적인 좌우 이동 화살표 */
+.vector-side-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1.5px solid var(--c-blue);
+  color: var(--c-blue);
+  font-size: 20px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 55;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+}
+
+/* 720px 16:9 그래픽 영역 내부 안쪽(좌우 18px 여백)에 위치 */
+.vector-side-arrow.prev {
+  left: max(16px, calc(50% - 340px));
+}
+
+.vector-side-arrow.next {
+  right: max(16px, calc(50% - 340px));
+}
+
+.vector-side-arrow:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: var(--c-blue);
+  color: #ffffff;
+}
+
+.architectural-room-viewport.spotlight-mode .vector-side-arrow {
+  background: rgba(18, 19, 25, 0.88);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+}
+
+.architectural-room-viewport.spotlight-mode .vector-side-arrow:hover {
+  background: #ffffff;
+  color: #08080B;
+}
+
+.traced-shapes-strip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 90px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  transition: transform 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.traced-shapes-strip.is-dragging {
+  transition: none;
+}
+
+/* 각 벡터요소 슬롯: 지도의 산책 경로를 따라 공간으로 나아가듯이 전진하는 원근 모션 */
+.user-vector-slot {
+  width: 720px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.58s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.48s ease,
+              filter 0.48s ease;
+  transform: translateZ(-80px) scale(0.84);
+}
+
+.user-vector-slot.is-front {
+  transform: translateZ(0) scale(1);
+  opacity: 1;
+  z-index: 20;
+}
+
+.user-vector-slot:not(.is-front) {
+  opacity: 0.35;
+  transform: translateZ(-80px) scale(0.84);
+  z-index: 5;
+}
+
+.user-vector-slot:not(.is-front):hover {
+  opacity: 0.7;
+  transform: translateZ(-40px) scale(0.88);
+}
+
+.architectural-room-viewport.spotlight-mode .user-vector-slot:not(.is-spotlight-on) {
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* 클릭 시 크기 변화 없이(scale(1) 고정) 벡터가 있던 바로 그 자리에 공간사진이 1:1 정합으로 떠오름 */
+.user-vector-slot.is-spotlight-on {
+  opacity: 1 !important;
+  transform: translateZ(0) scale(1) !important;
+  z-index: 40;
+}
+
+/* 8000x4500 (16:9) 공간벡터 & 벡터공간들 1:1 정합 스테이지 */
+.vector-stage-16x9 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: transparent;
+  transition: box-shadow 0.5s ease;
+}
+
+/* 1) 클릭 전 기본 상태: 사용자가 직접 딴 공간벡터-02.png ~ 21.png 표시 (16:9 전체에 1:1 정합) */
+.vector-cutout-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0.90) contrast(1.08) drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease;
+  z-index: 4;
+}
+
+.user-vector-slot:hover .vector-cutout-img {
+  filter: brightness(0.84) contrast(1.14) drop-shadow(0 12px 26px rgba(0, 0, 0, 0.18));
+}
+
+/* 마우스를 벡터요소 위에 올렸을 때(클릭 전), 벡터 표면 위에 자연스럽게 먼저 떠오르는 한 줄 문장 */
+.vector-hover-preview-text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.5;
+  color: var(--ink-black);
+  word-break: keep-all;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.32s ease, transform 0.32s ease;
+  pointer-events: none;
+  z-index: 5;
+  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 1);
+}
+
+.user-vector-slot.is-front:not(.is-spotlight-on):hover .vector-hover-preview-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 클릭하여 독백이 재생될 때: 벡터가 있던 정확한 위치 위로 공간사진이 겹쳐 떠오르며,
+   벡터 형태가 사진 속 원래 사물 표면으로 자연스럽게 녹아들도록 은은한 잔상(0.14)으로 연결 */
+.user-vector-slot.is-spotlight-on .vector-cutout-img {
+  opacity: 0.14;
+  filter: brightness(1.05) contrast(1.05);
+  pointer-events: none;
+}
+
+/* 독백 선택 시 벡터 영역 위에 별도의 블록/배지 텍스트는 뜨지 않도록 완전 숨김 처리
+   (공간사진 위 해당 위치의 벡터 이미지 마스크 영역 내부 핀라이트 효과로만 문장이 표시됨) */
+.user-vector-slot.is-spotlight-on .vector-hover-preview-text {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 2) 공간사진 백드롭: 기본 상태에서는 완전히 숨겨져 벡터 이미지만 등장하고,
+   클릭 시 벡터 이미지를 중심으로 조명이 켜지듯이 색상 오버레이된 공간 사진이 등장 */
+.vector-tinted-photo-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  clip-path: circle(0% at 50% 50%);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              clip-path 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.user-vector-slot.is-spotlight-on .vector-tinted-photo-backdrop {
+  opacity: 1;
+  clip-path: circle(120% at 50% 50%);
+  z-index: 2;
+}
+
+/* 공간벡터와 100% 동일한 object-fit: contain 및 좌표계를 사용하여 벡터와 공간사진이 완벽히 맞물림 */
+.vector-space-photo-base {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(100%) contrast(1.16) brightness(0.84);
+}
+
+/* 지도.png의 원래 원 색상(#ff66cc 분홍 / #86e086 초록)으로 사진을 오버레이 */
+.vector-space-color-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+  opacity: 0.88;
+}
+
+.vector-space-color-tint {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+  opacity: 0.22;
+}
+
+.user-vector-slot.space-chaeum .vector-space-color-overlay,
+.user-vector-slot.space-chaeum .vector-space-color-tint {
+  background-color: #ff66cc;
+}
+
+.user-vector-slot.space-huingomusin .vector-space-color-overlay,
+.user-vector-slot.space-huingomusin .vector-space-color-tint {
+  background-color: #86e086;
+}
+
+/* 3) 클릭 시 벡터 영역(공간벡터-XX.png 마스크) 내부에만 켜지는 핀라이트 조명 + 느리게 흐르는 글자
+      - 벡터의 윤곽선(테두리)은 절대 그리지 않음!
+      - 마스크 내부의 사물 표면을 따라 흰 글자가 천천히 일정한 속도로 움직임 */
+.vector-pinlight-masked-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 6;
+  pointer-events: none;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.user-vector-slot.is-spotlight-on .vector-pinlight-masked-layer {
+  opacity: 1;
+}
+
+/* 핀라이트가 비치는 벡터 사물 표면의 은은한 음영과 빛 번짐 (윤곽선 없음, 흰 글자 가독성 극대화) */
+.vector-pinlight-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(255, 255, 255, 0.26) 0%,
+    rgba(15, 16, 22, 0.36) 65%,
+    rgba(8, 9, 12, 0.58) 100%
+  );
+  pointer-events: none;
+}
+
+/* 이전과 같은 원래 크기로 타이포그래피 영역을 조정하고, 상단만 4px정도 줄여줌 (overflow: hidden으로 튀어나감 방지) */
+.vector-surface-text-box {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.vector-surface-angle {
+  width: 160%;
+  height: 160%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.vector-surface-angle.is-vertical-angle {
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+}
+
+/* 1. 가로 방향 트랙 (flow-left, flow-right):
+   - 같은 문장이 여러 번 반복되어 패턴처럼 보이지 않도록 1~2줄의 큼직한 텍스트 띠로 천천히 흐름 */
+.vector-surface-text-track.horizontal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(28px, 2.9vw, 42px);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: #FFFFFF !important;
+  text-shadow:
+    0 0 12px rgba(255, 255, 255, 0.98),
+    0 0 28px rgba(255, 255, 255, 0.88),
+    0 2px 12px rgba(0, 0, 0, 0.75);
+}
+
+.vector-surface-text-track.horizontal .vector-surface-text-row {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.vector-surface-text-track.horizontal .vector-surface-text-row.row-offset {
+  margin-left: -160px;
+}
+
+.vector-surface-text-track.horizontal .vector-surface-text-row > span {
+  display: inline-block;
+  padding-right: 54px;
+}
+
+.vector-surface-text-track.horizontal .vector-surface-divider {
+  font-size: 0.55em;
+  opacity: 0.7;
+  padding-right: 54px;
+  vertical-align: middle;
+}
+
+/* 가로 애니메이션: 150초 동안 천천히 차분하게 흐름 */
+.vector-surface-text-track.flow-left .vector-surface-text-row {
+  animation: surfaceSlowLeft 150s linear infinite;
+}
+
+.vector-surface-text-track.flow-right .vector-surface-text-row {
+  animation: surfaceSlowRight 150s linear infinite;
+}
+
+/* 2. 세로 방향 트랙 (flow-up, flow-down):
+   - 텍스트를 가로로 길게 늘어뜨리지 않고, 벡터 크기에 맞춰 가로 폭을 차지하며 줄바꿈
+   - 패턴처럼 반복되지 않고 하나의 정돈된 단락 형태로 천천히 스크롤 */
+.vector-surface-text-track.vertical {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.vector-vertical-stream {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  will-change: transform;
+}
+
+.vector-vertical-unit {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 44px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vector-vertical-quote {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: clamp(22px, 2.25vw, 34px);
+  font-weight: 800;
+  line-height: 1.62;
+  letter-spacing: -0.01em;
+  color: #FFFFFF !important;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  white-space: normal;
+  text-align: center;
+  text-shadow:
+    0 0 12px rgba(255, 255, 255, 0.98),
+    0 0 26px rgba(255, 255, 255, 0.88),
+    0 2px 12px rgba(0, 0, 0, 0.75);
+}
+
+/* 세로 애니메이션: 기존 20초에서 70초로 대폭 늘려 천천히 차분하게 스크롤 */
+.vector-surface-text-track.flow-up .vector-vertical-stream {
+  animation: verticalScrollUp 70s linear infinite;
+}
+
+.vector-surface-text-track.flow-down .vector-vertical-stream {
+  animation: verticalScrollDown 70s linear infinite;
+}
+
+@keyframes surfaceSlowLeft {
+  0% { transform: translate3d(0%, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes surfaceSlowRight {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0%, 0, 0); }
+}
+
+@keyframes verticalScrollUp {
+  0% { transform: translate3d(0, 0%, 0); }
+  100% { transform: translate3d(0, -50%, 0); }
+}
+
+@keyframes verticalScrollDown {
+  0% { transform: translate3d(0, -50%, 0); }
+  100% { transform: translate3d(0, 0%, 0); }
+}
+
+/* 하단 지도 심볼 위치 표시기 (c-01 등 텍스트 없이 지도의 원과 검은 선 심볼로 현재 위치 표시) */
+.room-symbol-map-dock {
+  position: relative;
+  z-index: 30;
+  margin: 0 auto 18px;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.symbol-map-mini-board {
+  position: relative;
+  height: 112px;
+  width: auto;
+  user-select: none;
+}
+
+.symbol-map-mini-board.symbol-chaeum {
+  aspect-ratio: 3508 / 2020;
+}
+
+.symbol-map-mini-board.symbol-huingomusin {
+  aspect-ratio: 3508 / 2140;
+}
+
+.symbol-map-mini-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+  transition: filter 0.4s ease;
+}
+
+.architectural-room-viewport.spotlight-mode .symbol-map-mini-img {
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.55));
+}
+
+.symbol-map-node-btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.symbol-map-node-btn:hover {
+  transform: translate(-50%, -50%) scale(1.25);
+  border-color: var(--c-blue);
+}
+
+/* 현재 산책하며 서 있는 위치의 원 표시 */
+.symbol-map-node-btn.is-front-symbol {
+  transform: translate(-50%, -50%) scale(1.32);
+  border: 2.5px solid var(--c-blue);
+  box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px var(--c-blue);
+}
+
+.symbol-map-node-btn.is-front-symbol::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36%;
+  height: 36%;
+  background: var(--c-blue);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.architectural-room-viewport.spotlight-mode .symbol-map-node-btn.is-front-symbol,
+.symbol-map-node-btn.is-active-symbol {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 3px #08080B, 0 0 12px 3px rgba(255, 255, 255, 0.9);
+}
+
+.architectural-room-viewport.spotlight-mode .symbol-map-node-btn.is-front-symbol::after,
+.symbol-map-node-btn.is-active-symbol::after {
+  background: #ffffff;
+}
+
+/* 우측 독백 패널 (벡터요소를 클릭했을 때만 우측 오버레이 드로어로 나타나 중앙 스테이지가 밀리지 않음) */
+.monologue-story-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 350px;
+  max-width: 90vw;
+  z-index: 60;
+  border-left: 1.5px solid var(--c-blue);
+  background: #ffffff;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  box-shadow: -12px 0 32px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.45s ease, border-color 0.45s ease, opacity 0.35s ease;
+}
+
+.monologue-story-panel.hidden {
+  display: none;
+}
+
+.monologue-layout.monotone-spotlight-active .monologue-story-panel {
+  background: rgba(11, 12, 16, 0.94);
+  backdrop-filter: blur(8px);
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+
+.modular-node-card {
+  background: #ffffff;
+  color: var(--ink-black);
+  border: 1.5px solid var(--c-blue);
+  padding: 16px;
+  position: relative;
+}
+
+.story-child-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--c-blue);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 800;
+  border-radius: 2px;
+  letter-spacing: -0.01em;
+}
+
+.story-small-photo-box {
+  width: 100%;
+  height: 120px;
+  border: 1.5px solid var(--c-blue);
+  overflow: hidden;
+  background: #000000;
+  margin: 10px 0 12px;
+}
+
+.story-small-photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.monologue-layout.monotone-spotlight-active .modular-node-card {
+  background: #12131A;
+  color: #f5f5f7;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.story-photo-frame {
+  width: 100%;
+  height: 190px;
+  border: 1.5px solid var(--c-blue);
+  overflow: hidden;
+  background: #000;
+}
+
+.story-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.voice-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 12px 0 10px;
+}
+
+.v-btn {
+  padding: 7px 12px;
+  border: 1.5px solid currentColor;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.v-btn.primary {
+  background: var(--c-blue);
+  color: #ffffff;
+  border-color: var(--c-blue);
+}
+
+.monologue-layout.monotone-spotlight-active .v-btn.primary {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.waveform-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 32px;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.waveform-bars .wf-bar {
+  flex: 1;
+  background: rgba(128, 128, 128, 0.35);
+  min-height: 4px;
+}
+
+.waveform-bars .wf-bar.passed {
+  background: currentColor;
+}
+
+/* ==========================================================================
+   2. TIMEWORK VIEW (책 페이지 느낌 + 흰 배경·파란 글씨 + 좌우 채움/마을극장 사진 분할 + 책날 책갈피)
+   ========================================================================== */
+.timework-wrapper {
+  --c-blue: #20b9e2;
+  --line-blue: #20b9e2;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 22px 28px 68px;
+}
+
+.tw-folio-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tw-folio-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tw-page-num-btn {
+  width: 42px;
+  height: 36px;
+  border: 1.5px solid var(--c-blue);
+  background: #ffffff;
+  color: var(--c-blue);
+  font-size: 13.5px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.tw-page-num-btn:hover {
+  background: #EBF8FC;
+  color: var(--c-blue);
+}
+
+.tw-page-num-btn.active {
+  background: var(--c-blue);
+  color: #ffffff;
+  border-color: var(--c-blue);
+}
+
+.tw-folio-arrows {
+  display: flex;
+  gap: 6px;
+}
+
+.tw-arrow-step-btn {
+  padding: 6px 15px;
+  border: 1.5px solid var(--c-blue);
+  color: var(--c-blue);
+  background: #ffffff;
+  font-size: 13.5px;
+  font-weight: 800;
+}
+
+.tw-arrow-step-btn:hover {
+  background: #EBF8FC;
+  color: var(--c-blue);
+}
+
+.tw-book-spread-shell {
+  position: relative;
+  display: block;
+  background: #FFFFFF;
+  border: 2px solid var(--c-blue);
+  box-shadow: 0 12px 34px rgba(32, 185, 226, 0.15);
+}
+
+/* 풋노트 책갈피가 연결되는 본문 문단이 위치한 곳 옆쪽에 책갈피 형태로 내려와 배치되는 그리드 */
+.tw-body-with-bookmarks-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 56px;
+  background: #FFFFFF;
+  border-bottom: 1.5px solid rgba(32, 185, 226, 0.28);
+  position: relative;
+}
+
+.tw-fore-edge-left,
+.tw-fore-edge-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 0;
+  background: var(--bg-paper);
+  position: relative;
+  z-index: 25;
+}
+
+.tw-fore-edge-left {
+  border-right: 1.5px solid var(--c-blue);
+}
+
+.tw-fore-edge-right {
+  border-left: 1.5px solid var(--c-blue);
+}
+
+.tw-bookmark-slab {
+  position: relative;
+  width: 100%;
+  min-height: 210px;
+  border-top: 1.5px solid var(--c-blue);
+  border-bottom: 1.5px solid var(--c-blue);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  transition: transform 0.2s ease;
+  user-select: none;
+}
+
+.tw-fore-edge-left .tw-bookmark-slab {
+  width: calc(100% + 10px);
+  margin-left: -10px;
+  border-left: 2px solid var(--c-blue);
+  box-shadow: -3px 3px 0 rgba(32, 185, 226, 0.2);
+}
+
+.tw-fore-edge-right .tw-bookmark-slab {
+  width: calc(100% + 10px);
+  margin-right: -10px;
+  border-right: 2px solid var(--c-blue);
+  box-shadow: 3px 3px 0 rgba(32, 185, 226, 0.2);
+}
+
+.tw-fore-edge-left .tw-bookmark-slab:hover,
+.tw-fore-edge-left .tw-bookmark-slab.is-open {
+  transform: translateX(-6px);
+  z-index: 40;
+}
+
+.tw-fore-edge-right .tw-bookmark-slab:hover,
+.tw-fore-edge-right .tw-bookmark-slab.is-open {
+  transform: translateX(6px);
+  z-index: 40;
+}
+
+.tw-bookmark-vert-chars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.tw-bookmark-marker {
+  font-size: 13px;
+  font-weight: 900;
+  padding: 2px 6px;
+  background: #ffffff;
+  color: var(--c-blue);
+  border: 1px solid var(--c-blue);
+}
+
+.bm-red { background: #FF5520; color: #ffffff; }
+.bm-green { background: #009E52; color: #ffffff; }
+.bm-pink { background: #FF66C4; color: #111215; }
+.bm-yellow { background: #FFD600; color: #111215; }
+.bm-blue { background: #20b9e2; color: #ffffff; }
+.bm-dark { background: #222429; color: #ffffff; }
+
+.tw-footnote-popover {
+  position: absolute;
+  top: 0;
+  width: 320px;
+  padding: 20px;
+  border: 2px solid var(--c-blue);
+  box-shadow: 8px 8px 0 rgba(32, 185, 226, 0.24);
+  z-index: 120;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.tw-fore-edge-left .tw-footnote-popover {
+  left: calc(100% + 12px);
+}
+
+.tw-fore-edge-right .tw-footnote-popover {
+  right: calc(100% + 12px);
+}
+
+.tw-bookmark-slab:hover .tw-footnote-popover,
+.tw-bookmark-slab.is-open .tw-footnote-popover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.pop-bg-red { background: #FFF4EC; color: #111215; border-left: 6px solid #FF5520; }
+.pop-bg-green { background: #ECFDF3; color: #111215; border-left: 6px solid #009E52; }
+.pop-bg-pink { background: #FFF0F8; color: #111215; border-left: 6px solid #FF66C4; }
+.pop-bg-yellow { background: #FFFBEB; color: #111215; border-left: 6px solid #FFD600; }
+.pop-bg-blue { background: #F0FAFD; color: #20b9e2; border-left: 6px solid #20b9e2; }
+.pop-bg-dark { background: #F4F5F7; color: #111215; border-left: 6px solid var(--c-blue); }
+
+.tw-footnote-popover h4 {
+  font-size: 17px;
+  font-weight: 900;
+  color: var(--c-blue);
+  margin-bottom: 8px;
+}
+
+.tw-footnote-popover p {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.65;
+  color: var(--ink-dark);
+  word-break: keep-all;
+}
+
+.tw-book-pages-main {
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.tw-book-pages-main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(0, 82, 255, 0.22);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.tw-book-header-spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #FFFFFF;
+  border-bottom: 1.5px solid rgba(0, 82, 255, 0.28);
+}
+
+.tw-book-header-left {
+  padding: 34px 40px 28px;
+}
+
+.tw-book-header-right {
+  padding: 34px 40px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tw-book-folio-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--c-blue);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  border-bottom: 1.5px solid var(--c-blue);
+}
+
+.tw-book-blue-title {
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--c-blue);
+  word-break: keep-all;
+}
+
+.tw-book-blue-lead {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.55;
+  color: var(--c-blue);
+  word-break: keep-all;
+}
+
+.tw-book-keywords-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tw-book-kw-tag {
+  padding: 4px 11px;
+  border: 1.5px solid var(--c-blue);
+  background: #FFFFFF;
+  color: var(--c-blue);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.tw-dual-photo-spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #FFFFFF;
+  border-bottom: 1.5px solid rgba(32, 185, 226, 0.28);
+}
+
+.tw-photo-half-page {
+  padding: 28px 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tw-photo-space-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--c-blue);
+}
+
+.tw-photo-viewer-box {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  background: var(--bg-paper);
+  border: 1.5px solid var(--c-blue);
+  overflow: hidden;
+}
+
+.tw-photo-viewer-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.tw-photo-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--c-blue);
+  border: 1.5px solid var(--c-blue);
+  font-size: 18px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.tw-photo-arrow:hover {
+  background: var(--c-blue);
+  color: #ffffff;
+}
+
+.tw-photo-arrow.prev { left: 12px; }
+.tw-photo-arrow.next { right: 12px; }
+
+.tw-photo-dots-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding-top: 4px;
+}
+
+.tw-photo-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(32, 185, 226, 0.28);
+  cursor: pointer;
+}
+
+.tw-photo-dot.active {
+  background: var(--c-blue);
+  transform: scale(1.3);
+}
+
+.tw-book-body-spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #FFFFFF;
+}
+
+.tw-book-body-col {
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tw-book-body-col p {
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.85;
+  color: var(--c-blue);
+  word-break: keep-all;
+}
+
+/* 해시태그로 시작하고 언더바로 연결된 소제목 단어 굵은 글씨 */
+.tw-hashtag-bold {
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--c-blue);
+  letter-spacing: -0.2px;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+.tw-inline-bm-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  height: 18px;
+  line-height: 18px;
+  margin: 0 3px;
+  background: var(--c-blue);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 900;
+  cursor: pointer;
+  vertical-align: 3px;
+  border-radius: 2px;
+  letter-spacing: -0.2px;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  user-select: none;
+}
+
+.tw-inline-bm-chip:hover {
+  background: var(--c-orange);
+  transform: translateY(-1px);
+}
+
+.tw-works-book-stage {
+  position: relative;
+  background: #FAFBF8;
+  padding: 36px 40px 48px;
+  min-height: 400px;
+}
+
+.tw-works-scatter-wall {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  position: relative;
+  z-index: 5;
+}
+
+.tw-work-piece {
+  position: relative;
+  background: #ffffff;
+  border: 1.5px solid var(--c-blue);
+  box-shadow: 4px 4px 0 rgba(32, 185, 226, 0.16);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+}
+
+.tw-work-piece:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 rgba(32, 185, 226, 0.28);
+}
+
+.tw-work-piece.size-sm { width: 154px; height: 132px; }
+.tw-work-piece.size-md { width: 210px; height: 172px; }
+.tw-work-piece.size-lg { width: 268px; height: 212px; }
+.tw-work-piece.size-wide { width: 288px; height: 158px; }
+.tw-work-piece.size-tall { width: 180px; height: 238px; }
+
+.tw-work-piece img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tw-work-mini-tag {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--c-blue);
+  border-top: 1px solid var(--c-blue);
+  padding: 5px 9px;
+  font-size: 11.5px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tw-work-expanded-body {
+  display: none;
+  padding: 18px 20px;
+  background: #FFFFFF;
+  color: var(--c-blue);
+  border-top: 1.5px solid var(--c-blue);
+}
+
+.tw-works-scatter-wall.has-expanded .tw-work-piece:not(.is-expanded) {
+  transform: scale(0.84);
+  opacity: 0.52;
+}
+
+.tw-work-piece.is-expanded {
+  width: min(920px, 94vw) !important;
+  max-width: 94vw !important;
+  height: auto !important;
+  transform: scale(1.01) !important;
+  z-index: 50;
+  box-shadow: 10px 10px 0 rgba(32, 185, 226, 0.28) !important;
+  border-width: 2px;
+  border-color: var(--c-blue);
+}
+
+.tw-work-piece.is-expanded img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  object-fit: contain !important;
+  background: #111215;
+  display: block;
+}
+
+.tw-work-piece.is-expanded .tw-work-mini-tag {
+  display: none;
+}
+
+.tw-work-piece.is-expanded .tw-work-expanded-body {
+  display: block;
+}
+
+/* ==========================================================================
+   3. 사람 책 도서관 (PROJECT_INFO) — 로고.png 과감하게 배치 & 4. INDEX VIEW
+   ========================================================================== */
+.project-info-container,
+.index-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 36px 28px 64px;
+}
+
+.pi-hero {
+  border: 2px solid var(--c-blue);
+  background: #ffffff;
+  padding: 40px 44px;
+  margin-bottom: 22px;
+}
+
+.pi-hero-bold-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  align-items: center;
+  gap: 44px;
+}
+
+.pi-hero-logo-wrap,
+.pi-hero-logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #FFFFFF;
+}
+
+.pi-hero-bold-logo,
+.pi-hero-logo-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.pi-spaces-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.pi-space-card {
+  border: 2px solid var(--c-blue);
+  background: #ffffff;
+  padding: 24px;
+}
+
+.book-kw-chip {
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 800;
+  border: 1.5px solid var(--c-blue);
+  color: var(--c-blue);
+}
+
+.index-controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  border: 1.5px solid var(--c-blue);
+  background: #ffffff;
+  margin-bottom: 20px;
+}
+
+.index-search-input {
+  flex: 1;
+  min-width: 240px;
+  padding: 9px 13px;
+  border: 1.5px solid var(--c-blue);
+  color: var(--c-blue);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 700;
+  background: var(--bg-paper);
+}
+
+.idx-filter-btn {
+  padding: 6px 12px;
+  border: 1.5px solid var(--c-blue);
+  color: var(--c-blue);
+  background: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.idx-filter-btn.active,
+.idx-filter-btn:hover {
+  background: var(--c-blue);
+  color: #ffffff;
+}
+
+.catalog-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 16px;
+}
+
+.catalog-card {
+  border: 1.5px solid var(--c-blue);
+  box-shadow: 4px 4px 0 rgba(0, 82, 255, 0.12);
+  background: #ffffff;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.catalog-card:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 1180px) {
+  .monologue-hero-typo {
+    top: calc(28% + (var(--header-h) + 46px) / 2);
+  }
+  .monologue-space-stage,
+  .tw-book-header-spread,
+  .tw-dual-photo-spread,
+  .tw-book-body-spread,
+  .pi-spaces-cards,
+  .pi-hero-bold-grid {
+    grid-template-columns: 1fr;
+  }
+  .tw-book-pages-main::before {
+    display: none;
+  }
+  .user-vector-slot {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .monologue-hero-typo {
+    left: 24px;
+    top: calc(var(--header-h) + 74px);
+    transform: none;
+    max-width: 380px;
+  }
+  .monologue-hero-typo.align-center {
+    transform: translateX(-50%);
+  }
+  .monologue-right-map-wrap {
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .user-map-board {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-h: 56px;
+  }
+  .site-header {
+    height: var(--header-h);
+    padding: 0;
+  }
+  .brand-area {
+    padding: 0 10px;
+    gap: 8px;
+    flex-shrink: 0;
+    border-right: 1.5px solid var(--c-blue);
+  }
+  .brand-user-logo {
+    height: 32px;
+  }
+  .brand-tag-blue {
+    font-size: 9px;
+    padding: 1.5px 5px;
+    line-height: 1.1;
+  }
+  .brand-main {
+    font-size: 13.5px;
+    white-space: nowrap;
+    line-height: 1.1;
+  }
+  .main-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-tab {
+    padding: 0 12px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .header-actions {
+    padding: 0 8px;
+    gap: 4px;
+  }
+  .sound-status-pill {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  .user-ambient-vol-slider {
+    width: 46px;
+  }
+  .admin-link-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  .monologue-map-stage {
+    padding: 12px 6px;
+  }
+  .monologue-hero-typo {
+    left: 16px;
+    top: calc(var(--header-h) + 104px);
+    transform: none;
+    max-width: calc(100vw - 32px);
+  }
+  .mono-typo-title {
+    font-size: clamp(28px, 7.5vw, 40px);
+    margin-bottom: 10px;
+  }
+  .mono-typo-lead {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .mono-typo-desc {
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+  .user-map-board {
+    width: 100%;
+  }
+  .monologue-hud-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+  .hud-left-group,
+  .hud-right-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .monologue-space-stage {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - var(--header-h));
+  }
+  .architectural-room-viewport {
+    height: 48vh;
+    min-height: 320px;
+  }
+  .monologue-story-panel {
+    width: 100%;
+    max-height: none;
+    overflow-y: visible;
+    border-left: none;
+    border-top: 1.5px solid var(--c-blue);
+    padding: 18px 14px;
+  }
+  .vector-side-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  .timework-view-container {
+    padding: 12px 8px;
+  }
+  .tw-book-page {
+    padding: 16px 12px;
+  }
+  .tw-dual-photo-spread {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .tw-photo-card,
+  .tw-photo-viewer-box {
+    height: 380px;
+  }
+  .project-info-container {
+    padding: 16px 12px;
+  }
+  .pi-hero-bold-grid {
+    grid-template-columns: 1fr;
+  }
+  .pi-hero-logo-wrap {
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .pi-hero-bold-logo {
+    max-height: 120px;
+  }
+  .index-container {
+    padding: 16px 12px;
+  }
+  .catalog-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-area {
+    padding: 0 8px;
+    gap: 6px;
+  }
+  .brand-user-logo {
+    height: 28px;
+  }
+  .brand-tag-blue {
+    font-size: 8.5px;
+    padding: 1px 4px;
+  }
+  .brand-main {
+    font-size: 12px;
+  }
+  .nav-tab {
+    padding: 0 8px;
+    font-size: 11.5px;
+  }
+  .header-actions {
+    gap: 3px;
+    padding: 0 4px;
+  }
+}

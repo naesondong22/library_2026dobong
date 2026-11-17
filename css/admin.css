@@ -1,0 +1,819 @@
+/* ==========================================================================
+   도봉꿈의극단 아카이빙 웹사이트 — 아카이브 편집 스튜디오 스타일시트 (css/admin.css)
+   Visual Language:
+   - 일반적인 기업용 CMS의 어두운 대시보드/SaaS 시각 언어를 지양
+   - 기능적으로 명확하고 단순한 편집 도면(Editorial Index & Studio Sheet) 구성
+   - 오프화이트 종이 지면(#F6F5F0) + 1.5px 블랙 구조선(#111215) + 4원색(주황·파랑·초록·노랑) 포인트
+   ========================================================================== */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --adm-bg: #F6F5F0;
+  --adm-surface: #FFFFFF;
+  --adm-card: #FAF9F5;
+  --adm-card-hover: #F0EFE9;
+  --adm-border: rgba(17, 18, 21, 0.2);
+  --adm-border-strong: #111215;
+  --adm-text: #111215;
+  --adm-muted: #5A5C60;
+
+  /* 4-Color System (주황, 파랑, 초록, 노랑) */
+  --adm-orange: #FF5520;
+  --adm-blue: #1246FF;
+  --adm-green: #00A859;
+  --adm-yellow: #FFD600;
+
+  /* Legacy variable aliases mapped to the new archival system */
+  --adm-accent: #FF5520;
+  --adm-red: #D92D20;
+  --adm-purple: #1246FF;
+
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-serif: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--adm-bg);
+  color: var(--adm-text);
+  font-family: var(--font-sans);
+  line-height: 1.55;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: #EAE8E0;
+  padding: 1px 5px;
+}
+
+/* ==========================================================================
+   1. 관리자 전용 로그인 게이트 (Admin Login Gate — Non-Corporate Archival Sheet)
+   ========================================================================== */
+.admin-login-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background:
+    linear-gradient(90deg, rgba(17,18,21,0.05) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(0deg, rgba(17,18,21,0.05) 1px, transparent 1px) 0 0 / 48px 48px,
+    var(--adm-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.admin-login-overlay.hidden {
+  display: none;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--adm-surface);
+  border: 2px solid var(--adm-border-strong);
+  padding: 36px 32px;
+  box-shadow: 10px 10px 0 var(--adm-border-strong);
+}
+
+.login-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--adm-orange);
+  display: inline-block;
+  padding: 3px 8px;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.login-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--adm-text);
+}
+
+.login-sub {
+  font-size: 13px;
+  color: var(--adm-muted);
+  margin-bottom: 22px;
+}
+
+.login-hint-box {
+  background: #FFFBE6;
+  border: 1.5px solid var(--adm-border-strong);
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--adm-text);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   2. 상단 헤더 & 전 대시보드 환경음(Ambient Sound) 마스터 바
+   ========================================================================== */
+.admin-header {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: var(--adm-surface);
+  border-bottom: 2px solid var(--adm-border-strong);
+}
+
+.admin-header-top {
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-badge {
+  background: var(--adm-border-strong);
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 9px;
+  letter-spacing: 0.04em;
+}
+
+.admin-title {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.admin-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Persistent Global Ambient Bar (모든 대시보드에서 환경음 관리) */
+.global-ambient-bar {
+  background: var(--adm-card);
+  border-top: 1.5px solid var(--adm-border-strong);
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.ambient-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ambient-pill-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  background: var(--adm-green);
+  color: #FFFFFF;
+  border: 1px solid var(--adm-border-strong);
+}
+
+.ambient-channel-chips {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.amb-chip-btn {
+  padding: 4px 10px;
+  border: 1.5px solid var(--adm-border-strong);
+  background: var(--adm-surface);
+  color: var(--adm-text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.amb-chip-btn:hover {
+  background: var(--adm-yellow);
+}
+
+.amb-chip-btn.playing {
+  background: var(--adm-green);
+  color: #FFFFFF;
+  border-color: var(--adm-border-strong);
+  font-weight: 700;
+}
+
+.ambient-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.adm-btn {
+  padding: 7px 13px;
+  border: 1.5px solid var(--adm-border-strong);
+  background: var(--adm-surface);
+  color: var(--adm-text);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+
+.adm-btn:hover {
+  background: var(--adm-yellow);
+  color: #111215;
+}
+
+.adm-btn.primary {
+  background: var(--adm-blue);
+  color: #FFFFFF;
+  border-color: var(--adm-border-strong);
+  font-weight: 700;
+}
+
+.adm-btn.primary:hover {
+  background: var(--adm-orange);
+  color: #FFFFFF;
+}
+
+.adm-btn.publish-cta {
+  background: var(--adm-orange);
+  color: #FFFFFF;
+  border-color: var(--adm-border-strong);
+  font-weight: 800;
+}
+
+.adm-btn.publish-cta:hover {
+  background: #111215;
+  color: var(--adm-yellow);
+}
+
+.adm-btn.danger {
+  border-color: var(--adm-red);
+  color: var(--adm-red);
+  background: #FFF5F5;
+}
+
+.adm-btn.danger:hover {
+  background: var(--adm-red);
+  color: #FFFFFF;
+}
+
+.adm-btn.sm {
+  padding: 4px 9px;
+  font-size: 11px;
+}
+
+/* ==========================================================================
+   3. 메인 스튜디오 레이아웃 (5대 핵심 탭 사이드바 + 워크스페이스)
+   ========================================================================== */
+.admin-body {
+  display: grid;
+  grid-template-columns: 265px 1fr;
+  min-height: calc(100vh - 105px);
+}
+
+.admin-sidebar {
+  background: var(--adm-surface);
+  border-right: 2px solid var(--adm-border-strong);
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-group-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--adm-muted);
+  letter-spacing: 0.12em;
+  padding: 6px 8px 4px;
+  border-bottom: 1.5px solid var(--adm-border-strong);
+  margin-bottom: 4px;
+}
+
+.sidebar-tab {
+  width: 100%;
+  text-align: left;
+  padding: 12px 13px;
+  border: 1.5px solid var(--adm-border-strong);
+  background: var(--adm-card);
+  color: var(--adm-text);
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.15s;
+}
+
+.sidebar-tab .tab-main-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 800;
+  color: var(--adm-text);
+}
+
+.sidebar-tab .tab-sub {
+  font-size: 11px;
+  color: var(--adm-muted);
+  line-height: 1.35;
+}
+
+.sidebar-tab:hover {
+  background: var(--adm-yellow);
+}
+
+.sidebar-tab.active {
+  background: var(--adm-text);
+  color: #FFFFFF;
+  border-color: var(--adm-border-strong);
+  box-shadow: 4px 4px 0 var(--adm-orange);
+}
+
+.sidebar-tab.active .tab-main-row {
+  color: var(--adm-yellow);
+}
+
+.sidebar-tab.active .tab-sub {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.admin-content {
+  padding: 26px 30px 64px;
+  max-width: 1540px;
+  width: 100%;
+}
+
+.adm-panel {
+  display: none;
+}
+
+.adm-panel.active {
+  display: block;
+}
+
+.panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--adm-border-strong);
+}
+
+.panel-header h2 {
+  font-family: var(--font-sans);
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Cards & Forms */
+.adm-card {
+  background: var(--adm-surface);
+  border: 1.5px solid var(--adm-border-strong);
+  padding: 20px;
+  margin-bottom: 18px;
+}
+
+.adm-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--adm-border-strong);
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+.form-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--adm-text);
+}
+
+.adm-input,
+.adm-select,
+.adm-textarea {
+  width: 100%;
+  background: var(--adm-card);
+  border: 1.5px solid var(--adm-border-strong);
+  color: var(--adm-text);
+  padding: 8px 11px;
+  font-size: 12.5px;
+}
+
+.adm-input:focus,
+.adm-select:focus,
+.adm-textarea:focus {
+  outline: none;
+  background: #FFFFFF;
+  box-shadow: 3px 3px 0 var(--adm-blue);
+}
+
+.adm-textarea {
+  resize: vertical;
+  min-height: 76px;
+}
+
+/* 4-Color Swatch Selector for Spatial Elements */
+.color-swatch-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.color-swatch-pill {
+  flex: 1;
+  min-width: 64px;
+  padding: 6px 8px;
+  border: 1.5px solid var(--adm-border-strong);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: var(--adm-surface);
+}
+
+.color-swatch-pill.active {
+  box-shadow: 3px 3px 0 #111215;
+  transform: translate(-1px, -1px);
+}
+
+.swatch-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #111215;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   4. 인페이지 비주얼 에디터 (TimeWork 책 레이아웃 위 사진·텍스트 드래그 위치 편집)
+   ========================================================================== */
+.visual-editor-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: var(--adm-surface);
+  border: 1.5px solid var(--adm-border-strong);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.ve-stage-wrap {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 18px;
+  align-items: start;
+}
+
+/* TimeWork Book Spread Visual Canvas */
+.ve-book-canvas {
+  background: #FFFFFF;
+  color: #111215;
+  border: 2px solid var(--adm-border-strong);
+  min-height: 700px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  background-image:
+    linear-gradient(90deg,
+      #FFFFFF 0%,
+      #FFFFFF 49.6%,
+      #111215 49.9%,
+      #111215 50.1%,
+      #FAF9F5 50.4%,
+      #FFFFFF 100%);
+  box-shadow: 8px 8px 0 var(--adm-border-strong);
+  overflow: hidden;
+}
+
+.ve-folio {
+  padding: 28px 30px;
+  position: relative;
+}
+
+.ve-draggable-block {
+  position: relative;
+  border: 1.5px dashed var(--adm-blue);
+  padding: 10px;
+  margin-bottom: 14px;
+  cursor: grab;
+  background: rgba(255, 255, 255, 0.92);
+  transition: box-shadow 0.15s, border-color 0.15s;
+  user-select: none;
+}
+
+.ve-draggable-block:hover,
+.ve-draggable-block.selected {
+  border-style: solid;
+  border-color: var(--adm-orange);
+  background: #FFFDF7;
+  box-shadow: 4px 4px 0 var(--adm-orange);
+  z-index: 20;
+}
+
+.ve-draggable-block:active {
+  cursor: grabbing;
+}
+
+.ve-block-handle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--adm-blue);
+  color: #fff;
+  padding: 3px 8px;
+  margin: -10px -10px 8px -10px;
+}
+
+.ve-draggable-block.selected .ve-block-handle {
+  background: var(--adm-orange);
+}
+
+/* ==========================================================================
+   5. 멀티 파일 업로드 & 미디어 라이브러리
+   ========================================================================== */
+.multi-dropzone {
+  border: 2px dashed var(--adm-border-strong);
+  background: var(--adm-card);
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-bottom: 18px;
+}
+
+.multi-dropzone:hover,
+.multi-dropzone.dragover {
+  background: #FFFBE6;
+  border-color: var(--adm-orange);
+  box-shadow: 4px 4px 0 var(--adm-orange);
+}
+
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.asset-card {
+  background: var(--adm-surface);
+  border: 1.5px solid var(--adm-border-strong);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.asset-card:hover {
+  box-shadow: 4px 4px 0 var(--adm-border-strong);
+}
+
+.asset-preview-box {
+  height: 150px;
+  background: var(--adm-card);
+  border: 1.5px solid var(--adm-border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.asset-preview-box img,
+.asset-preview-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.asset-type-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  background: #111215;
+  color: var(--adm-yellow);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   6. 스페이셜 컴포져 (Spatial Composer — 벡터 윤곽 & 도서관 지도 그래픽 자동 생성)
+   ========================================================================== */
+.composer-split {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.composer-canvas-box {
+  background: #F6F5F0;
+  border: 2px solid var(--adm-border-strong);
+  position: relative;
+  height: 510px;
+  overflow: hidden;
+}
+
+.composer-svg-stage {
+  width: 100%;
+  height: 100%;
+}
+
+.composer-draggable-node {
+  cursor: move;
+}
+
+/* ==========================================================================
+   7. 프리뷰 & 퍼블리시 (Preview & Publish)
+   ========================================================================== */
+.preview-frame-wrap {
+  background: var(--adm-card);
+  border: 2px solid var(--adm-border-strong);
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.preview-iframe {
+  width: 100%;
+  height: 740px;
+  border: 1.5px solid var(--adm-border-strong);
+  background: #F6F5F0;
+  transition: width 0.3s ease;
+}
+
+.toast-banner {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #111215;
+  color: var(--adm-yellow);
+  border: 2px solid var(--adm-border-strong);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 12px 20px;
+  box-shadow: 6px 6px 0 var(--adm-orange);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.toast-banner.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1100px) {
+  .admin-body,
+  .ve-stage-wrap,
+  .composer-split,
+  .form-grid-2,
+  .form-grid-3,
+  .form-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   TimeWork 사진 썸네일 & 작업물 카드 드래그 앤 드롭 정렬 스타일
+   ========================================================================== */
+.tw-thumb-item {
+  position: relative;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
+  user-select: none;
+}
+
+.tw-thumb-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--adm-blue) !important;
+  box-shadow: 0 4px 10px rgba(0, 82, 255, 0.22);
+}
+
+.tw-work-card-sortable {
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
+}
+
+.tw-work-card-sortable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 82, 255, 0.15);
+}
+
+.tw-thumb-item.is-dragging,
+.tw-work-card-sortable.is-dragging {
+  opacity: 0.35 !important;
+  transform: scale(0.96) !important;
+  border-color: #FF5520 !important;
+  box-shadow: 0 0 0 2px #FF5520 !important;
+}
+
+.tw-thumb-item.drag-over,
+.tw-work-card-sortable.drag-over {
+  border: 2px dashed #FF5520 !important;
+  background: #FFF4EC !important;
+  transform: scale(1.04) !important;
+  box-shadow: 0 0 0 3px rgba(255, 85, 32, 0.3) !important;
+}
+
+.tw-card-drag-handle {
+  cursor: grab;
+}
+
+.tw-card-drag-handle:active {
+  cursor: grabbing;
+}

@@ -1,0 +1,2930 @@
+{
+  "meta": {
+    "siteTitle": "사람 책 도서관: 이야기와 함께 걷기",
+    "siteSubtitle": "",
+    "organization": "도봉꿈의극단 (Dobong Dream Theater)",
+    "year": "2026",
+    "version": "4.0.0",
+    "defaultMapMode": "parallel",
+    "lastUpdated": "2026-11-16",
+    "publishedAt": "2026. 11. 17. 오전 3:10:19",
+    "lastDraftSaved": "2026. 11. 17. 오전 3:10:19",
+    "updatedAtMs": 1794852619635
+  },
+  "ambientSettings": {
+    "masterEnabled": true,
+    "masterVolume": 0.15,
+    "randomPlay": true,
+    "activePreviewChannel": "chaeum",
+    "library": [
+      {
+        "id": "amb-1794852484410",
+        "name": "03_지하철 소리 코드",
+        "audioUrl": "image/uploaded/ambient-lib-amb-1794852484410.mp3",
+        "fileName": "03_지하철 소리 코드.mp3",
+        "presetType": "library-paper",
+        "volume": 0.2,
+        "description": "새로 업로드된 환경음 트랙"
+      },
+      {
+        "id": "amb-1794852523181",
+        "name": "04_놀이터_꼬마야 꼬마야",
+        "audioUrl": "image/uploaded/ambient-lib-amb-1794852523181.mp3",
+        "fileName": "04_놀이터_꼬마야 꼬마야.mp3",
+        "presetType": "library-paper",
+        "volume": 0.2,
+        "description": "새로 업로드된 환경음 트랙"
+      },
+      {
+        "id": "amb-1794852543481",
+        "name": "13_지하철 역사 발걸음",
+        "audioUrl": "image/uploaded/ambient-lib-amb-1794852543481.mp3",
+        "fileName": "13_지하철 역사 발걸음.mp3",
+        "presetType": "library-paper",
+        "volume": 0.25,
+        "description": "새로 업로드된 환경음 트랙"
+      },
+      {
+        "id": "amb-1794852557808",
+        "name": "S11_하굣길",
+        "audioUrl": "image/uploaded/ambient-lib-amb-1794852557808.mp3",
+        "fileName": "S11_하굣길.mp3",
+        "presetType": "library-paper",
+        "volume": 0.2,
+        "description": "새로 업로드된 환경음 트랙"
+      }
+    ],
+    "channels": {
+      "global": {
+        "id": "global",
+        "name": "도서관 로비 산책 환경음 (평행세계 산책길)",
+        "dashboard": "monologue",
+        "enabled": true,
+        "volume": 0.4,
+        "synthPreset": "library_hall",
+        "audioUrl": "",
+        "fileName": "ambient_parallel_walk.wav",
+        "filePath": "/assets/audio/ambient/ambient_parallel_walk.wav",
+        "description": "두 도서관의 평행한 산책길을 스크롤하며 걸을 때 흐르는 잔잔한 발걸음과 공간 공기음."
+      },
+      "chaeum": {
+        "id": "chaeum",
+        "name": "청소년예술공간 채움 환경음 (지하철·버스환승센터 ~ 무대 마루)",
+        "dashboard": "monologue",
+        "enabled": true,
+        "volume": 0.5,
+        "synthPreset": "chaeum_room",
+        "audioUrl": "",
+        "fileName": "ambient_chaeum_transit_stage.wav",
+        "filePath": "/assets/audio/ambient/ambient_chaeum_transit_stage.wav",
+        "description": "도봉산역 환승센터의 아련한 울림과 채움 연습실 나무 마루의 따뜻한 공명음."
+      },
+      "huingomusin": {
+        "id": "huingomusin",
+        "name": "마을극장 흰고무신 환경음 (은행나무 놀이터·옥상 ~ 무대)",
+        "dashboard": "monologue",
+        "enabled": true,
+        "volume": 0.5,
+        "synthPreset": "huingomusin_room",
+        "audioUrl": "",
+        "fileName": "ambient_huingomusin_playground_roof.wav",
+        "filePath": "/assets/audio/ambient/ambient_huingomusin_playground_roof.wav",
+        "description": "마을 놀이터의 바람 소리, 작은 옥상의 새소리와 흰고무신 극장 안의 고요한 숨결."
+      },
+      "timework": {
+        "id": "timework",
+        "name": "TimeWork 아카이브 북 열람실 환경음",
+        "dashboard": "timework",
+        "enabled": true,
+        "volume": 0.35,
+        "synthPreset": "paper_turning",
+        "audioUrl": "",
+        "fileName": "ambient_timework_reading.wav",
+        "filePath": "/assets/audio/ambient/ambient_timework_reading.wav",
+        "description": "수업 기록과 작가 풋노트, 작업물을 열람할 때 흐르는 종이 질감의 백색 소음."
+      },
+      "index": {
+        "id": "index",
+        "name": "우리들의 이야기 (INDEX) 전용 환경음",
+        "dashboard": "index",
+        "enabled": true,
+        "volume": 0.05,
+        "audioUrl": "image/uploaded/ambient-ch-index.bin",
+        "fileName": "1.우리들의 이야기_밴드 AR.wav"
+      }
+    }
+  },
+  "projectInfo": {
+    "kicker": "DOBONG DREAM THEATER · PARALLEL SPATIAL ARCHIVE",
+    "title": "사람 책 도서관: 이야기와 함께 걷기",
+    "subtitle": "지하철·버스환승센터와 연결된 ‘청소년예술공간 채움’(9권)과 놀이터·작은 옥상을 품은 ‘마을극장 흰고무신’(11권)의 평행 산책 아카이브",
+    "leadCopy": "장소에 깃든 시간이 이야기가 되고, 한 권씩 쌓여 두 개의 도서관으로 열립니다. 두 도서관의 이야기들을 따라 걸으며, 공간의 윤곽 위에 떠오르는 단원들의 목소리를 들어보세요.",
+    "conceptText": [
+      "기획 의도 - 아카이빙작가"
+    ],
+    "experienceSteps": [
+      {
+        "step": "01",
+        "color": "blue",
+        "title": "평행세계 산책 스크롤 (Parallel Walk & Layer Overlap)",
+        "desc": "스크롤을 내리면 산책자 커서가 두 도서관(채움 9개 지점 · 흰고무신 11개 지점)의 평행한 길을 따라 걸어갑니다. 레이어를 포개어 두 길을 겹쳐 감상할 수도 있습니다."
+      },
+      {
+        "step": "02",
+        "color": "yellow",
+        "title": "심볼 탐색 (Cartographic Symbols)",
+        "desc": "지도 위의 각 공간 요소는 텍스트 박스 대신 점, 링, 군집, 블록 등 고유한 기호(Symbol)로 표시됩니다. 가까이 걸어가거나 클릭하면 공간의 단서가 열립니다."
+      },
+      {
+        "step": "03",
+        "color": "orange",
+        "title": "실제 공간 요소 돌아보기 (20 Real Spatial Elements)",
+        "desc": "채움의 지하철·버스환승센터·연습실(9개)과 흰고무신의 놀이터·작은 옥상·극장 무대(11개) 실제 촬영 사진과 벡터 윤곽을 시점을 회전하며 감상합니다."
+      },
+      {
+        "step": "04",
+        "color": "green",
+        "title": "벡터 표면 타이포그래피 & 모노톤 독백 스포트라이트",
+        "desc": "요소를 선택하면 조명이 꺼지듯 모노톤 스포트라이트가 켜지고, 실제 공간의 벡터 윤곽 표면을 점유한 글자가 움직이며 아이의 독백 음성이 흘러나옵니다."
+      }
+    ],
+    "spacesOverview": [
+      {
+        "id": "chaeum",
+        "name": "청소년예술공간 채움 (9권의 사람 책)",
+        "location": "서울 도봉구 도봉산역 지하철 · 광역버스환승센터 연결 건물",
+        "color": "orange",
+        "character": "지하철 환승 무빙워크 · 글자 계단 · 버스환승센터 기둥 · 유리 자동문 · 핑크 복도 · 주황 신발장 · 우드월 거울 무대 · 조명 트러스 · 2단 원목 벤치",
+        "summary": "지하철과 버스가 쉴 새 없이 오가는 환승센터의 역동적인 경계를 통과해, 주황색 신발장에서 신발을 벗고 들어서는 아늑한 나무 마루 연습실까지 9명의 아이들이 각자의 공간 요소를 맡아 기록한 제1서고입니다."
+      },
+      {
+        "id": "huingomusin",
+        "name": "마을극장 흰고무신 (11권의 사람 책)",
+        "location": "서울 도봉구 골목길 · 은행나무 놀이터 인근 · 작은 야외 옥상 보유",
+        "color": "blue",
+        "character": "요철 블록 외벽 골목 · 원통 미끄럼틀 · 도깨비·별 시소 · 그물 출렁다리 · 타일 그림 벤치 · 구름 계단실 · 공연장 사물함 · 작은 옥상 잔디마당 · 흰 배경막 무대 · 검은 피아노 · 조정실 창과 대본함",
+        "summary": "노란 은행잎이 쌓인 동네 놀이터와 골목길에서 시작해, 구름 계단과 작은 야외 잔디 옥상을 지나 하얀 무대막과 피아노가 있는 극장 안쪽까지 11명의 아이들이 목소리를 남긴 제2서고입니다."
+      }
+    ],
+    "credits": [
+      {
+        "role": "2026 꿈의극단 도봉",
+        "value": "예술감독·채움파트 연출 및 구성—황아름(하르)/채움파트 협력 연출 — 이향은(담담)/채움파트 조연출 — 이승현(파도)/채움파트 극작 — 김온음 김채아 서다인 이루리 이루미 이서연 조유진 최재성/흰고무신파트 연출 및 극작 — 강우정(공주)/흰고무신파트 조연출 — 김다영(다롱)/움직임지도 — 양서진(도란)/극작지도 — 김보람(람보)/무대감독 — 문홍식/무대팀 — 서수현/무대 및 소풍 디자인 — 서현재/조명디자인 — 김대근/작곡가 — 김희진/사운드디자인 — 전광표/음향감독 — 송준목/사진촬영 — 선욱/영상 촬영 — 백수진/홍보물 디자인 — AKOZ"
+      },
+      {
+        "role": "도봉문화재단",
+        "value": "기획총괄 — 이상웅/기획 — 신정/코디네이터 — 김연우/공간협력:청소년 예술공간 채움 — 성기훈 김희연 · 마을극장 흰고무신 — 강주호 박서현"
+      },
+      {
+        "role": "2026꿈의극단 단원",
+        "value": "채움파트 — 김온음(슈아) 김채아(채유) 서다인(다은) 이루리(류리) 이루미(히루) 이서연(밥코) 조유진(유이) 우주혁(승우) 최재성(왜요)/흰고무신파트 — 김다예(다낭) 김라온(라면) 김아인(인아) 김윤우(우유) 김카냐(체리) 나라온(나온) 심수현(수혈) 이다윤(다유) 이서림(후뿌) 이소민(소미) 조윤찬(용찬) 최리나(채린) 홍아림(예림) 김예담(평화)"
+      },
+      {
+        "role": "아카이빙 제작 및 디자인",
+        "value": "한혜지(이십이)"
+      }
+    ],
+    "directorLetterTag": "2026 도봉꿈의극단 예술감독 황아름",
+    "directorLetterTitle": "총괄사서의 여는 글",
+    "directorLetter": "청소년 극단 활동을 경험했던 예술감독으로서, 제가 생각하는 어린이 단원 중심의 극단은 무엇보다 어린이들이 스스로 만들어가는 극단이어야 한다는 것이 가장 중요한 신념이었습니다. 성인 예술가는 어린이들을 길들여 하나의 시스템을 만들어가는 사람이 아니라, 예술의 언어를 알려주고 세상에 파문을 일으킬 수 있도록 질문을 던져주는 사람이어야 한다고 생각합니다. 가르치는 사람이 아니라 이끄는 사람, 혹은 때로는 아이들의 뒤에서 그들의 발걸음을 따라갈 수 있는 사람이어야 합니다.\n \n연극에서 중요한 것은 관객을 만나는 순간의 결과물이기도 하지만, 그것을 만들어가기까지의 과정이 무엇보다 중요하다고 생각합니다. 특히 요즘 예술의 주요 키워드 중 하나는 스토리텔링입니다. 이제 관객은 멋진 결과물을 향유하는 것을 넘어, 그것이 만들어지기까지의 서사를 궁금해하고 함께 나누고자 합니다. 그리고 그러한 과정을 통해 작품을 다시 바라보고 이해하며, 더욱 깊이 사랑하게 되는 것이라고 생각합니다.\n \n어린이 관련 작품을 관람할 때마다 저는 늘 궁금했습니다. 어린이 창작자는 어떻게 이 작업에 참여하게 되었을까? 이 창작 과정에서 어린이 창작자는 어떤 질문을 품게 되었을까? 어떤 과정을 거쳐 저런 장면이 탄생했을까? 그리고 어린이 한 명 한 명은 어떤 이야기를 가지고 있었을까?\n \n연극이라는 언어로 아이들을 만나면서 알게 된 사실이 하나 있습니다. 아이들은 단지 '배우'가 되기 위해 연극을 하러 오는 것이 아니라는 점입니다. 재미있을 것 같아서, 이야기를 만들고 싶어서, 혹은 그저 놀고 싶어서 등 저마다 다양한 이유로 연극을 시작합니다. 그렇기 때문에 아이들마다 잘할 수 있는 것도 다양합니다. 끼가 있는 아이, 글을 잘 쓰는 아이, 친구들을 잘 관찰하는 아이, 세심한 아이, 상상력이 풍부한 아이, 그림을 잘 그리는 아이까지. 연극은 종합예술이라는 말처럼 다양한 예술 장르와 표현의 가능성을 품고 있습니다.\n \n저는 연극 작품 안에서 우리 단원들이 단순히 '배우'로만 존재하는 것이 아니라, 각자의 재능과 개성을 발휘하는 예술가이자 창작자로서 관객을 만나기를 바랐습니다.\n \n이곳에 담긴 기록들은 우리 단원들이 관객을 만나기 위해 시도했던 다양한 창작의 과정입니다. 연극을 만들기 위해 직접 글을 쓰고, 소품을 구상하고, 무대를 상상했습니다. 그 과정은 어른들은 쉽게 떠올릴 수 없는 아이들만의 상상력과 언어로 펼쳐졌고, 그렇게 하나하나 모인 생각과 시도들이 모여 마침내 하나의 작품이 되었습니다.\n \n프로그램을 시작할 당시, 공연 대본을 써줄 작가를 창작 인력으로 염두에 두지 않은 것에 대해 질문을 받은 적이 있습니다. 저는 우리 단원들이 문학 작가에게 직접 글 쓰는 방법을 배우면 스스로 대본을 쓸 수 있을 것이라고 확신했습니다. 그리고 실제로 그렇게 되었습니다.\n \n도봉 꿈의 극단 단원들은 마치 전문 연극인들이 모여 하나의 극단을 만들어가는 것처럼 스스로 규칙을 만들고, 스스로 작품을 쓰며, 세상에 관심을 갖고 자신만의 질문과 언어를 예술로 전환하는 경험을 했습니다. 그리고 그 모든 과정을 성인 예술가들과 함께하며 배워나갔습니다.\n \n이 글을 읽어주시는 독자 여러분, 그리고 공연을 관람하러 와주신 관객 여러분께 부탁드립니다. 이곳에 모인 꿈의 극단 단원들의 '배우'로서의 재치 발랄한 모습만이 아니라, 한 명 한 명의 창작자로서 자신의 이야기를 어떻게 써 내려가고 만들어냈는지 함께 바라봐 주세요. 예술가가 된 어린이 단원들이 만들어낸 작품을 함께 만나고 감상해 주시기를 바랍니다.\n \n그들의 작품을 통해 어린이들이 가진 고유한 에너지와 사랑이 여러분에게도 고스란히 전달되기를 바랍니다."
+  },
+  "spaces": [
+    {
+      "id": "chaeum",
+      "code": "LIB-01",
+      "name": "청소년예술공간 채움",
+      "shortName": "채움",
+      "bookTitle": "제1서고 : 환승의 통로에서 나무 무대까지 (9권)",
+      "subtitle": "지하철 · 버스환승센터 · 로비 · 무대 연습실로 이어지는 9개의 발걸음",
+      "themeColor": "#FF5520",
+      "accentKey": "orange",
+      "ambientFreq": 174,
+      "mapPosition": {
+        "x": 28,
+        "y": 50
+      },
+      "floorPlanDesc": "도봉산역 지하철 통로와 광역버스환승센터에서 출발해 유리 자동문과 마젠타 복도, 주황 신발장을 거쳐 채움 무대 마루와 2단 객석 벤치에 이르는 9개 공간 요소.",
+      "elements": [
+        {
+          "id": "c-01",
+          "spaceId": "chaeum",
+          "walkOrder": 1,
+          "walkProgress": 0.08,
+          "mapPos": {
+            "x": 250,
+            "y": 150,
+            "overlapX": 430,
+            "overlapY": 150,
+            "calloutSide": "left"
+          },
+          "symbolType": "transit-corridor",
+          "name": "",
+          "category": "통로 · 경계",
+          "accentColor": "blue",
+          "code": "C-01",
+          "bookNumber": "채움 사람 책 01",
+          "childName": "김온음 (슈아)",
+          "monologueTitle": "매일 이야기가 생기는 곳",
+          "projectionType": "floor",
+          "orbitAngle": 0,
+          "coords": {
+            "x": 18,
+            "y": 74,
+            "w": 32,
+            "h": 24
+          },
+          "polygonPoints": "120,395 430,275 570,275 880,395 880,550 120,550",
+          "photoUrl": "image/공간/채움/IMG_1213.JPG",
+          "photoFileName": "IMG_1213.JPG",
+          "photoFilePath": "image/공간/채움/IMG_1213.JPG",
+          "photoCaption": "도봉산역에서 채움으로 이어지는 긴 지하철 환승 무빙워크와 노란 점자블록 바닥",
+          "monologueText": "어쩌다 여기 오게 되었는지는 중요하지 않다. ‘채움’ 옛날엔 아무도 모를 것만 같았고 그냥 어디든 있는 공간 같았다. 그런데 꿈의 극단이 오면서 그곳은 바뀌기 시작했다.\n\n그곳에 보인 것은 재미였다. 보이진 않았지만 느껴지고, 점차 보여지고 있었다. 그곳에선 웃는 소리가 났다. 그 소리는 긍정적이고 밝았다. 그곳의 냄새는 달콤하고 즐거웠다. 그때의 마음은 행복했다.\n\n왜인지는 모르겠지만, 점점 내가 즐거워지고 있다는 걸 느끼고 있고, 알고 있게 되었다. 그때의 감촉은 친구의 팔에 닿는 살의 감촉이었지만 ‘행복’이라는 감정에 짓눌려 스치는 건 신경을 더 쓰지 않게 되었다. 처음엔 그냥 아무것도 관심 없는 공간이었다. 꿈의 극단 친구들과 12번의 만남으로 추억들이 생겼고, 이제는 매일이 그날만 기다려지는 곳이 되었다.",
+          "kineticLines": [
+            "지하철에서 내려 채움으로 이어지는 긴 통로",
+            "무빙워크 위에 서 있으면 세상이 나를 밀어준다",
+            "반대편 사람들의 발소리가 내 대사의 박자가 된다",
+            "노란 점자블록을 따라 이야기가 시작되는 곳"
+          ],
+          "audioUrl": "image/uploaded/audio-c-01.mp3",
+          "audioFileName": "01_수요일반_김온음.mp3",
+          "audioFilePath": "/archive/chaeum/audio/voice_chaeum_01_seoyeon.mp3",
+          "audioDuration": 38,
+          "voicePitch": 1.05,
+          "audioDescription": "지하철 환승 통로의 긴 울림과 무빙워크의 규칙적인 기계음 위로 나지막이 얹힌 서연의 첫 번째 산책 독백.",
+          "keywords": [
+            "#지하철환승통로",
+            "#무빙워크",
+            "#노란점자블록",
+            "#채움가는길"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "transit-corridor",
+            "generatedAt": "2026-11-15"
+          },
+          "quote": "어쩌다 여기 오게 되었는지는 중요하지 않다. 왜인지는 모르겠지만, 점점 내가 즐거워지고 있다는 걸 느끼고 있고, 알고 있게 되었다.",
+          "monologue": {
+            "title": "매일 이야기가 생기는 곳",
+            "quote": "어쩌다 여기 오게 되었는지는 중요하지 않다. 왜인지는 모르겠지만, 점점 내가 즐거워지고 있다는 걸 느끼고 있고, 알고 있게 되었다.",
+            "fullStory": "어쩌다 여기 오게 되었는지는 중요하지 않다. ‘채움’ 옛날엔 아무도 모를 것만 같았고 그냥 어디든 있는 공간 같았다. 그런데 꿈의 극단이 오면서 그곳은 바뀌기 시작했다.\n\n그곳에 보인 것은 재미였다. 보이진 않았지만 느껴지고, 점차 보여지고 있었다. 그곳에선 웃는 소리가 났다. 그 소리는 긍정적이고 밝았다. 그곳의 냄새는 달콤하고 즐거웠다. 그때의 마음은 행복했다.\n\n왜인지는 모르겠지만, 점점 내가 즐거워지고 있다는 걸 느끼고 있고, 알고 있게 되었다. 그때의 감촉은 친구의 팔에 닿는 살의 감촉이었지만 ‘행복’이라는 감정에 짓눌려 스치는 건 신경을 더 쓰지 않게 되었다. 처음엔 그냥 아무것도 관심 없는 공간이었다. 꿈의 극단 친구들과 12번의 만남으로 추억들이 생겼고, 이제는 매일이 그날만 기다려지는 곳이 되었다."
+          }
+        },
+        {
+          "id": "c-02",
+          "spaceId": "chaeum",
+          "walkOrder": 2,
+          "walkProgress": 0.18,
+          "mapPos": {
+            "x": 310,
+            "y": 310,
+            "overlapX": 485,
+            "overlapY": 300,
+            "calloutSide": "left"
+          },
+          "symbolType": "stair-steps",
+          "name": "",
+          "category": "계단",
+          "accentColor": "green",
+          "code": "C-02",
+          "bookNumber": "채움 사람 책 02",
+          "childName": "이루리 (류리)",
+          "monologueTitle": "등교할 때",
+          "projectionType": "stair",
+          "orbitAngle": 40,
+          "coords": {
+            "x": 28,
+            "y": 52,
+            "w": 24,
+            "h": 36
+          },
+          "polygonPoints": "335,105 665,105 785,485 215,485",
+          "photoUrl": "image/공간/채움/IMG_1212.JPG",
+          "photoFileName": "IMG_1212.JPG",
+          "photoFilePath": "image/공간/채움/IMG_1212.JPG",
+          "photoCaption": "계단 단차마다 응원 문구와 칼로리 숫자가 적혀 있는 채움 진입 계단",
+          "monologueText": "내가 일찍 나와서 여유롭게 갔는데, 시간이 30분이어서 뛰어갔는데도 지각해서 수업 시작하기 전에 들어갔는데 안 온 친구가 다섯 명이라 깜짝 놀랐다. 그런데 앉기 전에 종이 쳤다. 조금이라도 늦었으면 지각할 뻔 했다. 그 마음은 파란색이다. 괜찮아.",
+          "kineticLines": [
+            "아래서 올려다보면 하나로 합쳐지는 계단 위 글자들",
+            "한 칸 오를 때마다 발밑에서 울리는 계단 소리",
+            "숨이 차오를 때 뒤돌아보면 높아진 나의 시선",
+            "지하에서 지상의 빛으로 올라가는 사다리"
+          ],
+          "audioUrl": "image/uploaded/audio-c-02.mp3",
+          "audioFileName": "05_수요일반_이루미.mp3",
+          "audioFilePath": "/archive/chaeum/audio/voice_chaeum_02_jiho.mp3",
+          "audioDuration": 41,
+          "voicePitch": 0.96,
+          "audioDescription": "계단을 한 칸씩 밟아 올라가는 리듬감 있는 발소리와 함께 녹음된 지호의 독백.",
+          "keywords": [
+            "#환승계단",
+            "#계단글자",
+            "#에스컬레이터옆",
+            "#오르는호흡"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "stair-steps",
+            "generatedAt": "2026-11-15"
+          },
+          "quote": "조금이라도 늦었으면 지각할 뻔 했다. 그 마음은 파란색이다. 괜찮아.",
+          "monologue": {
+            "title": "등교할 때",
+            "quote": "조금이라도 늦었으면 지각할 뻔 했다. 그 마음은 파란색이다. 괜찮아.",
+            "fullStory": "내가 일찍 나와서 여유롭게 갔는데, 시간이 30분이어서 뛰어갔는데도 지각해서 수업 시작하기 전에 들어갔는데 안 온 친구가 다섯 명이라 깜짝 놀랐다. 그런데 앉기 전에 종이 쳤다. 조금이라도 늦었으면 지각할 뻔 했다. 그 마음은 파란색이다. 괜찮아."
+          }
+        },
+        {
+          "id": "c-03",
+          "spaceId": "chaeum",
+          "walkOrder": 3,
+          "walkProgress": 0.29,
+          "mapPos": {
+            "x": 230,
+            "y": 470,
+            "overlapX": 420,
+            "overlapY": 455,
+            "calloutSide": "left"
+          },
+          "symbolType": "pillar-square",
+          "name": "",
+          "category": "기둥",
+          "accentColor": "orange",
+          "code": "C-03",
+          "bookNumber": "채움 사람 책 03",
+          "childName": "김채아 (채유)",
+          "monologueTitle": "손바닥 X-ray",
+          "projectionType": "pillar",
+          "orbitAngle": 80,
+          "coords": {
+            "x": 42,
+            "y": 38,
+            "w": 18,
+            "h": 48
+          },
+          "polygonPoints": "395,55 565,85 565,465 395,485",
+          "photoUrl": "image/공간/채움/IMG_1145 2.JPG",
+          "secondaryPhotoUrl": "image/공간/채움/IMG_1151.JPG",
+          "photoFileName": "IMG_1145 2.JPG",
+          "photoFilePath": "image/공간/채움/IMG_1145 2.JPG",
+          "photoCaption": "초록 시내버스가 멈춰 서고 시간표가 붙어 있는 광역버스환승센터의 사각 기둥",
+          "monologueText": "나 혼자 내방에 앉아 있다. 혼자서 편안하게.\n그때 띠리링- 띠리링- 전화 소리가 울린다. 핸드폰 화면을 보니 친구.\n나의 마음은 갑작스럽게 실처럼 뭉쳐졌다. 무슨 말을 할까. 같이 놀자고 전화 한 걸까? 아니면 부탁이 있어서 전화한 걸까.\n만져지지는 않지만 내 손바닥 안에 궁금증이 숨어있다. 전화를 할 때도, 도와 줄 때에도, 합을 맞출 때도.\n내 손바닥에는 여러 가지 감정들이 숨겨져 있다.",
+          "kineticLines": [
+            "커다란 버스들이 쉬지 않고 숨을 고르는 환승센터",
+            "치익— 버스 문 열리는 소리와 은행나무 바람 소리",
+            "위층의 우리 연습실을 받쳐주는 거인의 회색 다리",
+            "노선도 숫자들 사이로 출발하는 나의 이야기"
+          ],
+          "audioUrl": "image/uploaded/audio-c-03.mp3",
+          "audioFileName": "02_수요일반_김채아.mp3",
+          "audioFilePath": "/archive/chaeum/audio/voice_chaeum_03_doyun.mp3",
+          "audioDuration": 44,
+          "voicePitch": 1.02,
+          "audioDescription": "실제 버스환승센터의 낮은 엔진 저음과 안내방송 잔향 속에서 또렷하게 들려오는 도윤의 목소리.",
+          "keywords": [
+            "#버스환승센터",
+            "#거대기둥",
+            "#정류장벤치",
+            "#거인다리"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 4,
+            "vectorShape": "pillar-square",
+            "generatedAt": "2026-11-15"
+          },
+          "quote": "그때 띠리링- 띠리링- 전화 소리가 울린다. 핸드폰 화면을 보니 친구. 나의 마음은 갑작스럽게 실처럼 뭉쳐졌다.",
+          "monologue": {
+            "title": "손바닥 X-ray",
+            "quote": "그때 띠리링- 띠리링- 전화 소리가 울린다. 핸드폰 화면을 보니 친구. 나의 마음은 갑작스럽게 실처럼 뭉쳐졌다.",
+            "fullStory": "나 혼자 내방에 앉아 있다. 혼자서 편안하게.\n그때 띠리링- 띠리링- 전화 소리가 울린다. 핸드폰 화면을 보니 친구.\n나의 마음은 갑작스럽게 실처럼 뭉쳐졌다. 무슨 말을 할까. 같이 놀자고 전화 한 걸까? 아니면 부탁이 있어서 전화한 걸까.\n만져지지는 않지만 내 손바닥 안에 궁금증이 숨어있다. 전화를 할 때도, 도와 줄 때에도, 합을 맞출 때도.\n내 손바닥에는 여러 가지 감정들이 숨겨져 있다."
+          }
+        },
+        {
+          "id": "c-04",
+          "spaceId": "chaeum",
+          "walkOrder": 4,
+          "walkProgress": 0.4,
+          "mapPos": {
+            "x": 340,
+            "y": 630,
+            "overlapX": 520,
+            "overlapY": 615,
+            "calloutSide": "left"
+          },
+          "symbolType": "portal-gate",
+          "name": "",
+          "category": "문 · 경계",
+          "accentColor": "yellow",
+          "code": "C-04",
+          "bookNumber": "채움 사람 책 04",
+          "childName": "서다인 (다은)",
+          "monologueTitle": "힘든 일본 여행",
+          "projectionType": "wall",
+          "orbitAngle": 120,
+          "coords": {
+            "x": 54,
+            "y": 28,
+            "w": 28,
+            "h": 32
+          },
+          "polygonPoints": "195,355 835,325 835,535 195,535",
+          "photoUrl": "image/공간/채움/IMG_1142 2.JPG",
+          "secondaryPhotoUrl": "image/공간/채움/IMG_1140 2.JPG",
+          "photoFileName": "IMG_1142 2.JPG",
+          "photoFilePath": "image/공간/채움/IMG_1142 2.JPG",
+          "photoCaption": "천장의 바둑판 모양 조명 아래 환승센터와 실내 로비를 가르는 유리 자동문",
+          "monologueText": "가족들과 일본 여행을 갔다. 공항을 나가 일본에 오니 너무 기분이 좋고, 설렜다. 기차를 타고 숙소에 갔다 오느라 바로 잤다. 다음날 워터파크에 갔다. 워터파크가 생각보다 크다. 오느라 멀미가 나서 드러누워 버렸다. 그날 워터슬라이드만 한 100개는 탄 거 같은데 아빠가 5개 밖에 안 탔다고 했다. 엄마는 숙소에 먼저 갔다. 양치도 못 하고 그냥 침대에 눕자마자 자버렸다. 그래서 다음날 10시까지 잤다. 꽤 힘든 여행이었다.",
+          "kineticLines": [
+            "유리 자동문에 반투명하게 겹쳐 비치는 내 얼굴",
+            "문이 열릴 때 체크무늬 바닥으로 쏟아지는 바람",
+            "문턱을 넘으며 외우는 나만의 변신 주문",
+            "바깥세상과 극장 도서관이 만나는 투명한 경계"
+          ],
+          "audioUrl": "image/uploaded/audio-c-04.mp3",
+          "audioFileName": "03_수요일반_서다인.mp3",
+          "audioFilePath": "/archive/chaeum/audio/voice_chaeum_04_sua.mp3",
+          "audioDuration": 36,
+          "voicePitch": 1.08,
+          "audioDescription": "자동문 센서가 반응해 열리는 소리와 함께 공간의 울림이 바깥에서 실내로 바뀌는 연출이 담긴 독백.",
+          "keywords": [
+            "#유리자동문",
+            "#격자조명천장",
+            "#체크무늬로비",
+            "#변신주문"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 2,
+            "vectorShape": "portal-gate",
+            "generatedAt": "2026-11-15"
+          },
+          "quote": "그날 워터슬라이드만 한 100개는 탄 거 같은데 아빠가 5개 밖에 안 탔다고 했다.  양치도 못 하고 그냥 침대에 눕자마자 자버렸다.",
+          "monologue": {
+            "title": "힘든 일본 여행",
+            "quote": "그날 워터슬라이드만 한 100개는 탄 거 같은데 아빠가 5개 밖에 안 탔다고 했다.  양치도 못 하고 그냥 침대에 눕자마자 자버렸다.",
+            "fullStory": "가족들과 일본 여행을 갔다. 공항을 나가 일본에 오니 너무 기분이 좋고, 설렜다. 기차를 타고 숙소에 갔다 오느라 바로 잤다. 다음날 워터파크에 갔다. 워터파크가 생각보다 크다. 오느라 멀미가 나서 드러누워 버렸다. 그날 워터슬라이드만 한 100개는 탄 거 같은데 아빠가 5개 밖에 안 탔다고 했다. 엄마는 숙소에 먼저 갔다. 양치도 못 하고 그냥 침대에 눕자마자 자버렸다. 그래서 다음날 10시까지 잤다. 꽤 힘든 여행이었다."
+          }
+        },
+        {
+          "id": "c-05",
+          "spaceId": "chaeum",
+          "walkOrder": 5,
+          "walkProgress": 0.51,
+          "mapPos": {
+            "x": 260,
+            "y": 790,
+            "overlapX": 450,
+            "overlapY": 775,
+            "calloutSide": "left"
+          },
+          "symbolType": "wall-bar",
+          "name": "",
+          "category": "벽",
+          "accentColor": "orange",
+          "code": "C-05",
+          "bookNumber": "채움 사람 책 05",
+          "childName": "최재성 (왜요)",
+          "monologueTitle": "‘가장 환한 봄날의 꽃’ 아주 평범한 신문",
+          "projectionType": "wall",
+          "orbitAngle": 160,
+          "coords": {
+            "x": 32,
+            "y": 26,
+            "w": 36,
+            "h": 32
+          },
+          "polygonPoints": "110,80 910,45 910,385 110,395",
+          "photoUrl": "image/공간/채움/IMG_1198.JPG",
+          "secondaryPhotoUrl": "image/공간/채움/IMG_1161.JPG",
+          "photoFileName": "IMG_1198.JPG",
+          "photoFilePath": "image/공간/채움/IMG_1198.JPG",
+          "photoCaption": "파랑·초록 유리 난간 너머로 선명하게 빛나는 채움의 마젠타 핑크 타이포그래피 벽면",
+          "monologueText": "왜요 신문, 왜요 공원. 왜요 기자.\n\n‘세상에서 가장 환한 봄날의 꽃?’\n\n대한민국에 관광지 왜요 공원에는 꽃이 단 한 송이만 있어서 크게 화제입니다. 이에 왜요 공원 대표 왜요씨는 꽃이 여러 송이 있는 것보다 한 송이만 있는 게 더 빛난다고 주장했습니다.\n\n광고_국립중앙박물관, bhc치킨, 현대자동차, gs25",
+          "kineticLines": [
+            "회색 역사를 지나 갑자기 나타나는 진한 분홍빛 벽",
+            "C.H.A.E.U.M. 마침표마다 손가락으로 찍어보는 박자",
+            "파랑과 초록 난간 너머로 열리는 에너지 박스",
+            "내 그림자까지 따뜻한 색으로 물드는 복도"
+          ],
+          "audioUrl": "image/uploaded/audio-c-05.mp3",
+          "audioFileName": "08_수요일반_최재성.mp3",
+          "audioFilePath": "/archive/chaeum/audio/voice_chaeum_05_haeun.mp3",
+          "audioDuration": 39,
+          "voicePitch": 1.04,
+          "audioDescription": "복도 벽을 손끝으로 톡톡 두드리는 소리와 밝은 톤으로 녹음된 하은의 독백.",
+          "keywords": [
+            "#마젠타핑크벽",
+            "#CHAEUM타이포",
+            "#에너지박스",
+            "#복도산책"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "wall-bar",
+            "generatedAt": "2026-11-15"
+          },
+          "quote": "왜요씨는 꽃이 여러 송이 있는 것보다 한 송이만 있는 게 더 빛난다고 주장했습니다.",
+          "monologue": {
+            "title": "‘가장 환한 봄날의 꽃’ 아주 평범한 신문",
+            "quote": "왜요씨는 꽃이 여러 송이 있는 것보다 한 송이만 있는 게 더 빛난다고 주장했습니다.",
+            "fullStory": "왜요 신문, 왜요 공원. 왜요 기자.\n\n‘세상에서 가장 환한 봄날의 꽃?’\n\n대한민국에 관광지 왜요 공원에는 꽃이 단 한 송이만 있어서 크게 화제입니다. 이에 왜요 공원 대표 왜요씨는 꽃이 여러 송이 있는 것보다 한 송이만 있는 게 더 빛난다고 주장했습니다.\n\n광고_국립중앙박물관, bhc치킨, 현대자동차, gs25"
+          }
+        },
+        {
+          "id": "c-06",
+          "spaceId": "chaeum",
+          "walkOrder": 6,
+          "walkProgress": 0.62,
+          "mapPos": {
+            "x": 195,
+            "y": 950,
+            "overlapX": 390,
+            "overlapY": 935,
+            "calloutSide": "left"
+          },
+          "symbolType": "cube-grid",
+          "name": "",
+          "category": "벽 · 가구",
+          "accentColor": "orange",
+          "code": "C-06",
+          "bookNumber": "채움 사람 책 06",
+          "childName": "조유진 (유이)",
+          "monologueTitle": "무서워진 도서관",
+          "projectionType": "pillar",
+          "orbitAngle": 200,
+          "coords": {
+            "x": 16,
+            "y": 42,
+            "w": 22,
+            "h": 42
+          },
+          "polygonPoints": "55,35 765,35 765,495 55,540",
+          "photoUrl": "image/공간/채움/IMG_1163 2.JPG",
+          "secondaryPhotoUrl": "image/공간/채움/IMG_1167 2.JPG",
+          "photoFileName": "IMG_1163 2.JPG",
+          "photoFilePath": "image/공간/채움/IMG_1163 2.JPG",
+          "photoCaption": "연습실 입구 코너를 가득 채운 선명한 주황색 사각 신발장과 실내화 칸",
+          "monologueText": "캥거루가 그림책만 있는 도서관에 갔는데, 높이 있는 책을 꺼내려고 했는데 어떤 곰돌이가 책장을 건드려서 책이 쏟아지는 것이다.\n\n곰돌이는 몸이 커서 지나가다가 책장을 친 것이다. 책이 쏟아지고 캥거루는 다쳤다. 근데 아기는 안에 있어서 안 다쳤다. 캥거루는 책이 쏟아지고 나서 다쳐서 꼬리가 빨개졌다. 그리고 캥거루는 조금 다쳐서 웃고 있다. 그리고 나중에 또 책장이 쓰러질까봐 무서워서 도서관을 오랫동안 안 갔다.",
+          "kineticLines": [
+            "주황색 작은 문을 열고 운동화를 벗어 넣는 시간",
+            "작은 아파트 창문처럼 나란히 놓인 실내화들",
+            "오늘의 걱정을 신발장 칸 안에 잠시 맡겨두고",
+            "가벼워진 발걸음으로 나무 마루를 밟는다"
+          ],
+          "audioUrl": "image/uploaded/audio-c-06.mp3",
+          "audioFileName": "07_수요일반_조유진.mp3",
+          "audioFilePath": "/archive/chaeum/audio/voice_chaeum_06_minjae.mp3",
+          "audioDuration": 37,
+          "voicePitch": 0.99,
+          "audioDescription": "나무 신발장 문이 여닫히는 소리와 함께 속삭이듯 녹음된 민재의 이야기.",
+          "keywords": [
+            "#주황신발장",
+            "#큐브월",
+            "#운동화맡기기",
+            "#맨발의시작"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "cube-grid",
+            "generatedAt": "2026-11-15"
+          },
+          "quote": "캥거루는 책이 쏟아지고 나서 다쳐서 꼬리가 빨개졌다. 그리고 캥거루는 조금 다쳐서 웃고 있다.",
+          "monologue": {
+            "title": "무서워진 도서관",
+            "quote": "캥거루는 책이 쏟아지고 나서 다쳐서 꼬리가 빨개졌다. 그리고 캥거루는 조금 다쳐서 웃고 있다.",
+            "fullStory": "캥거루가 그림책만 있는 도서관에 갔는데, 높이 있는 책을 꺼내려고 했는데 어떤 곰돌이가 책장을 건드려서 책이 쏟아지는 것이다.\n\n곰돌이는 몸이 커서 지나가다가 책장을 친 것이다. 책이 쏟아지고 캥거루는 다쳤다. 근데 아기는 안에 있어서 안 다쳤다. 캥거루는 책이 쏟아지고 나서 다쳐서 꼬리가 빨개졌다. 그리고 캥거루는 조금 다쳐서 웃고 있다. 그리고 나중에 또 책장이 쓰러질까봐 무서워서 도서관을 오랫동안 안 갔다."
+          }
+        },
+        {
+          "id": "c-07",
+          "spaceId": "chaeum",
+          "walkOrder": 7,
+          "walkProgress": 0.74,
+          "mapPos": {
+            "x": 295,
+            "y": 1120,
+            "overlapX": 495,
+            "overlapY": 1110,
+            "calloutSide": "left"
+          },
+          "symbolType": "stage-circle",
+          "name": "",
+          "category": "바닥 · 무대",
+          "accentColor": "blue",
+          "code": "C-07",
+          "bookNumber": "채움 사람 책 07",
+          "childName": "우주혁 (승우)",
+          "monologueTitle": "보라색 물통",
+          "projectionType": "floor",
+          "orbitAngle": 240,
+          "coords": {
+            "x": 52,
+            "y": 72,
+            "w": 42,
+            "h": 26
+          },
+          "polygonPoints": "80,340 910,310 960,555 40,555",
+          "photoUrl": "image/공간/채움/IMG_1168 2.JPG",
+          "secondaryPhotoUrl": "image/공간/채움/IMG_1171 2.JPG",
+          "photoFileName": "IMG_1168 2.JPG",
+          "photoFilePath": "image/공간/채움/IMG_1168 2.JPG",
+          "photoCaption": "드럼과 악기들, 나무 벽면의 CHAE UM 사인, 그리고 넓은 원목 마루가 펼쳐진 메인 연습실",
+          "monologueText": "이 물통은 봤을 때 약 20cm 정도 된다. 연분홍색 버튼이 있다. 딱 봤을 때 연보라색이 눈에 띈다. 물이 잘 새진 않지만, 조금 샌다. 안은 철 냄새가 나고 회색에 물이 들어있다. 고리가 있고 물이 조금 들어있다. 물은 미지근하다. 냄새는 안 난다. 물통 온도는 차갑다. 핑크색 스티커에 유니콘에다가 조유진이라는 글씨가 쓰인 스티커가 있다. LocknLock이라는 글씨가 있다.",
+          "kineticLines": [
+            "발바닥을 타고 심장까지 올라오는 나무 마루의 진동",
+            "마루 한가운데 누우면 거울 속에 비치는 또 다른 나",
+            "드럼과 건반 옆에서 울려 퍼지던 우리의 목소리",
+            "입모양으로 건네는 조용한 응원 한마디"
+          ],
+          "audioUrl": "image/uploaded/audio-c-07.mp3",
+          "audioFileName": "04_수요일반_우주혁.mp3",
+          "audioFilePath": "/archive/chaeum/audio/voice_chaeum_07_jiwoo.mp3",
+          "audioDuration": 46,
+          "voicePitch": 1.03,
+          "audioDescription": "넓은 연습실 마루 중앙에서 녹음되어 공간 전체의 따뜻한 공명이 느껴지는 지우의 독백.",
+          "keywords": [
+            "#나무마루무대",
+            "#전면거울",
+            "#CHAEUM우드월",
+            "#발바닥진동"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 4,
+            "vectorShape": "stage-circle",
+            "generatedAt": "2026-11-15"
+          },
+          "quote": "물이 잘 새진 않지만, 조금 샌다. 안은 철 냄새가 나고 회색에 물이 들어있다. 고리가 있고 물이 조금 들어있다. 물은 미지근하다.",
+          "monologue": {
+            "title": "보라색 물통",
+            "quote": "물이 잘 새진 않지만, 조금 샌다. 안은 철 냄새가 나고 회색에 물이 들어있다. 고리가 있고 물이 조금 들어있다. 물은 미지근하다.",
+            "fullStory": "이 물통은 봤을 때 약 20cm 정도 된다. 연분홍색 버튼이 있다. 딱 봤을 때 연보라색이 눈에 띈다. 물이 잘 새진 않지만, 조금 샌다. 안은 철 냄새가 나고 회색에 물이 들어있다. 고리가 있고 물이 조금 들어있다. 물은 미지근하다. 냄새는 안 난다. 물통 온도는 차갑다. 핑크색 스티커에 유니콘에다가 조유진이라는 글씨가 쓰인 스티커가 있다. LocknLock이라는 글씨가 있다."
+          }
+        },
+        {
+          "id": "c-08",
+          "spaceId": "chaeum",
+          "walkOrder": 8,
+          "walkProgress": 0.85,
+          "mapPos": {
+            "x": 225,
+            "y": 1290,
+            "overlapX": 435,
+            "overlapY": 1280,
+            "calloutSide": "left"
+          },
+          "symbolType": "light-cluster",
+          "name": "",
+          "category": "천장 · 조명",
+          "accentColor": "yellow",
+          "code": "C-08",
+          "bookNumber": "채움 사람 책 08",
+          "childName": "이서연 (밥코)",
+          "monologueTitle": "지 업보 받은 거지 뭐",
+          "projectionType": "wall",
+          "orbitAngle": 280,
+          "coords": {
+            "x": 64,
+            "y": 18,
+            "w": 30,
+            "h": 24
+          },
+          "polygonPoints": "90,65 920,185 920,490 90,360",
+          "photoUrl": "image/공간/채움/IMG_1178 2.JPG",
+          "secondaryPhotoUrl": "image/공간/채움/IMG_1181 2.JPG",
+          "photoFileName": "IMG_1178 2.JPG",
+          "photoFilePath": "image/공간/채움/IMG_1178 2.JPG",
+          "photoCaption": "천장 파이프 트러스에 16, 18, 19번 번호표를 달고 매달린 검은 무대 조명등",
+          "monologueText": "3달 전 아침에 일어나니 몸이 너무 아파서 일어나지도 못하는 A씨. 평소 같으면 그냥 넘겼겠지만 오늘따라 심상치 않아서 아내 말을 듣고 병원에 가보기로 한다. 오랜만에 병원에 가려고 하니 좀 이상하다. “리모델링했나?” 별 의심 안 하고 병원에 들어가 보니 별다를 건 없었다. 접수하고 결과 들으러 들어가니 의사 표정이 별로 안 좋다. 검사 결과를 들어보니 병명은 알 수 없지만, 며칠 입원하고, 뭔 주사를 맞으면 괜찮아질 거라고 한다. 근데 아쉽게도 난 의사 말을 안 믿는데 라고 말하려 했지만, 아내가 째려본다. 내 마음을 알려나 몰라. 결국 병명도 모르는 병으로 입원해서 돈만 날린다. 문득 이런 영상을 봤다. 1시 귀신 돌아다니는 시간쯤 양초를 피고 뭔 주술을 외우면 병이\n마법처럼, 병이 사라진다고 한다? 근데 사람 한명이 필요하다고 한다. 사람 한 명이면 알아둔 사람이 있지. 오늘 밤 화재경보기를 울렸다. 의사 없는 병원이라 재밌다. 사람 한명, 옆방 착해빠진 아내. 아니, 나한테 맨날 뭐라하는 우리 아내 옆에 양초 불을 태운다. 그리고 주술을 외운다. 딱 새벽 1시. 근데 좀 탄내가 나는 것 같다. ‘이제 병 다 낫고 놀러 다녀야지.’라고 말하던 A씨는 아내와 오늘 밤 죽었다. 딴 사람들 다 대피시키고, ‘지 업보 받은 거지 뭐.’라고 사람들은 생각한다.",
+          "kineticLines": [
+            "검은 철봉에 나란히 매달린 16번, 18번, 19번 조명들",
+            "위에서 내려다본 아이들의 동그란 정수리와 발걸음",
+            "조명이 켜지는 순간 먼지 알갱이마저 별처럼 빛난다",
+            "천장에서 쏟아지는 노란 빛의 기둥"
+          ],
+          "audioUrl": "image/uploaded/audio-c-08.mp3",
+          "audioFileName": "06_수요일반_이서연.mp3",
+          "audioFilePath": "/archive/chaeum/audio/voice_chaeum_08_siwoo.mp3",
+          "audioDuration": 40,
+          "voicePitch": 0.95,
+          "audioDescription": "천장을 올려다보며 녹음하여 목소리가 위쪽 공간으로 퍼져나가는 시우의 독백.",
+          "keywords": [
+            "#천장조명트러스",
+            "#18번스포트라이트",
+            "#빛의기둥",
+            "#위에서본무대"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "light-cluster",
+            "generatedAt": "2026-11-15"
+          },
+          "quote": "1시 귀신 돌아다니는 시간쯤 양초를 피고 뭔 주술을 외우면 병이 마법처럼, 병이 사라진다고 한다?",
+          "monologue": {
+            "title": "지 업보 받은 거지 뭐",
+            "quote": "1시 귀신 돌아다니는 시간쯤 양초를 피고 뭔 주술을 외우면 병이 마법처럼, 병이 사라진다고 한다?",
+            "fullStory": "3달 전 아침에 일어나니 몸이 너무 아파서 일어나지도 못하는 A씨. 평소 같으면 그냥 넘겼겠지만 오늘따라 심상치 않아서 아내 말을 듣고 병원에 가보기로 한다. 오랜만에 병원에 가려고 하니 좀 이상하다. “리모델링했나?” 별 의심 안 하고 병원에 들어가 보니 별다를 건 없었다. 접수하고 결과 들으러 들어가니 의사 표정이 별로 안 좋다. 검사 결과를 들어보니 병명은 알 수 없지만, 며칠 입원하고, 뭔 주사를 맞으면 괜찮아질 거라고 한다. 근데 아쉽게도 난 의사 말을 안 믿는데 라고 말하려 했지만, 아내가 째려본다. 내 마음을 알려나 몰라. 결국 병명도 모르는 병으로 입원해서 돈만 날린다. 문득 이런 영상을 봤다. 1시 귀신 돌아다니는 시간쯤 양초를 피고 뭔 주술을 외우면 병이\n마법처럼, 병이 사라진다고 한다? 근데 사람 한명이 필요하다고 한다. 사람 한 명이면 알아둔 사람이 있지. 오늘 밤 화재경보기를 울렸다. 의사 없는 병원이라 재밌다. 사람 한명, 옆방 착해빠진 아내. 아니, 나한테 맨날 뭐라하는 우리 아내 옆에 양초 불을 태운다. 그리고 주술을 외운다. 딱 새벽 1시. 근데 좀 탄내가 나는 것 같다. ‘이제 병 다 낫고 놀러 다녀야지.’라고 말하던 A씨는 아내와 오늘 밤 죽었다. 딴 사람들 다 대피시키고, ‘지 업보 받은 거지 뭐.’라고 사람들은 생각한다."
+          }
+        },
+        {
+          "id": "c-09",
+          "spaceId": "chaeum",
+          "walkOrder": 9,
+          "walkProgress": 0.95,
+          "mapPos": {
+            "x": 315,
+            "y": 1460,
+            "overlapX": 480,
+            "overlapY": 1455,
+            "calloutSide": "left"
+          },
+          "symbolType": "bench-L",
+          "name": "",
+          "category": "계단 · 객석",
+          "accentColor": "green",
+          "code": "C-09",
+          "bookNumber": "채움 사람 책 09",
+          "childName": "이루미 (히루)",
+          "monologueTitle": "",
+          "projectionType": "stair",
+          "orbitAngle": 320,
+          "coords": {
+            "x": 78,
+            "y": 54,
+            "w": 22,
+            "h": 34
+          },
+          "polygonPoints": "310,335 940,350 960,485 280,455",
+          "photoUrl": "image/공간/채움/IMG_1188 2.JPG",
+          "secondaryPhotoUrl": "image/공간/채움/IMG_1183 2.JPG",
+          "photoFileName": "IMG_1188 2.JPG",
+          "photoFilePath": "image/공간/채움/IMG_1188 2.JPG",
+          "photoCaption": "벽면의 검은 사각 액자 줄 아래 부드러운 곡선으로 이어진 2단 나무 객석 벤치",
+          "monologueText": "나는 친구에 집에 있었다. 그때 친구네 집에서 놀기로 한 날이 있었다. 내 마음은 무서웠다. 왜냐하면 친구가 고양이를 키우는데 저번에 고양이한테 할퀸 적이 있어서다. 그 마음은 주사 맞을 때 떨리는 모습처럼 생겼다. 만져지지는 않지만 내 몸 안에 숨겨져 있다. 오늘 그 마음을 말해준다.\n무섭지 않아. 고양이를 겁먹지마.",
+          "kineticLines": [
+            "두 칸짜리 나무 단차에 쪼르르 걸터앉은 아이들",
+            "회색 커튼을 젖히면 관객에서 배우가 되는 순간",
+            "벽면의 작은 검은 창들이 기억하는 우리의 박수 소리",
+            "수업이 끝나도 가장 오래 온기가 남는 나무 자리"
+          ],
+          "audioUrl": "",
+          "audioFileName": "voice_chaeum_09_yujin.mp3",
+          "audioFilePath": "/archive/chaeum/audio/voice_chaeum_09_yujin.mp3",
+          "audioDuration": 42,
+          "voicePitch": 1.06,
+          "audioDescription": "나무 객석 단차에 앉아 커튼이 스치는 소리와 함께 차분히 마무리하는 유진의 아홉 번째 독백.",
+          "keywords": [
+            "#2단나무벤치",
+            "#회색무대커튼",
+            "#관객에서배우로",
+            "#남아있는온기"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "bench-L",
+            "generatedAt": "2026-11-15"
+          },
+          "quote": "그 마음은 주사 맞을 때 떨리는 모습처럼 생겼다. 만져지지는 않지만 내 몸 안에 숨겨져 있다.",
+          "monologue": {
+            "title": "",
+            "quote": "그 마음은 주사 맞을 때 떨리는 모습처럼 생겼다. 만져지지는 않지만 내 몸 안에 숨겨져 있다.",
+            "fullStory": "나는 친구에 집에 있었다. 그때 친구네 집에서 놀기로 한 날이 있었다. 내 마음은 무서웠다. 왜냐하면 친구가 고양이를 키우는데 저번에 고양이한테 할퀸 적이 있어서다. 그 마음은 주사 맞을 때 떨리는 모습처럼 생겼다. 만져지지는 않지만 내 몸 안에 숨겨져 있다. 오늘 그 마음을 말해준다.\n무섭지 않아. 고양이를 겁먹지마."
+          }
+        }
+      ],
+      "description": "도봉산역 지하철 통로와 광역버스환승센터에서 출발해 유리 자동문과 마젠타 복도, 주황 신발장을 거쳐 채움 무대 마루와 2단 객석 벤치에 이르는 9개 공간 요소."
+    },
+    {
+      "id": "huingomusin",
+      "code": "LIB-02",
+      "name": "마을극장 흰고무신",
+      "shortName": "흰고무신",
+      "bookTitle": "제2서고 : 은행나무 놀이터와 작은 옥상, 그리고 흰고무신 무대 (11권)",
+      "subtitle": "골목길 · 놀이터 · 구름계단 · 작은 옥상 · 극장 무대로 이어지는 11개의 발걸음",
+      "themeColor": "#1246FF",
+      "accentKey": "blue",
+      "ambientFreq": 220,
+      "mapPosition": {
+        "x": 72,
+        "y": 50
+      },
+      "floorPlanDesc": "요철 블록 외벽 골목과 은행나무 놀이터(미끄럼틀·도깨비시소·그물다리·타일벤치)를 지나 구름 계단실, 사물함 벽, 작은 인조잔디 옥상, 그리고 하얀 배경막 무대와 검은 피아노, 조정실까지 이어지는 11개 공간 요소.",
+      "elements": [
+        {
+          "id": "h-01",
+          "spaceId": "huingomusin",
+          "walkOrder": 1,
+          "walkProgress": 0.06,
+          "mapPos": {
+            "x": 720,
+            "y": 120,
+            "overlapX": 550,
+            "overlapY": 120,
+            "calloutSide": "right"
+          },
+          "symbolType": "facade-dots",
+          "name": "",
+          "category": "벽 · 골목",
+          "accentColor": "blue",
+          "code": "H-01",
+          "bookNumber": "흰고무신 사람 책 01",
+          "childName": "최리나 (채린)",
+          "monologueTitle": "행복한 마음이 온 몸에 퍼진 날",
+          "projectionType": "wall",
+          "orbitAngle": 0,
+          "coords": {
+            "x": 14,
+            "y": 34,
+            "w": 28,
+            "h": 36
+          },
+          "polygonPoints": "320,85 805,35 835,395 310,355",
+          "photoUrl": "image/공간/마을극장 흰고무신/IMG_1003.JPG",
+          "secondaryPhotoUrl": "image/공간/마을극장 흰고무신/IMG_1121.JPG",
+          "photoFileName": "IMG_1003.JPG",
+          "photoFilePath": "image/공간/마을극장 흰고무신/IMG_1003.JPG",
+          "photoCaption": "골목 어귀에서 바라본 마을극장 흰고무신 건물의 독특한 하얀 요철 돌기 외벽",
+          "monologueText": "그 날은 햇빛이 쨍쨍 내리쬐는 맑은 여름이었다.\n또 그 날은 학교에서 캠프를 가는 날이기도 했다.\n나는 막 버스에 타고 있었다.\n그런데 갑자기 친구가 나를 보고 버스에 같이 타자고 말했다.\n그 말을 들은 순간 내 마음은 순식간에 행복함과 즐거움으로 물들었다.\n사실 나도 그 친구와 같이 앉고 싶었다.\n또 걱정과 불안도 다 깨끗이 씻겨나간 듯 시원했다.\n그 마음은 몽실몽실한 구름과 솜사탕처럼 생겼다.\n이 마음은 정말 푹신하고 따뜻한 느낌이었다.\n\n그리고 그 마음이 실제로 만져지지는 않지만 내 손바닥과 손가락 안에 숨어있었다.\n또 나는 그 마음에게 말해 주고 싶다.\n“그 때의 행복하고 즐거운 감정과 마음, 느낌은 아무리 많은 시간이 지나도 잊지 못할 거야.” 라고",
+          "kineticLines": [
+            "노란 700-06 숫자가 적힌 조용한 동네 골목길",
+            "점자처럼 올록볼록 튀어나온 하얀 외벽의 돌기들",
+            "햇빛을 받아 생겨나는 수백 개의 삼각형 그림자 암호",
+            "마을극장 흰고무신으로 들어서는 첫 번째 표지판"
+          ],
+          "audioUrl": "image/uploaded/audio-h-01.mp3",
+          "audioFileName": "10_금요일반_최리나.mp3",
+          "audioFilePath": "/archive/huingomusin/audio/voice_huin_01_hyunwoo.mp3",
+          "audioDuration": 38,
+          "voicePitch": 0.98,
+          "audioDescription": "동네 골목의 잔잔한 바람 소리와 발걸음 소리가 함께 담긴 현우의 첫 번째 산책 독백.",
+          "keywords": [
+            "#흰고무신외벽",
+            "#요철돌기암호",
+            "#700_06골목",
+            "#삼각형그림자"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "facade-dots",
+            "generatedAt": "2026-11-15"
+          },
+          "monologue": {
+            "title": "행복한 마음이 온 몸에 퍼진 날",
+            "quote": "또 나는 그 마음에게 말해 주고 싶다. “그 때의 행복하고 즐거운 감정과 마음, 느낌은 아무리 많은 시간이 지나도 잊지 못할 거야.” 라고",
+            "fullStory": "그 날은 햇빛이 쨍쨍 내리쬐는 맑은 여름이었다.\n또 그 날은 학교에서 캠프를 가는 날이기도 했다.\n나는 막 버스에 타고 있었다.\n그런데 갑자기 친구가 나를 보고 버스에 같이 타자고 말했다.\n그 말을 들은 순간 내 마음은 순식간에 행복함과 즐거움으로 물들었다.\n사실 나도 그 친구와 같이 앉고 싶었다.\n또 걱정과 불안도 다 깨끗이 씻겨나간 듯 시원했다.\n그 마음은 몽실몽실한 구름과 솜사탕처럼 생겼다.\n이 마음은 정말 푹신하고 따뜻한 느낌이었다.\n\n그리고 그 마음이 실제로 만져지지는 않지만 내 손바닥과 손가락 안에 숨어있었다.\n또 나는 그 마음에게 말해 주고 싶다.\n“그 때의 행복하고 즐거운 감정과 마음, 느낌은 아무리 많은 시간이 지나도 잊지 못할 거야.” 라고"
+          },
+          "quote": "또 나는 그 마음에게 말해 주고 싶다. “그 때의 행복하고 즐거운 감정과 마음, 느낌은 아무리 많은 시간이 지나도 잊지 못할 거야.” 라고"
+        },
+        {
+          "id": "h-02",
+          "spaceId": "huingomusin",
+          "walkOrder": 2,
+          "walkProgress": 0.15,
+          "mapPos": {
+            "x": 785,
+            "y": 260,
+            "overlapX": 590,
+            "overlapY": 255,
+            "calloutSide": "right"
+          },
+          "symbolType": "slide-tube",
+          "name": "",
+          "category": "놀이기구",
+          "accentColor": "yellow",
+          "code": "H-02",
+          "bookNumber": "흰고무신 사람 책 02",
+          "childName": "김아인 (인아)",
+          "monologueTitle": "축축하지만 포근한 보물 상자",
+          "projectionType": "play",
+          "orbitAngle": 33,
+          "coords": {
+            "x": 24,
+            "y": 62,
+            "w": 26,
+            "h": 30
+          },
+          "polygonPoints": "365,30 785,220 895,535 450,535",
+          "photoUrl": "image/공간/마을극장 흰고무신/IMG_1046.jpg",
+          "secondaryPhotoUrl": "image/공간/마을극장 흰고무신/IMG_1043.jpg",
+          "photoFileName": "IMG_1046.jpg",
+          "photoFilePath": "image/공간/마을극장 흰고무신/IMG_1046.jpg",
+          "photoCaption": "노란 은행나무 아래 구불구불 이어진 원통형 미끄럼틀 출구와 ‘올라가지 마시오’ 문구",
+          "monologueText": "처음에 이사 왔을 때 낯설고 포근한 느낌보다는 시원한 느낌이었다. 뭔가 휑~한?느낌\n몇 달 전에 엄마와 동생과 보드게임을 했다.\n내 눈앞에는 얼굴에 꽃이 핀 동생과 엄마가 보였다.\n\n엄마의 어깨 끝에서 엄마의 섬유유연제 냄새가 내 코 끝을 살짝 건드리고 사라졌다.\n잠깐이였지만 뭔가 더 포근했다.\n엄마의 향기가 사라질세라 내가 들고 있던 카드의 감촉이 현명하게 느껴졌다.\n원래는 그냥 빈 공터 같은 공간 이였다면 우리 가족들이 지나간 자리는 뭔가 더 따뜻하고 공간이 좀 더 꽉 찬 것 같다. 나는 이곳을 축축하지만 포근한 보물 상자로 부르고 싶다.\n\n왜냐하면 나의 보물 같은 추억이 쏟아져서 축축해졌지만 추억덕분에 더 포근해졌기 때문이다.\n이 공간은 나의 추억이야기가 담긴 보물 상자이다.",
+          "kineticLines": [
+            "노란 은행나무 잎이 내려앉은 원통형 미끄럼틀",
+            "동그란 출구 안으로 고개를 넣고 속삭이는 비밀 대사",
+            "작은 동굴처럼 내 목소리를 둥글게 돌려주는 통로",
+            "미끄러져 내려오면 시작되는 놀이터의 연극"
+          ],
+          "audioUrl": "image/uploaded/audio-h-02.mp3",
+          "audioFileName": "03_금요일반_김아인.mp3",
+          "audioFilePath": "/archive/huingomusin/audio/voice_huin_02_eunseo.mp3",
+          "audioDuration": 37,
+          "voicePitch": 1.07,
+          "audioDescription": "원통형 미끄럼틀 특유의 둥글고 따스한 통 울림(Tube Reverb)이 느껴지는 은서의 독백.",
+          "keywords": [
+            "#원통미끄럼틀",
+            "#은행나무놀이터",
+            "#동굴울림",
+            "#비밀대사"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "slide-tube",
+            "generatedAt": "2026-11-15"
+          },
+          "monologue": {
+            "title": "축축하지만 포근한 보물 상자",
+            "quote": "엄마의 어깨 끝에서 엄마의 섬유유연제 냄새가 내 코 끝을 살짝 건드리고 사라졌다. 잠깐이였지만 뭔가 더 포근했다.",
+            "fullStory": "처음에 이사 왔을 때 낯설고 포근한 느낌보다는 시원한 느낌이었다. 뭔가 휑~한?느낌\n몇 달 전에 엄마와 동생과 보드게임을 했다.\n내 눈앞에는 얼굴에 꽃이 핀 동생과 엄마가 보였다.\n\n엄마의 어깨 끝에서 엄마의 섬유유연제 냄새가 내 코 끝을 살짝 건드리고 사라졌다.\n잠깐이였지만 뭔가 더 포근했다.\n엄마의 향기가 사라질세라 내가 들고 있던 카드의 감촉이 현명하게 느껴졌다.\n원래는 그냥 빈 공터 같은 공간 이였다면 우리 가족들이 지나간 자리는 뭔가 더 따뜻하고 공간이 좀 더 꽉 찬 것 같다. 나는 이곳을 축축하지만 포근한 보물 상자로 부르고 싶다.\n\n왜냐하면 나의 보물 같은 추억이 쏟아져서 축축해졌지만 추억덕분에 더 포근해졌기 때문이다.\n이 공간은 나의 추억이야기가 담긴 보물 상자이다."
+          },
+          "quote": "엄마의 어깨 끝에서 엄마의 섬유유연제 냄새가 내 코 끝을 살짝 건드리고 사라졌다. 잠깐이였지만 뭔가 더 포근했다."
+        },
+        {
+          "id": "h-03",
+          "spaceId": "huingomusin",
+          "walkOrder": 3,
+          "walkProgress": 0.24,
+          "mapPos": {
+            "x": 690,
+            "y": 400,
+            "overlapX": 505,
+            "overlapY": 395,
+            "calloutSide": "right"
+          },
+          "symbolType": "spring-duo",
+          "name": "",
+          "category": "놀이기구",
+          "accentColor": "green",
+          "code": "H-03",
+          "bookNumber": "흰고무신 사람 책 03",
+          "childName": "심수현 (수혈)",
+          "monologueTitle": "선물상자를 풀면",
+          "projectionType": "play",
+          "orbitAngle": 66,
+          "coords": {
+            "x": 36,
+            "y": 68,
+            "w": 24,
+            "h": 28
+          },
+          "polygonPoints": "45,155 415,175 415,495 45,495",
+          "photoUrl": "image/공간/마을극장 흰고무신/IMG_1027.JPG",
+          "secondaryPhotoUrl": "image/공간/마을극장 흰고무신/IMG_1030.jpg",
+          "photoFileName": "IMG_1027.JPG",
+          "photoFilePath": "image/공간/마을극장 흰고무신/IMG_1027.JPG",
+          "photoCaption": "민트색 탄성 바닥 위에 나란히 서 있는 초록 도깨비와 보라색 별 스프링 흔들 놀이기구",
+          "monologueText": "어느 평범한 하루였어.\n참참이는 원래처럼 길을 돌아다니는데 한 상자가 보였어.\n\n참참이는 조심스럽게 상자 근처로 갔지.\n‘조심 조심’\n상자 근처로 가서 ‘두리번 두리번’ 둘러봤지.\n아무도 없는 걸 확인한 참참이는 상자를 열어보았지.\n\n‘콕’ ‘콕’ ‘콕’\n찍어서 열려고 했어. 그랬더니 열릴 것 같았았어. 다시 한 번\n‘콕’ ‘꼭’ ‘꼮!’\n\n“와! 드디어 열렸다!”\n속을 보니 새우깡이 있었어.\n\n누가 두고 갔는지 모르겠지만...\n\n“나이스!!!”",
+          "kineticLines": [
+            "초록 도깨비와 보라색 별이 나란히 서 있는 자리",
+            "용수철 위에서 몸을 흔들면 파도처럼 기울어지는 풍경",
+            "끼익— 끼익— 스프링이 만들어내는 느린 박자",
+            "흔들리는 시선 속에서 찾아낸 새로운 이야기"
+          ],
+          "audioUrl": "image/uploaded/audio-h-03.mp3",
+          "audioFileName": "05_금요일반_심수현.mp3",
+          "audioFilePath": "/archive/huingomusin/audio/voice_huin_03_junseo.mp3",
+          "audioDuration": 39,
+          "voicePitch": 1.01,
+          "audioDescription": "스프링 놀이기구가 흔들리는 경쾌한 리듬과 낙엽 밟는 소리가 어우러진 준서의 독백.",
+          "keywords": [
+            "#도깨비시소",
+            "#별스프링",
+            "#흔들리는풍경",
+            "#놀이터리듬"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 2,
+            "vectorShape": "spring-duo",
+            "generatedAt": "2026-11-15"
+          },
+          "monologue": {
+            "title": "선물상자를 풀면",
+            "quote": "“와! 드디어 열렸다!” 속을 보니 새우깡이 있었어.",
+            "fullStory": "어느 평범한 하루였어.\n참참이는 원래처럼 길을 돌아다니는데 한 상자가 보였어.\n\n참참이는 조심스럽게 상자 근처로 갔지.\n‘조심 조심’\n상자 근처로 가서 ‘두리번 두리번’ 둘러봤지.\n아무도 없는 걸 확인한 참참이는 상자를 열어보았지.\n\n‘콕’ ‘콕’ ‘콕’\n찍어서 열려고 했어. 그랬더니 열릴 것 같았았어. 다시 한 번\n‘콕’ ‘꼭’ ‘꼮!’\n\n“와! 드디어 열렸다!”\n속을 보니 새우깡이 있었어.\n\n누가 두고 갔는지 모르겠지만...\n\n“나이스!!!”"
+          },
+          "quote": "“와! 드디어 열렸다!” 속을 보니 새우깡이 있었어."
+        },
+        {
+          "id": "h-04",
+          "spaceId": "huingomusin",
+          "walkOrder": 4,
+          "walkProgress": 0.33,
+          "mapPos": {
+            "x": 775,
+            "y": 540,
+            "overlapX": 575,
+            "overlapY": 535,
+            "calloutSide": "right"
+          },
+          "symbolType": "net-bridge",
+          "name": "",
+          "category": "놀이기구",
+          "accentColor": "orange",
+          "code": "H-04",
+          "bookNumber": "흰고무신 사람 책 04",
+          "childName": "김다예 (다낭)",
+          "monologueTitle": "나에게 특별한 장소",
+          "projectionType": "play",
+          "orbitAngle": 99,
+          "coords": {
+            "x": 48,
+            "y": 56,
+            "w": 26,
+            "h": 30
+          },
+          "polygonPoints": "60,155 920,115 920,485 60,495",
+          "photoUrl": "image/공간/마을극장 흰고무신/IMG_1031.JPG",
+          "secondaryPhotoUrl": "image/공간/마을극장 흰고무신/IMG_1032.JPG",
+          "photoFileName": "IMG_1031.JPG",
+          "photoFilePath": "image/공간/마을극장 흰고무신/IMG_1031.JPG",
+          "photoCaption": "두 나무 놀이대 사이를 잇는 굵은 밧줄 그물 출렁다리와 삼각 그늘막",
+          "monologueText": "특별한 장소는 우리의 큰 놀이터다.\n사실 우리의 큰 놀이터는 원래 그냥 큰 놀이터였다.\n하지만 거기에서 내 새 친구를 만들게 되었다.\n나와 친구는 그 후로 자주 거기에서 만났다.\n그리고 나는 항상 설레는 마음으로 항상 만났다.\n그리고 지금은 나의 찐친이 되었고, 우리는 그 놀이터를 우리의 큰 놀이터라고 부르기 시작했다.^V^",
+          "kineticLines": [
+            "두 나무 타워 사이를 잇는 출렁이는 밧줄 그물 다리",
+            "한 걸음 디딜 때마다 손끝에 전해지는 밧줄의 긴장감",
+            "머리 위에서 돛단배의 돛처럼 부풀어 오르는 하얀 그늘막",
+            "땅과 하늘 사이에서 잠시 멈춰 선 순간"
+          ],
+          "audioUrl": "image/uploaded/audio-h-04.mp3",
+          "audioFileName": "01_금요일반_김다예.mp3",
+          "audioFilePath": "/archive/huingomusin/audio/voice_huin_04_arin.mp3",
+          "audioDuration": 41,
+          "voicePitch": 1.06,
+          "audioDescription": "밧줄이 팽팽하게 당겨지는 소리와 가을 바람 소리 속에서 녹음된 아린의 독백.",
+          "keywords": [
+            "#그물출렁다리",
+            "#나무타워",
+            "#삼각그늘막",
+            "#돛단배상상"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "net-bridge",
+            "generatedAt": "2026-11-15"
+          },
+          "monologue": {
+            "title": "나에게 특별한 장소",
+            "quote": "하지만 거기에서 내 새 친구를 만들게 되었다. 나와 친구는 그 후로 자주 거기에서 만났다.",
+            "fullStory": "특별한 장소는 우리의 큰 놀이터다.\n사실 우리의 큰 놀이터는 원래 그냥 큰 놀이터였다.\n하지만 거기에서 내 새 친구를 만들게 되었다.\n나와 친구는 그 후로 자주 거기에서 만났다.\n그리고 나는 항상 설레는 마음으로 항상 만났다.\n그리고 지금은 나의 찐친이 되었고, 우리는 그 놀이터를 우리의 큰 놀이터라고 부르기 시작했다.^V^"
+          },
+          "quote": "하지만 거기에서 내 새 친구를 만들게 되었다. 나와 친구는 그 후로 자주 거기에서 만났다."
+        },
+        {
+          "id": "h-05",
+          "spaceId": "huingomusin",
+          "walkOrder": 5,
+          "walkProgress": 0.42,
+          "mapPos": {
+            "x": 685,
+            "y": 685,
+            "overlapX": 490,
+            "overlapY": 680,
+            "calloutSide": "right"
+          },
+          "symbolType": "tile-wave",
+          "name": "",
+          "category": "바닥 · 벤치",
+          "accentColor": "yellow",
+          "code": "H-05",
+          "bookNumber": "흰고무신 사람 책 05",
+          "childName": "김라온 (라면)",
+          "monologueTitle": "여우와 개미",
+          "projectionType": "wall",
+          "orbitAngle": 132,
+          "coords": {
+            "x": 30,
+            "y": 38,
+            "w": 32,
+            "h": 28
+          },
+          "polygonPoints": "75,110 915,135 915,435 75,385",
+          "photoUrl": "image/공간/마을극장 흰고무신/IMG_1035.JPG",
+          "secondaryPhotoUrl": "image/공간/마을극장 흰고무신/IMG_1017.jpg",
+          "photoFileName": "IMG_1035.JPG",
+          "photoFilePath": "image/공간/마을극장 흰고무신/IMG_1035.JPG",
+          "photoCaption": "노란 은행잎이 수북이 쌓인 나무 벤치와 등 뒤의 알록달록한 어린이 타일 벽화 담장",
+          "monologueText": "여우는 사과를 먹으려고 해요.\n하지만 개미들이 사과를 옮기려고해요, 5일을 굶었거든요.\n“우린 5일 동안 굶었는데 우리가 먹으면 안 될까?”\n여우는 개미들이 옮기는 사과를 뺏어서 먹었어요.\n그래서 개미는 죽었어요.\n여우의 욕심 때문에 일어난 일이예요.\n그래서 어떠한 물건을 두 사람이 동시에 쓸때는 더 필요한 사람이 먼저 써야 합니다. 끝~",
+          "kineticLines": [
+            "물결 모양 담장 안에 빼곡히 박힌 작은 타일 그림들",
+            "벤치 아래 노란 양탄자처럼 내려앉은 가을 은행잎",
+            "오래전 아이들의 그림 위에 겹쳐지는 오늘의 대사",
+            "야외 객석이 되어주는 따뜻한 나무 벤치"
+          ],
+          "audioUrl": "image/uploaded/audio-h-05.mp3",
+          "audioFileName": "02_금요일반_김라온.mp3",
+          "audioFilePath": "/archive/huingomusin/audio/voice_huin_05_taeyun.mp3",
+          "audioDuration": 43,
+          "voicePitch": 0.94,
+          "audioDescription": "바스락거리는 은행잎 소리와 함께 차분하고 깊이 있게 전달되는 태윤의 독백.",
+          "keywords": [
+            "#타일벽화담장",
+            "#은행잎벤치",
+            "#시간의겹침",
+            "#야외객석"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "tile-wave",
+            "generatedAt": "2026-11-15"
+          },
+          "monologue": {
+            "title": "여우와 개미",
+            "quote": "“우린 5일 동안 굶었는데 우리가 먹으면 안 될까?” 여우는 개미들이 옮기는 사과를 뺏어서 먹었어요.",
+            "fullStory": "여우는 사과를 먹으려고 해요.\n하지만 개미들이 사과를 옮기려고해요, 5일을 굶었거든요.\n“우린 5일 동안 굶었는데 우리가 먹으면 안 될까?”\n여우는 개미들이 옮기는 사과를 뺏어서 먹었어요.\n그래서 개미는 죽었어요.\n여우의 욕심 때문에 일어난 일이예요.\n그래서 어떠한 물건을 두 사람이 동시에 쓸때는 더 필요한 사람이 먼저 써야 합니다. 끝~"
+          },
+          "quote": "“우린 5일 동안 굶었는데 우리가 먹으면 안 될까?” 여우는 개미들이 옮기는 사과를 뺏어서 먹었어요."
+        },
+        {
+          "id": "h-06",
+          "spaceId": "huingomusin",
+          "walkOrder": 6,
+          "walkProgress": 0.51,
+          "mapPos": {
+            "x": 790,
+            "y": 830,
+            "overlapX": 560,
+            "overlapY": 825,
+            "calloutSide": "right"
+          },
+          "symbolType": "cloud-stair",
+          "name": "",
+          "category": "계단",
+          "accentColor": "blue",
+          "code": "H-06",
+          "bookNumber": "흰고무신 사람 책 06",
+          "childName": "홍아림 (예림)",
+          "monologueTitle": "여자",
+          "projectionType": "stair",
+          "orbitAngle": 165,
+          "coords": {
+            "x": 64,
+            "y": 40,
+            "w": 22,
+            "h": 42
+          },
+          "polygonPoints": "170,45 765,45 765,525 170,525",
+          "photoUrl": "image/공간/마을극장 흰고무신/IMG_1063.JPG",
+          "secondaryPhotoUrl": "image/공간/마을극장 흰고무신/IMG_1067.JPG",
+          "photoFileName": "IMG_1063.JPG",
+          "photoFilePath": "image/공간/마을극장 흰고무신/IMG_1063.JPG",
+          "photoCaption": "마을극장 흰고무신으로 이어지는 파란 벽면과 입체 구름 조형물, 철제 난간 계단",
+          "monologueText": "오늘은 추운 겨울이었다.\n나는 엄마에게 빌어서 PC방에 갔다.\n나는 사실 엄마 몰래 오만원을 들고와서 ᄋᄋ라면도 먹었다.\n나는 아이디를 적었다.\n“내 이름은 심지호에 성별은...”\n나는 이름 머리카락이 짧아서 남자라고 보는데.. 나는 사실 ‘여자’이다. 나는 너무 부끄러워서 ‘남자’를 클릭했다.\n그리고 그 오만원으로 농심 라온 라면을 먹었다. 너무 기대되어서 설레고 있는데..\n“총각, 음식 나왔어!”라고 소리쳤다. 그래서 나는 사장님께 “저.. 여자예요...”라고 말했다. 그랬더니\nPC방 사람들이 모두 나를 보며 신기해했다. 나는 부끄러웠지만 그래도 원하던 용의 협곡 ‘승급전’에 갔다. 그렇게 한바탕 게임을 하니 졸려서 집에 갔다. 부끄러운 날 이였다.\n그런데 시계를 보니 12:30 이여서 집에서도 게임을 하며 밤을 새고 10:30 에 일어나는데 오늘이 월요일이라는게 너무 놀랬다. 그리고 나는 지각을 했지만 그래도 재밌었다.",
+          "kineticLines": [
+            "계단 벽에 둥실 떠 있는 하얀 입체 구름 조각들",
+            "계단을 내려가는데 하늘 속으로 걸어 들어가는 기분",
+            "좁은 계단실 벽에 부딪혀 돌아오는 발소리 메아리",
+            "바깥 골목에서 극장 세계로 건너가는 구름 다리"
+          ],
+          "audioUrl": "image/uploaded/audio-h-06.mp3",
+          "audioFileName": "11_금요일반_홍아림.mp3",
+          "audioFilePath": "/archive/huingomusin/audio/voice_huin_06_soyul.mp3",
+          "audioDuration": 36,
+          "voicePitch": 1.09,
+          "audioDescription": "계단실 특유의 짧고 맑은 반향(Stairwell Echo) 속에서 들려오는 소율의 독백.",
+          "keywords": [
+            "#파란구름계단",
+            "#구름조형물",
+            "#계단실메아리",
+            "#극장진입로"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "cloud-stair",
+            "generatedAt": "2026-11-15"
+          },
+          "monologue": {
+            "title": "여자",
+            "quote": "PC방 사람들이 모두 나를 보며 신기해했다. 나는 부끄러웠지만 그래도 원하던 용의 협곡 ‘승급전’에 갔다.",
+            "fullStory": "오늘은 추운 겨울이었다.\n나는 엄마에게 빌어서 PC방에 갔다.\n나는 사실 엄마 몰래 오만원을 들고와서 ᄋᄋ라면도 먹었다.\n나는 아이디를 적었다.\n“내 이름은 심지호에 성별은...”\n나는 이름 머리카락이 짧아서 남자라고 보는데.. 나는 사실 ‘여자’이다. 나는 너무 부끄러워서 ‘남자’를 클릭했다.\n그리고 그 오만원으로 농심 라온 라면을 먹었다. 너무 기대되어서 설레고 있는데..\n“총각, 음식 나왔어!”라고 소리쳤다. 그래서 나는 사장님께 “저.. 여자예요...”라고 말했다. 그랬더니\nPC방 사람들이 모두 나를 보며 신기해했다. 나는 부끄러웠지만 그래도 원하던 용의 협곡 ‘승급전’에 갔다. 그렇게 한바탕 게임을 하니 졸려서 집에 갔다. 부끄러운 날 이였다.\n그런데 시계를 보니 12:30 이여서 집에서도 게임을 하며 밤을 새고 10:30 에 일어나는데 오늘이 월요일이라는게 너무 놀랬다. 그리고 나는 지각을 했지만 그래도 재밌었다."
+          },
+          "quote": "PC방 사람들이 모두 나를 보며 신기해했다. 나는 부끄러웠지만 그래도 원하던 용의 협곡 ‘승급전’에 갔다."
+        },
+        {
+          "id": "h-07",
+          "spaceId": "huingomusin",
+          "walkOrder": 7,
+          "walkProgress": 0.6,
+          "mapPos": {
+            "x": 695,
+            "y": 975,
+            "overlapX": 495,
+            "overlapY": 970,
+            "calloutSide": "right"
+          },
+          "symbolType": "locker-matrix",
+          "name": "",
+          "category": "벽 · 가구",
+          "accentColor": "orange",
+          "code": "H-07",
+          "bookNumber": "흰고무신 사람 책 07",
+          "childName": "나라온 (나온)",
+          "monologueTitle": "최고의 아이돌",
+          "projectionType": "pillar",
+          "orbitAngle": 198,
+          "coords": {
+            "x": 18,
+            "y": 50,
+            "w": 22,
+            "h": 40
+          },
+          "polygonPoints": "190,25 760,65 760,515 190,545",
+          "photoUrl": "image/공간/마을극장 흰고무신/IMG_1070.jpg",
+          "secondaryPhotoUrl": "image/공간/마을극장 흰고무신/IMG_1072.JPG",
+          "photoFileName": "IMG_1070.jpg",
+          "photoFilePath": "image/공간/마을극장 흰고무신/IMG_1070.jpg",
+          "photoCaption": "8번, 9번, 10번 칸에 빨간 글씨로 ‘공 / 연 / 장’이라 적힌 하얀 철제 사물함 벽면",
+          "monologueText": "아리가 데뷔한지 3년차 지금은 2153년\n옛날부터 지금까지 병아리로 데뷔한 병아리는 없었다.\n하지만 아리가 태어나고 나서는 달라졌다...\n아리는 노래를 너무 좋아했고 잘 불렀기 때문이다.\n아리가 15살이 되던 해에 아리는 병아리 최초 길거리 캐스팅이 되었다. 아리는 그 기회를 놓치지 않고 연습하여 결국 연습생이 되었다.\n6개월 뒤 아리는 최초의 병아리 아이돌 + 목소리 예쁜 병아리로 성공하여 여러 프로그램과 앨범을 내며 성장해갔다.\n아리는 더 많은 곡을 내며 모두가 인정하는 아이돌이 되었다.\n아리는 3년간 약30곡 이상을 내며 멋진 아이돌도 꺾고 최고의 아이돌이 되었다.",
+          "kineticLines": [
+            "8번 칸에는 공, 9번 칸에는 연, 10번 칸에는 장",
+            "하얀 사물함 문마다 숨어 있는 빨간 손글씨 표식",
+            "사물함 문을 열면 밖으로 튀어나올 것 같은 이야기들",
+            "무대로 들어가기 전 가방과 긴장을 내려놓는 벽"
+          ],
+          "audioUrl": "image/uploaded/audio-h-07.mp3",
+          "audioFileName": "04_금요일반_나라온.mp3",
+          "audioFilePath": "/archive/huingomusin/audio/voice_huin_07_jian.mp3",
+          "audioDuration": 38,
+          "voicePitch": 1.03,
+          "audioDescription": "철제 사물함 문을 가볍게 두드리는 금속성 울림과 지안의 호기심 어린 목소리.",
+          "keywords": [
+            "#공연장사물함",
+            "#8_9_10번칸",
+            "#빨간손글씨",
+            "#로비사물함"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "locker-matrix",
+            "generatedAt": "2026-11-15"
+          },
+          "monologue": {
+            "title": "최고의 아이돌",
+            "quote": "옛날부터 지금까지 병아리로 데뷔한 병아리는 없었다. 하지만 아리가 태어나고 나서는 달라졌다.",
+            "fullStory": "아리가 데뷔한지 3년차 지금은 2153년\n옛날부터 지금까지 병아리로 데뷔한 병아리는 없었다.\n하지만 아리가 태어나고 나서는 달라졌다...\n아리는 노래를 너무 좋아했고 잘 불렀기 때문이다.\n아리가 15살이 되던 해에 아리는 병아리 최초 길거리 캐스팅이 되었다. 아리는 그 기회를 놓치지 않고 연습하여 결국 연습생이 되었다.\n6개월 뒤 아리는 최초의 병아리 아이돌 + 목소리 예쁜 병아리로 성공하여 여러 프로그램과 앨범을 내며 성장해갔다.\n아리는 더 많은 곡을 내며 모두가 인정하는 아이돌이 되었다.\n아리는 3년간 약30곡 이상을 내며 멋진 아이돌도 꺾고 최고의 아이돌이 되었다."
+          },
+          "quote": "옛날부터 지금까지 병아리로 데뷔한 병아리는 없었다. 하지만 아리가 태어나고 나서는 달라졌다."
+        },
+        {
+          "id": "h-08",
+          "spaceId": "huingomusin",
+          "walkOrder": 8,
+          "walkProgress": 0.7,
+          "mapPos": {
+            "x": 800,
+            "y": 1120,
+            "overlapX": 580,
+            "overlapY": 1115,
+            "calloutSide": "right"
+          },
+          "symbolType": "rooftop-garden",
+          "name": "",
+          "category": "바닥 · 옥상",
+          "accentColor": "green",
+          "code": "H-08",
+          "bookNumber": "흰고무신 사람 책 08",
+          "childName": "이소민 (소미)",
+          "monologueTitle": "피자를 좋아하는 고양이",
+          "projectionType": "floor",
+          "orbitAngle": 231,
+          "coords": {
+            "x": 46,
+            "y": 74,
+            "w": 38,
+            "h": 24
+          },
+          "polygonPoints": "110,355 695,345 915,545 65,545",
+          "photoUrl": "image/공간/마을극장 흰고무신/IMG_1057.JPG",
+          "secondaryPhotoUrl": "image/공간/마을극장 흰고무신/IMG_1059.JPG",
+          "photoFileName": "IMG_1057.JPG",
+          "photoFilePath": "image/공간/마을극장 흰고무신/IMG_1057.JPG",
+          "photoCaption": "유리 폴딩도어 바깥으로 펼쳐진 작은 초록 잔디 옥상 마당과 나무 판자 위 나무 벽화",
+          "monologueText": "어느날, 피자가게에서 피자가게 직원이 일하고 있었어요. 피자가게 직원은 피자를 구워서 포장하고 있었어요, 그 때 피자가게로 전화가 한 통 걸려왔어요. 피자가게 직원은 전화기가 있는 쪽으로 갔어요. 그런데 열려있는 창문으로 고양이가 한 마리 들어와서 피자를 직원 몰래 먹었어요. 전화를 마치고 난 직원은 그제 서야 고양이가 피자를 먹고 있었다는 것을 알아차렸어요. 고양이는 화들짝 놀라서 들어왔던 창문으로 도망을 쳤어요. 직원은 “거기서!”라고 말하고 고양이를 쫓아갔어요. 고양이를 쫓아간 직원은 화들짝 놀랐어요. 아까는 보지 못했던 고양이의 모습을 보니 삐쩍 말라 있었어요. 직원은 일어났던 일을 용서하기로 했어요. 그리고 그 고양이를 집에서 키우기로 했답니다!",
+          "kineticLines": [
+            "폴딩도어를 열면 나타나는 우리만의 작은 초록 옥상",
+            "나무 판자 벽 위에 사계절 내내 피어 있는 벽화 나무",
+            "잔디 위에 누워 올려다본 네모난 도봉구의 하늘",
+            "실내 무대와 바깥 하늘을 이어주는 숨구멍 같은 마당"
+          ],
+          "audioUrl": "image/uploaded/audio-h-08.mp3",
+          "audioFileName": "08_금요일반_이소민.mp3",
+          "audioFilePath": "/archive/huingomusin/audio/voice_huin_08_chaewon.mp3",
+          "audioDuration": 45,
+          "voicePitch": 1.02,
+          "audioDescription": "작은 옥상 마당의 탁 트인 야외 공간감과 부드러운 바람 소리가 담긴 채원의 독백.",
+          "keywords": [
+            "#작은옥상마당",
+            "#인조잔디옥상",
+            "#나무벽화",
+            "#네모난하늘"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 4,
+            "vectorShape": "rooftop-garden",
+            "generatedAt": "2026-11-15"
+          },
+          "monologue": {
+            "title": "피자를 좋아하는 고양이",
+            "quote": "전화를 마치고 난 직원은 그제 서야 고양이가 피자를 먹고 있었다는 것을 알아차렸어요. 고양이는 화들짝 놀라서 들어왔던 창문으로 도망을 쳤어요.",
+            "fullStory": "어느날, 피자가게에서 피자가게 직원이 일하고 있었어요. 피자가게 직원은 피자를 구워서 포장하고 있었어요, 그 때 피자가게로 전화가 한 통 걸려왔어요. 피자가게 직원은 전화기가 있는 쪽으로 갔어요. 그런데 열려있는 창문으로 고양이가 한 마리 들어와서 피자를 직원 몰래 먹었어요. 전화를 마치고 난 직원은 그제 서야 고양이가 피자를 먹고 있었다는 것을 알아차렸어요. 고양이는 화들짝 놀라서 들어왔던 창문으로 도망을 쳤어요. 직원은 “거기서!”라고 말하고 고양이를 쫓아갔어요. 고양이를 쫓아간 직원은 화들짝 놀랐어요. 아까는 보지 못했던 고양이의 모습을 보니 삐쩍 말라 있었어요. 직원은 일어났던 일을 용서하기로 했어요. 그리고 그 고양이를 집에서 키우기로 했답니다!"
+          },
+          "quote": "전화를 마치고 난 직원은 그제 서야 고양이가 피자를 먹고 있었다는 것을 알아차렸어요. 고양이는 화들짝 놀라서 들어왔던 창문으로 도망을 쳤어요."
+        },
+        {
+          "id": "h-09",
+          "spaceId": "huingomusin",
+          "walkOrder": 9,
+          "walkProgress": 0.8,
+          "mapPos": {
+            "x": 705,
+            "y": 1265,
+            "overlapX": 510,
+            "overlapY": 1260,
+            "calloutSide": "right"
+          },
+          "symbolType": "stage-curtain",
+          "name": "",
+          "category": "바닥 · 무대",
+          "accentColor": "blue",
+          "code": "H-09",
+          "bookNumber": "흰고무신 사람 책 09",
+          "childName": "이서림 (후뿌)",
+          "monologueTitle": "후회",
+          "projectionType": "wall",
+          "orbitAngle": 264,
+          "coords": {
+            "x": 52,
+            "y": 30,
+            "w": 34,
+            "h": 36
+          },
+          "polygonPoints": "265,115 655,140 655,365 265,380",
+          "photoUrl": "image/공간/마을극장 흰고무신/IMG_1076.JPG",
+          "secondaryPhotoUrl": "image/공간/마을극장 흰고무신/IMG_1102 2.JPG",
+          "photoFileName": "IMG_1076.JPG",
+          "photoFilePath": "image/공간/마을극장 흰고무신/IMG_1076.JPG",
+          "photoCaption": "하얀 무대 배경막과 커튼, 천장 조명 레일과 밝은 나무 마루가 어우러진 흰고무신 메인 무대",
+          "monologueText": "계단에 품어져있던 먼지들이 내 눈으로 올라갔다.\n내 눈으로 올라온 먼지는 뭉쳐져 물이 되어 흘러내렸다.\n물이 내 볼은 타고 내려와 입에 들어갔다.\n비릿하고, 또 따뜻했다.\n내 눈물이 뜨거운 이유는 눈시울이 붉게 달궈져서일까, 아니면 아직 조금이라도 속에 따뜻함과 양심이 남아있기 때문일까.\n부유하는 먼지들이 나를 따뜻하게 품어줘서 라고 생각해야겠다.\n조금만, 조금만 더 오래 품어줘.\n더러워진 내 시간들을 따사롭게 안아줘.",
+          "kineticLines": [
+            "극장 정면에 걸린 크고 하얀 백지 같은 배경막",
+            "커튼 뒤에 서면 거인처럼 커지는 나의 그림자",
+            "천장 레일 조명이 비추는 따뜻한 나무 마루",
+            "우리가 움직일 때마다 새로 쓰이는 무대 위 문장들"
+          ],
+          "audioUrl": "image/uploaded/audio-h-09.mp3",
+          "audioFileName": "07_금요일반_이서림.mp3",
+          "audioFilePath": "/archive/huingomusin/audio/voice_huin_09_eunho.mp3",
+          "audioDuration": 42,
+          "voicePitch": 0.97,
+          "audioDescription": "극장 무대 한가운데서 녹음되어 또렷하고 따뜻한 목재 공간 울림이 살아 있는 은호의 독백.",
+          "keywords": [
+            "#흰배경막무대",
+            "#그림자놀이",
+            "#나무마루",
+            "#백지같은무대"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 4,
+            "vectorShape": "stage-curtain",
+            "generatedAt": "2026-11-15"
+          },
+          "monologue": {
+            "title": "후회",
+            "quote": "부유하는 먼지들이 나를 따뜻하게 품어줘서 라고 생각해야겠다.",
+            "fullStory": "계단에 품어져있던 먼지들이 내 눈으로 올라갔다.\n내 눈으로 올라온 먼지는 뭉쳐져 물이 되어 흘러내렸다.\n물이 내 볼은 타고 내려와 입에 들어갔다.\n비릿하고, 또 따뜻했다.\n내 눈물이 뜨거운 이유는 눈시울이 붉게 달궈져서일까, 아니면 아직 조금이라도 속에 따뜻함과 양심이 남아있기 때문일까.\n부유하는 먼지들이 나를 따뜻하게 품어줘서 라고 생각해야겠다.\n조금만, 조금만 더 오래 품어줘.\n더러워진 내 시간들을 따사롭게 안아줘."
+          },
+          "quote": "부유하는 먼지들이 나를 따뜻하게 품어줘서 라고 생각해야겠다."
+        },
+        {
+          "id": "h-10",
+          "spaceId": "huingomusin",
+          "walkOrder": 10,
+          "walkProgress": 0.89,
+          "mapPos": {
+            "x": 795,
+            "y": 1410,
+            "overlapX": 575,
+            "overlapY": 1405,
+            "calloutSide": "right"
+          },
+          "symbolType": "piano-clock",
+          "name": "",
+          "category": "기둥 · 악기",
+          "accentColor": "yellow",
+          "code": "H-10",
+          "bookNumber": "흰고무신 사람 책 10",
+          "childName": "조윤찬 (용찬)",
+          "monologueTitle": "거울 속에서 딱지치기",
+          "projectionType": "pillar",
+          "orbitAngle": 297,
+          "coords": {
+            "x": 76,
+            "y": 48,
+            "w": 20,
+            "h": 36
+          },
+          "polygonPoints": "115,155 775,165 775,535 115,535",
+          "photoUrl": "image/공간/마을극장 흰고무신/IMG_1084 2.JPG",
+          "secondaryPhotoUrl": "image/공간/마을극장 흰고무신/IMG_1087 2.jpg",
+          "photoFileName": "IMG_1084 2.JPG",
+          "photoFilePath": "image/공간/마을극장 흰고무신/IMG_1084 2.JPG",
+          "photoCaption": "세로 결 벽면 아래 놓인 반짝이는 검은 업라이트 피아노와 벽면의 둥근 시계",
+          "monologueText": "나는 친구와 딱지치기를 책상 뒤편에서 하고 있었다.\n거울속의 나도 친구와 책상 뒤편에서 딱지치기를 하고 있었다.\n정말 재미있게 놀고 나니 헤어질 시간이 되어 친구와 헤어졌다.",
+          "kineticLines": [
+            "무대 한켠을 지키는 반질반질한 검은 업라이트 피아노",
+            "건반 한 음이 울려 퍼질 때 찾아오는 고요한 순간",
+            "검은 피아노 표면에 거울처럼 비치는 우리의 얼굴",
+            "벽시계 바늘 소리와 함께 흘러가는 연습 시간"
+          ],
+          "audioUrl": "image/uploaded/audio-h-10.mp3",
+          "audioFileName": "09_금요일반_조윤찬.mp3",
+          "audioFilePath": "/archive/huingomusin/audio/voice_huin_10_nayun.mp3",
+          "audioDuration": 39,
+          "voicePitch": 1.06,
+          "audioDescription": "잔잔한 피아노 단음 잔향과 시계 초침 소리 위로 맑게 얹힌 나윤의 독백.",
+          "keywords": [
+            "#검은피아노",
+            "#벽시계",
+            "#건반의울림",
+            "#검은거울"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "piano-clock",
+            "generatedAt": "2026-11-15"
+          },
+          "monologue": {
+            "title": "거울 속에서 딱지치기",
+            "quote": "거울속의 나도 친구와 책상 뒤편에서 딱지치기를 하고 있었다.",
+            "fullStory": "나는 친구와 딱지치기를 책상 뒤편에서 하고 있었다.\n거울속의 나도 친구와 책상 뒤편에서 딱지치기를 하고 있었다.\n정말 재미있게 놀고 나니 헤어질 시간이 되어 친구와 헤어졌다."
+          },
+          "quote": "거울속의 나도 친구와 책상 뒤편에서 딱지치기를 하고 있었다."
+        },
+        {
+          "id": "h-11",
+          "spaceId": "huingomusin",
+          "walkOrder": 11,
+          "walkProgress": 0.97,
+          "mapPos": {
+            "x": 710,
+            "y": 1555,
+            "overlapX": 505,
+            "overlapY": 1550,
+            "calloutSide": "right"
+          },
+          "symbolType": "booth-window",
+          "name": "",
+          "category": "문 · 경계",
+          "accentColor": "orange",
+          "code": "H-11",
+          "bookNumber": "흰고무신 사람 책 11",
+          "childName": "이다윤 (다유)",
+          "monologueTitle": "회초리 맞은 불쌍한 사슴",
+          "projectionType": "wall",
+          "orbitAngle": 330,
+          "coords": {
+            "x": 84,
+            "y": 34,
+            "w": 18,
+            "h": 36
+          },
+          "polygonPoints": "385,135 805,85 805,375 385,360",
+          "photoUrl": "image/공간/마을극장 흰고무신/IMG_1091.JPG",
+          "secondaryPhotoUrl": "image/공간/마을극장 흰고무신/IMG_1099.jpg",
+          "photoFileName": "IMG_1091.JPG",
+          "photoFilePath": "image/공간/마을극장 흰고무신/IMG_1091.JPG",
+          "photoCaption": "극장 뒤편의 검은 조정실 유리창과 테이블 위 〈꿈의 극단 도봉〉 대본 보관 박스",
+          "monologueText": "어느 한 시골에 성격 나쁜 소녀와 마음씨 착한 사슴이 살았습니다. 사슴은 마당에서 뛰어 놀고 있었습니다. 소녀는 귀가 아주 예민해 작은 소리도 잘 듣습니다. 사슴은 주인이 시끄러운 걸 싫어한다는 걸 잘 알고 있었습니다. 그래서 조용히 놀았습니다.\n\n주인은 그것도 시끄럽다고 엄청 화를 내고 회초리로 때렸습니다. 사슴은 너무 아팠지만 꾹 참고 주인이 자고 나서 소리 없는 울음을 터뜨렸습니다.\n\n사슴은 주인에게 화가 나도 회초리로 때리지 말라고 다정하게 말했습니다. 소녀는 그 일 이후 다시는 화가 나도 회초리로 때리지 않고 말로 해결했습니다.",
+          "kineticLines": [
+            "무대 뒤편에서 우리를 지켜보는 검은 조정실 유리창",
+            "투명한 상자 속에 차곡차곡 쌓인 꿈의 극단 도봉의 기록들",
+            "차례대로 접혀 정리된 객석 의자들과 하루의 끝",
+            "사라지지 않고 한 권의 사람 책이 된 우리의 목소리"
+          ],
+          "audioUrl": "image/uploaded/audio-h-11.mp3",
+          "audioFileName": "06_금요일반_이다윤.mp3",
+          "audioFilePath": "/archive/huingomusin/audio/voice_huin_11_minseo.mp3",
+          "audioDuration": 44,
+          "voicePitch": 1.01,
+          "audioDescription": "대본 종이를 넘기는 소리와 접이식 의자 정리음 뒤에 이어지는 민서의 열한 번째 피날레 독백.",
+          "keywords": [
+            "#조정실유리창",
+            "#대본보관함",
+            "#접이식의자",
+            "#사람책의완성"
+          ],
+          "autoMapGraphic": {
+            "contourRings": 3,
+            "vectorShape": "booth-window",
+            "generatedAt": "2026-11-15"
+          },
+          "monologue": {
+            "title": "회초리 맞은 불쌍한 사슴",
+            "quote": "사슴은 너무 아팠지만 꾹 참고 주인이 자고 나서 소리 없는 울음을 터뜨렸습니다.",
+            "fullStory": "어느 한 시골에 성격 나쁜 소녀와 마음씨 착한 사슴이 살았습니다. 사슴은 마당에서 뛰어 놀고 있었습니다. 소녀는 귀가 아주 예민해 작은 소리도 잘 듣습니다. 사슴은 주인이 시끄러운 걸 싫어한다는 걸 잘 알고 있었습니다. 그래서 조용히 놀았습니다.\n\n주인은 그것도 시끄럽다고 엄청 화를 내고 회초리로 때렸습니다. 사슴은 너무 아팠지만 꾹 참고 주인이 자고 나서 소리 없는 울음을 터뜨렸습니다.\n\n사슴은 주인에게 화가 나도 회초리로 때리지 말라고 다정하게 말했습니다. 소녀는 그 일 이후 다시는 화가 나도 회초리로 때리지 않고 말로 해결했습니다."
+          },
+          "quote": "사슴은 너무 아팠지만 꾹 참고 주인이 자고 나서 소리 없는 울음을 터뜨렸습니다."
+        }
+      ],
+      "description": "요철 블록 외벽 골목과 은행나무 놀이터(미끄럼틀·도깨비시소·그물다리·타일벤치)를 지나 구름 계단실, 사물함 벽, 작은 인조잔디 옥상, 그리고 하얀 배경막 무대와 검은 피아노, 조정실까지 이어지는 11개 공간 요소."
+    }
+  ],
+  "timeworks": [
+    {
+      "id": "tw-01",
+      "spaceId": "chaeum",
+      "spaceName": "청소년예술공간 채움",
+      "accentColor": "orange",
+      "sessionNumber": "01",
+      "date": "연극_하르",
+      "title": "[100 연극] 서가를 열며",
+      "keywords": [
+        "연극",
+        "시작"
+      ],
+      "summary": "내가 만드는 우리, 시작하기",
+      "bodyParagraphs": [
+        "#예술가의_시작\n프로그램의 첫 문을 열며, 단원들이 스스로를 주체적인 예술가로 인식하는 소중한 시간이 되기를 바랐습니다.",
+        "#틀을_깨는_협업 \n단원들이 직접 질문을 던지고 머리를 맞대며, 정해진 수업의 틀마저 자유롭게 바꾸고 새로운 방식을 시도할 수 있는 주도적인 환경을 열어주고자 합니다. [*1]",
+        "#확장되는_상상력 \n작은 질문이 기발하고 엉뚱한 상상력과 만나, 예술적 공간이 무한히 확장되는 경험을 느끼고,",
+        "#주체적인_탐구 \n이 과정을 통해 스스로 극단의 주인이 되기 위해 무엇을 할지 고민하며, 자신만의 단단한 정체성을 만들어 가기를 바랐습니다. [*2]",
+        "#내가_만드는_우리\n나아가 서로를 다정하게 이끌어주고 기꺼이 의지하며, '내가 만드는 우리라는 이웃'을 함께 만듭니다. [*3]"
+      ],
+      "photos": [],
+      "footnotes": [
+        {
+          "id": "fn-01-1",
+          "marker": "*1",
+          "bgTheme": "red",
+          "title": "함께 걸으며 변화시키는 길",
+          "content": "공간과 주변을 인식하고, 다른 단원들의 걸음에 맞추어 움직인다. 비어 있는 곳을 찾아 채우고, 누군가의 움직임에 반응하며 자신의 속도를 조절한다. 혼자 앞서가지도, 누군가를 따라가기만 하지도 않으면서 함께 걷는 일. 각자의 걸음이 모여 하나의 공간을 만든다.",
+          "body": "공간과 주변을 인식하고, 다른 단원들의 걸음에 맞추어 움직인다. 비어 있는 곳을 찾아 채우고, 누군가의 움직임에 반응하며 자신의 속도를 조절한다. 혼자 앞서가지도, 누군가를 따라가기만 하지도 않으면서 함께 걷는 일. 각자의 걸음이 모여 하나의 공간을 만든다."
+        },
+        {
+          "id": "fn-01-2",
+          "marker": "*2",
+          "bgTheme": "green",
+          "title": "나를 자유롭게 부르기",
+          "content": "꿈의 극단에서 내가 있을 이름을 스스로 짓는다. 이름을 짓는 동안 잠시 다른 사람이 되어보기도 하고, 아직 알지 못하는 나를 불러보기도 한다.",
+          "body": "꿈의 극단에서 내가 있을 이름을 스스로 짓는다. 이름을 짓는 동안 잠시 다른 사람이 되어보기도 하고, 아직 알지 못하는 나를 불러보기도 한다."
+        },
+        {
+          "id": "fn-01-3",
+          "marker": "*3",
+          "bgTheme": "yellow",
+          "title": "나, 가족, 이웃",
+          "content": "평화는 아빠와 자신이 닮은 점을 자랑한다. “보조개가 한 쪽만 있는 것, 그리고 아빠랑 똑같이 웃는다고.” 예림이는 엄지가 한 쪽만 구부러지는 것, 엄지발가락을 세울 수 있는 것, 소리도 잘 듣는다고 이야기한다. 몸에 남아 있는 작은 특징들. 가족과 닮은 점을 하나씩 찾아 이야기하다 보면 자신에 대해서도 조금 더 알게 된다. 자신을 설명하는 말들은 꼭 자신에게서만 시작하지 않는다. 누군가와 닮았다는 사실에서 출발하기도 하고, 친구의 이야기를 듣다가 문득 발견되기도 한다.",
+          "body": "평화는 아빠와 자신이 닮은 점을 자랑한다. “보조개가 한 쪽만 있는 것, 그리고 아빠랑 똑같이 웃는다고.” 예림이는 엄지가 한 쪽만 구부러지는 것, 엄지발가락을 세울 수 있는 것, 소리도 잘 듣는다고 이야기한다. 몸에 남아 있는 작은 특징들. 가족과 닮은 점을 하나씩 찾아 이야기하다 보면 자신에 대해서도 조금 더 알게 된다. 자신을 설명하는 말들은 꼭 자신에게서만 시작하지 않는다. 누군가와 닮았다는 사실에서 출발하기도 하고, 친구의 이야기를 듣다가 문득 발견되기도 한다."
+        }
+      ],
+      "works": [
+        {
+          "id": "wk-1794843604135-333",
+          "title": "우리들의약속_마극",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843604135-333.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843604135-333.webp"
+        },
+        {
+          "id": "wk-1794843604669-577",
+          "title": "우리들의약속_채움",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843604669-577.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843604669-577.webp"
+        },
+        {
+          "id": "wk-1794843620868-87",
+          "title": "다은",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843620868-87.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843620868-87.webp"
+        },
+        {
+          "id": "wk-1794843621041-767",
+          "title": "류리",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843621041-767.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843621041-767.webp"
+        },
+        {
+          "id": "wk-1794843621317-375",
+          "title": "밥코",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843621317-375.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843621317-375.webp"
+        },
+        {
+          "id": "wk-1794843621557-99",
+          "title": "슈아",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843621557-99.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843621557-99.webp"
+        },
+        {
+          "id": "wk-1794843621737-293",
+          "title": "승우",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843621737-293.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843621737-293.webp"
+        },
+        {
+          "id": "wk-1794843621961-190",
+          "title": "왜요",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843621961-190.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843621961-190.webp"
+        },
+        {
+          "id": "wk-1794843622258-777",
+          "title": "유이",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843622258-777.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843622258-777.webp"
+        },
+        {
+          "id": "wk-1794843622522-159",
+          "title": "채유",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843622522-159.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843622522-159.webp"
+        },
+        {
+          "id": "wk-1794843622732-866",
+          "title": "히루",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843622732-866.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843622732-866.webp"
+        },
+        {
+          "id": "wk-1794843622990-74",
+          "title": "나온",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843622990-74.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843622990-74.webp"
+        },
+        {
+          "id": "wk-1794843623561-145",
+          "title": "다낭",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843623561-145.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843623561-145.webp"
+        },
+        {
+          "id": "wk-1794843623720-257",
+          "title": "다유",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843623720-257.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843623720-257.webp"
+        },
+        {
+          "id": "wk-1794843623953-487",
+          "title": "라면",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843623953-487.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843623953-487.webp"
+        },
+        {
+          "id": "wk-1794843624195-748",
+          "title": "소미",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843624195-748.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843624195-748.webp"
+        },
+        {
+          "id": "wk-1794843624355-477",
+          "title": "수혈",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843624355-477.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843624355-477.webp"
+        },
+        {
+          "id": "wk-1794843624643-919",
+          "title": "예림",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843624643-919.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843624643-919.webp"
+        },
+        {
+          "id": "wk-1794843624893-867",
+          "title": "용찬",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843624893-867.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843624893-867.webp"
+        },
+        {
+          "id": "wk-1794843625109-101",
+          "title": "인아",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843625109-101.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843625109-101.webp"
+        },
+        {
+          "id": "wk-1794843625356-922",
+          "title": "채린",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843625356-922.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843625356-922.webp"
+        },
+        {
+          "id": "wk-1794843625541-506",
+          "title": "평화",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843625541-506.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843625541-506.webp"
+        },
+        {
+          "id": "wk-1794843625683-672",
+          "title": "후뿌",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794843625683-672.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794843625683-672.webp"
+        }
+      ],
+      "chaeumPhotos": [
+        "image/uploaded/tw-ch-tw-01-1794842926450-0.webp",
+        "image/uploaded/tw-ch-tw-01-1794842935033-0.webp",
+        "image/uploaded/tw-ch-tw-01-1794843041469-0.webp",
+        "image/uploaded/tw-ch-tw-01-1794843061370-0.webp",
+        "image/uploaded/tw-ch-tw-01-1794843067934-0.webp",
+        "image/uploaded/tw-ch-tw-01-1794843080414-0.webp"
+      ],
+      "huinPhotos": [
+        "image/uploaded/tw-hg-tw-01-1794843095138-0.webp",
+        "image/uploaded/tw-hg-tw-01-1794843118223-0.webp",
+        "image/uploaded/tw-hg-tw-01-1794843111068-0.webp",
+        "image/uploaded/tw-hg-tw-01-1794843574820-0.webp",
+        "image/uploaded/tw-hg-tw-01-1794843129997-0.webp",
+        "image/uploaded/tw-hg-tw-01-1794843560081-0.webp"
+      ],
+      "leadQuote": "내가 만드는 우리, 시작하기",
+      "paragraphs": [
+        "#예술가의_시작\n프로그램의 첫 문을 열며, 단원들이 스스로를 주체적인 예술가로 인식하는 소중한 시간이 되기를 바랐습니다.",
+        "#틀을_깨는_협업 \n단원들이 직접 질문을 던지고 머리를 맞대며, 정해진 수업의 틀마저 자유롭게 바꾸고 새로운 방식을 시도할 수 있는 주도적인 환경을 열어주고자 합니다. [*1]",
+        "#확장되는_상상력 \n작은 질문이 기발하고 엉뚱한 상상력과 만나, 예술적 공간이 무한히 확장되는 경험을 느끼고,",
+        "#주체적인_탐구 \n이 과정을 통해 스스로 극단의 주인이 되기 위해 무엇을 할지 고민하며, 자신만의 단단한 정체성을 만들어 가기를 바랐습니다. [*2]",
+        "#내가_만드는_우리\n나아가 서로를 다정하게 이끌어주고 기꺼이 의지하며, '내가 만드는 우리라는 이웃'을 함께 만듭니다. [*3]"
+      ],
+      "chaeumPhotoLabel": "청소년예술공간 채움",
+      "huinPhotoLabel": "마을극장 흰고무신",
+      "bodyText": "#예술가의_시작\n프로그램의 첫 문을 열며, 단원들이 스스로를 주체적인 예술가로 인식하는 소중한 시간이 되기를 바랐습니다.\n\n#틀을_깨는_협업 \n단원들이 직접 질문을 던지고 머리를 맞대며, 정해진 수업의 틀마저 자유롭게 바꾸고 새로운 방식을 시도할 수 있는 주도적인 환경을 열어주고자 합니다. [*1]\n\n#확장되는_상상력 \n작은 질문이 기발하고 엉뚱한 상상력과 만나, 예술적 공간이 무한히 확장되는 경험을 느끼고,\n\n#주체적인_탐구 \n이 과정을 통해 스스로 극단의 주인이 되기 위해 무엇을 할지 고민하며, 자신만의 단단한 정체성을 만들어 가기를 바랐습니다. [*2]\n\n#내가_만드는_우리\n나아가 서로를 다정하게 이끌어주고 기꺼이 의지하며, '내가 만드는 우리라는 이웃'을 함께 만듭니다. [*3]",
+      "bodyColumns": [
+        [
+          "#예술가의_시작\n프로그램의 첫 문을 열며, 단원들이 스스로를 주체적인 예술가로 인식하는 소중한 시간이 되기를 바랐습니다.",
+          "#틀을_깨는_협업 \n단원들이 직접 질문을 던지고 머리를 맞대며, 정해진 수업의 틀마저 자유롭게 바꾸고 새로운 방식을 시도할 수 있는 주도적인 환경을 열어주고자 합니다. [*1]",
+          "#확장되는_상상력 \n작은 질문이 기발하고 엉뚱한 상상력과 만나, 예술적 공간이 무한히 확장되는 경험을 느끼고,",
+          "#주체적인_탐구 \n이 과정을 통해 스스로 극단의 주인이 되기 위해 무엇을 할지 고민하며, 자신만의 단단한 정체성을 만들어 가기를 바랐습니다. [*2]",
+          "#내가_만드는_우리\n나아가 서로를 다정하게 이끌어주고 기꺼이 의지하며, '내가 만드는 우리라는 이웃'을 함께 만듭니다. [*3]"
+        ]
+      ]
+    },
+    {
+      "id": "tw-02",
+      "spaceId": "chaeum",
+      "spaceName": "청소년예술공간 채움",
+      "accentColor": "blue",
+      "sessionNumber": "02",
+      "date": "움직임_도란",
+      "title": "[200 움직임] 서가를 열며",
+      "keywords": [
+        "몸짓언어",
+        "일상의_움직임",
+        "인식",
+        "표현"
+      ],
+      "summary": "몸에서 몸으로",
+      "bodyParagraphs": [
+        "#고정관념_깨부수기 \n현대무용과 움직임을 어렵게 느끼는 편견에서 벗어나, 누구나 자신의 몸으로 자유롭게 표현할 수 있도록 심리적 장벽을 낮추는 데서 시작합니다. [*1]",
+        "#공간과_감정표현\n내면을 무대 위로 꺼내어 전달하기 위해, 나의 감정과 현재 몸 상태를 인지하고 타인과 공유하는 방법을 자연스럽게 터득합니다. [*2]",
+        "#소리없는_언어\n몸짓이 하나의 언어가 될 수 있음을 발견하고, 스스로 주제와 상황을 상상해 움직임만으로 이야기를 만들어갑니다. [*3]",
+        "#나만의_비밀_움직임\n‘나라는 사람은 어떤 사람인가’라는 질문을 바탕으로 말로 꺼내기 어려운 내면의 이야기를 움직임으로 창작해봅니다.",
+        "#솔직해지는_용기\n자신을 투명하게 마주하는 것은 결코 쉬운 일이 아닙니다. 이를 온몸으로 뱉어내는 과정을 함께하며 솔직한 마음을 드러낼 수 있는 용기를 나눕니다."
+      ],
+      "photos": [],
+      "footnotes": [
+        {
+          "id": "fn-02-1",
+          "marker": "*1",
+          "bgTheme": "blue",
+          "title": "아침에 일어나서 하는 일",
+          "content": "아침의 일상에서 나를 표현하는 움직임을 만들어보는 것처럼  나만의 이야기는 가장 가까운 곳에서 시작한다. 일상의 공간을 탐색하고 움직임을 찾아 몸으로 표현한다. 자동회전문, 센서, 주차장을 오가는 자동차와 무심코 몸을 싣는 엘리베이터. 늘 지나치던 공간과 사물들이 움직임의 시작이 된다. 익숙한 것을 조금 다른 눈으로 바라보면, 그 안에서 몸으로 옮길 수 있는 장면들이 발견된다. 문이 열리고 닫히는 일, 무언가를 감지하고 멈추는 일, 정해진 길을 오가는 일. 일상은 이미 수많은 움직임으로 이루어져 있다.",
+          "body": "아침의 일상에서 나를 표현하는 움직임을 만들어보는 것처럼  나만의 이야기는 가장 가까운 곳에서 시작한다. 일상의 공간을 탐색하고 움직임을 찾아 몸으로 표현한다. 자동회전문, 센서, 주차장을 오가는 자동차와 무심코 몸을 싣는 엘리베이터. 늘 지나치던 공간과 사물들이 움직임의 시작이 된다. 익숙한 것을 조금 다른 눈으로 바라보면, 그 안에서 몸으로 옮길 수 있는 장면들이 발견된다. 문이 열리고 닫히는 일, 무언가를 감지하고 멈추는 일, 정해진 길을 오가는 일. 일상은 이미 수많은 움직임으로 이루어져 있다."
+        },
+        {
+          "id": "fn-02-2",
+          "marker": "*2",
+          "bgTheme": "pink",
+          "title": "마음의 중심",
+          "content": "라면은 학교에 다니면서 심심할 때 삐딱하게 걸었다고 한다. 한 방향으로 몸의 중심점을 이동시키는 일도, 다른 사람에게 몸을 기대어 의지하는 움직임도 정말 잘한다. 마음의 중심을 이동시키긴다. 나에서 타인으로, 타인에서 다시 나로. 평소에 해보았던 움직임이 수업 안에서 새로운 기술이 되기도 한다.",
+          "body": "라면은 학교에 다니면서 심심할 때 삐딱하게 걸었다고 한다. 한 방향으로 몸의 중심점을 이동시키는 일도, 다른 사람에게 몸을 기대어 의지하는 움직임도 정말 잘한다. 마음의 중심을 이동시키긴다. 나에서 타인으로, 타인에서 다시 나로. 평소에 해보았던 움직임이 수업 안에서 새로운 기술이 되기도 한다."
+        },
+        {
+          "id": "fn-02-3",
+          "marker": "*3",
+          "bgTheme": "dark",
+          "title": "몸에서 몸으로",
+          "content": "몸은 생각보다 많은 이야기를 알고 있다. 때로는 말보다 먼저 움직이고, 누군가의 움직임을 보고 나서야 비로소 떠오르는 생각도 있다. 서로의 몸을 바라보고 따라 하고, 조금 다르게 움직여보는 시간. 그렇게 각자의 몸에 있던 이야기가 다른 사람에게 건너간다.",
+          "body": "몸은 생각보다 많은 이야기를 알고 있다. 때로는 말보다 먼저 움직이고, 누군가의 움직임을 보고 나서야 비로소 떠오르는 생각도 있다. 서로의 몸을 바라보고 따라 하고, 조금 다르게 움직여보는 시간. 그렇게 각자의 몸에 있던 이야기가 다른 사람에게 건너간다."
+        }
+      ],
+      "works": [
+        {
+          "id": "wk-1794846231076-881",
+          "title": "나온",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846231076-881.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846231076-881.webp"
+        },
+        {
+          "id": "wk-1794846231353-708",
+          "title": "다낭",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846231353-708.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846231353-708.webp"
+        },
+        {
+          "id": "wk-1794846231642-982",
+          "title": "다유",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846231642-982.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846231642-982.webp"
+        },
+        {
+          "id": "wk-1794846231932-998",
+          "title": "다은",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846231932-998.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846231932-998.webp"
+        },
+        {
+          "id": "wk-1794846232226-898",
+          "title": "라면",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846232226-898.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846232226-898.webp"
+        },
+        {
+          "id": "wk-1794846232479-327",
+          "title": "류리",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846232479-327.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846232479-327.webp"
+        },
+        {
+          "id": "wk-1794846232740-760",
+          "title": "밥코",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846232740-760.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846232740-760.webp"
+        },
+        {
+          "id": "wk-1794846232997-20",
+          "title": "소미",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846232997-20.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846232997-20.webp"
+        },
+        {
+          "id": "wk-1794846233261-180",
+          "title": "수혈",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846233261-180.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846233261-180.webp"
+        },
+        {
+          "id": "wk-1794846233555-885",
+          "title": "슈아",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846233555-885.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846233555-885.webp"
+        },
+        {
+          "id": "wk-1794846233806-172",
+          "title": "승우",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846233806-172.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846233806-172.webp"
+        },
+        {
+          "id": "wk-1794846234115-965",
+          "title": "예림",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846234115-965.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846234115-965.webp"
+        },
+        {
+          "id": "wk-1794846234390-712",
+          "title": "왜요",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846234390-712.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846234390-712.webp"
+        },
+        {
+          "id": "wk-1794846234665-964",
+          "title": "용찬",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846234665-964.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846234665-964.webp"
+        },
+        {
+          "id": "wk-1794846234929-221",
+          "title": "유이",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846234929-221.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846234929-221.webp"
+        },
+        {
+          "id": "wk-1794846235202-299",
+          "title": "인아",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846235202-299.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846235202-299.webp"
+        },
+        {
+          "id": "wk-1794846235483-857",
+          "title": "채린",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846235483-857.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846235483-857.webp"
+        },
+        {
+          "id": "wk-1794846235756-390",
+          "title": "채유",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846235756-390.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846235756-390.webp"
+        },
+        {
+          "id": "wk-1794846236020-996",
+          "title": "평화",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846236020-996.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846236020-996.webp"
+        },
+        {
+          "id": "wk-1794846236300-846",
+          "title": "후뿌",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846236300-846.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846236300-846.webp"
+        },
+        {
+          "id": "wk-1794846236552-388",
+          "title": "히루",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794846236552-388.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794846236552-388.webp"
+        }
+      ],
+      "chaeumPhotos": [
+        "image/uploaded/tw-ch-tw-02-1794845843186-0.webp",
+        "image/uploaded/tw-ch-tw-02-1794845866085-0.webp",
+        "image/uploaded/tw-ch-tw-02-1794845933246-0.webp",
+        "image/uploaded/tw-ch-tw-02-1794845943667-0.webp",
+        "image/uploaded/tw-ch-tw-02-1794845903928-0.webp",
+        "image/uploaded/tw-ch-tw-02-1794845888857-0.webp",
+        "image/uploaded/tw-ch-tw-02-1794845895321-0.webp",
+        "image/uploaded/tw-ch-tw-02-1794845917912-0.webp",
+        "image/uploaded/tw-ch-tw-02-1794845926589-0.webp"
+      ],
+      "huinPhotos": [
+        "image/uploaded/tw-hg-tw-02-1794846000313-0.webp",
+        "image/uploaded/tw-hg-tw-02-1794846077090-0.webp",
+        "image/uploaded/tw-hg-tw-02-1794846091956-0.webp",
+        "image/uploaded/tw-hg-tw-02-1794846010719-0.webp",
+        "image/uploaded/tw-hg-tw-02-1794846118909-0.webp",
+        "image/uploaded/tw-hg-tw-02-1794846030122-0.webp",
+        "image/uploaded/tw-hg-tw-02-1794846057129-0.webp",
+        "image/uploaded/tw-hg-tw-02-1794846068648-0.webp",
+        "image/uploaded/tw-hg-tw-02-1794846127978-0.webp",
+        "image/uploaded/tw-hg-tw-02-1794846137143-0.webp"
+      ],
+      "leadQuote": "몸에서 몸으로",
+      "chaeumPhotoLabel": "청소년예술공간 채움",
+      "huinPhotoLabel": "마을극장 흰고무신",
+      "paragraphs": [
+        "#고정관념_깨부수기 \n현대무용과 움직임을 어렵게 느끼는 편견에서 벗어나, 누구나 자신의 몸으로 자유롭게 표현할 수 있도록 심리적 장벽을 낮추는 데서 시작합니다. [*1]",
+        "#공간과_감정표현\n내면을 무대 위로 꺼내어 전달하기 위해, 나의 감정과 현재 몸 상태를 인지하고 타인과 공유하는 방법을 자연스럽게 터득합니다. [*2]",
+        "#소리없는_언어\n몸짓이 하나의 언어가 될 수 있음을 발견하고, 스스로 주제와 상황을 상상해 움직임만으로 이야기를 만들어갑니다. [*3]",
+        "#나만의_비밀_움직임\n‘나라는 사람은 어떤 사람인가’라는 질문을 바탕으로 말로 꺼내기 어려운 내면의 이야기를 움직임으로 창작해봅니다.",
+        "#솔직해지는_용기\n자신을 투명하게 마주하는 것은 결코 쉬운 일이 아닙니다. 이를 온몸으로 뱉어내는 과정을 함께하며 솔직한 마음을 드러낼 수 있는 용기를 나눕니다."
+      ]
+    },
+    {
+      "id": "tw-03",
+      "spaceId": "chaeum",
+      "spaceName": "청소년예술공간 채움",
+      "accentColor": "green",
+      "sessionNumber": "03",
+      "date": "문학_람보",
+      "title": "[300 문학] 서고를 열며",
+      "keywords": [
+        "관찰과_발견",
+        "감정과_공감",
+        "장소와_기억",
+        "이야기와_표현"
+      ],
+      "summary": "우리는 저마다의 이야기가 있다",
+      "bodyParagraphs": [
+        "시선과 언어를 발견하는 것에서 시작합니다. 문학이 어렵거나 멀리 있는 것이 아니라, 무언가를 자세히 바라보는 순간, 자신의 마음을 들여다보는 순간, 기억을 떠올리고 이야기를 건네는 순간에도 시작될 수 있다는 것을. \n답은 없다는 것, 서로 다른 시선과 목소리가 모두 하나의 이야기가 될 수 있습니다.",
+        "#자세히_본다는_것\n익숙한 사물과 사람을 낯설게 바라보는 일. 눈으로 보면서도 놓치고 있던 것들을 발견하고, 같은 대상을 보더라도 저마다 다르게 느끼고 생각할 수 있습니다. [*1]\n중요한 것은 잘 그리거나 정확하게 묘사하는 것이 아니라, 오래 바라보고 자신만의 방식으로 발견하는 일입니다.",
+        "#보이지_않는_마음을_표현한다는 것\n마음에도 모양과 색깔이 있다면 어떨까요. 마음을 X-ray로 들여다본다는 상상을 통해 기쁨과 슬픔, 두려움과 설렘처럼 눈에 보이지 않는 감정을 이미지와 언어로 표현합니다. [*2]\n자신의 감정을 들여다보는 일에서 나아가 다른 사람의 마음을 듣고 이해하며, 서로의 감정이 다르다는 사실을 자연스럽게 알 수 있기를 바랍니다.",
+        "#공간이_이야기가_되는_순간 \n우리가 머무는 공간에는 저마다의 기억과 이야기가 쌓여 있습니다. \n익숙한 공간을 탐색하고 새로운 시선으로 바라보면서, 모두에게 열려 있는 같은 공간이 누군가에게는 전혀 다른 의미의 장소가 될 수 있다는 것을 떠올립니다. [*3]",
+        "#내 목소리로_말한다는_것\n이야기는 기억에 남는 작은 순간, 마음속에 오래 머물러 있던 장면에서 출발합니다. \n글을 잘 쓰거나 유창하게 발표하는 것보다 자신의 생각과 감정을 끝까지 말해보고, 다른 사람의 목소리에 귀 기울여봅니다."
+      ],
+      "photos": [],
+      "footnotes": [
+        {
+          "id": "fn-03-1",
+          "marker": "*1",
+          "bgTheme": "pink",
+          "title": "아직 오지 않은",
+          "content": "어떨 때 기쁠까. “내일 좋은 곳으로 놀러갈 때요!” 어떨 때 슬플까. “사람들은 많은데 나만 집에서 크리스마스 이브를 보낼 때요.” 같은 질문에도 저마다 다른 장면이 떠오른다. 기쁨은 아직 오지 않은 내일에 있기도 하고, 슬픔은 많은 사람들 사이에 혼자 남겨진 저녁에 있기도 하다.",
+          "body": "어떨 때 기쁠까. “내일 좋은 곳으로 놀러갈 때요!” 어떨 때 슬플까. “사람들은 많은데 나만 집에서 크리스마스 이브를 보낼 때요.” 같은 질문에도 저마다 다른 장면이 떠오른다. 기쁨은 아직 오지 않은 내일에 있기도 하고, 슬픔은 많은 사람들 사이에 혼자 남겨진 저녁에 있기도 하다."
+        },
+        {
+          "id": "fn-03-2",
+          "marker": "*2",
+          "bgTheme": "red",
+          "title": "마음 X-ray",
+          "content": "보이지 않지만 존재하는 것. 마음 엑스레이를 다시 들여다본다. 몸에 감정이 있다. 가슴이나 머리뿐 아니라 쇄골에도, 무릎에도 감정이 있다. 마음이 몸의 어딘가에 머물러 있다면, 그곳은 우리가 미처 생각하지 못했던 자리일 수도 있다. 보이지 않는 것을 상상하고, 아직 이름 붙이지 못한 감각에 자리를 내어준다.",
+          "body": "보이지 않지만 존재하는 것. 마음 엑스레이를 다시 들여다본다. 몸에 감정이 있다. 가슴이나 머리뿐 아니라 쇄골에도, 무릎에도 감정이 있다. 마음이 몸의 어딘가에 머물러 있다면, 그곳은 우리가 미처 생각하지 못했던 자리일 수도 있다. 보이지 않는 것을 상상하고, 아직 이름 붙이지 못한 감각에 자리를 내어준다."
+        },
+        {
+          "id": "fn-03-3",
+          "marker": "*3",
+          "bgTheme": "yellow",
+          "title": "이름 붙여 부를 때",
+          "content": "장소에는 이름이 있고, 이름에는 그곳에서 보낸 시간이 있다.",
+          "body": "장소에는 이름이 있고, 이름에는 그곳에서 보낸 시간이 있다."
+        }
+      ],
+      "works": [
+        {
+          "id": "wk-1794847603968-62",
+          "title": "나온",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794847603968-62.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794847603968-62.webp"
+        },
+        {
+          "id": "wk-1794847604904-705",
+          "title": "라면",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794847604904-705.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794847604904-705.webp"
+        },
+        {
+          "id": "wk-1794847605718-893",
+          "title": "소미",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794847605718-893.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794847605718-893.webp"
+        },
+        {
+          "id": "wk-1794847606824-552",
+          "title": "예림",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794847606824-552.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794847606824-552.webp"
+        },
+        {
+          "id": "wk-1794847607926-829",
+          "title": "용찬",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794847607926-829.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794847607926-829.webp"
+        },
+        {
+          "id": "wk-1794847608796-94",
+          "title": "평화",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794847608796-94.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794847608796-94.webp"
+        },
+        {
+          "id": "wk-1794847609762-828",
+          "title": "후뿌",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794847609762-828.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794847609762-828.webp"
+        }
+      ],
+      "chaeumPhotos": [
+        "image/uploaded/tw-ch-tw-03-1794847222782-0.webp",
+        "image/uploaded/tw-ch-tw-03-1794847244521-0.webp",
+        "image/uploaded/tw-ch-tw-03-1794847217330-0.webp",
+        "image/uploaded/tw-ch-tw-03-1794847661081-0.webp",
+        "image/uploaded/tw-ch-tw-03-1794847264238-0.webp",
+        "image/uploaded/tw-ch-tw-03-1794847277530-0.webp",
+        "image/uploaded/tw-ch-tw-03-1794847284546-0.webp",
+        "image/uploaded/tw-ch-tw-03-1794847306588-0.webp",
+        "image/uploaded/tw-ch-tw-03-1794847293367-0.webp"
+      ],
+      "huinPhotos": [
+        "image/uploaded/tw-hg-tw-03-1794847377207-0.webp",
+        "image/uploaded/tw-hg-tw-03-1794847404827-0.webp",
+        "image/uploaded/tw-hg-tw-03-1794847415296-0.webp",
+        "image/uploaded/tw-hg-tw-03-1794847424199-0.webp",
+        "image/uploaded/tw-hg-tw-03-1794847446529-0.webp",
+        "image/uploaded/tw-hg-tw-03-1794847460561-0.webp",
+        "image/uploaded/tw-hg-tw-03-1794847468025-0.webp",
+        "image/uploaded/tw-hg-tw-03-1794847503474-0.webp",
+        "image/uploaded/tw-hg-tw-03-1794847512091-0.webp",
+        "image/uploaded/tw-hg-tw-03-1794847523845-0.webp"
+      ],
+      "leadQuote": "우리는 저마다의 이야기가 있다",
+      "chaeumPhotoLabel": "청소년예술공간 채움",
+      "huinPhotoLabel": "마을극장 흰고무신",
+      "paragraphs": [
+        "시선과 언어를 발견하는 것에서 시작합니다. 문학이 어렵거나 멀리 있는 것이 아니라, 무언가를 자세히 바라보는 순간, 자신의 마음을 들여다보는 순간, 기억을 떠올리고 이야기를 건네는 순간에도 시작될 수 있다는 것을. \n답은 없다는 것, 서로 다른 시선과 목소리가 모두 하나의 이야기가 될 수 있습니다.",
+        "#자세히_본다는_것\n익숙한 사물과 사람을 낯설게 바라보는 일. 눈으로 보면서도 놓치고 있던 것들을 발견하고, 같은 대상을 보더라도 저마다 다르게 느끼고 생각할 수 있습니다. [*1]\n중요한 것은 잘 그리거나 정확하게 묘사하는 것이 아니라, 오래 바라보고 자신만의 방식으로 발견하는 일입니다.",
+        "#보이지_않는_마음을_표현한다는 것\n마음에도 모양과 색깔이 있다면 어떨까요. 마음을 X-ray로 들여다본다는 상상을 통해 기쁨과 슬픔, 두려움과 설렘처럼 눈에 보이지 않는 감정을 이미지와 언어로 표현합니다. [*2]\n자신의 감정을 들여다보는 일에서 나아가 다른 사람의 마음을 듣고 이해하며, 서로의 감정이 다르다는 사실을 자연스럽게 알 수 있기를 바랍니다.",
+        "#공간이_이야기가_되는_순간 \n우리가 머무는 공간에는 저마다의 기억과 이야기가 쌓여 있습니다. \n익숙한 공간을 탐색하고 새로운 시선으로 바라보면서, 모두에게 열려 있는 같은 공간이 누군가에게는 전혀 다른 의미의 장소가 될 수 있다는 것을 떠올립니다. [*3]",
+        "#내 목소리로_말한다는_것\n이야기는 기억에 남는 작은 순간, 마음속에 오래 머물러 있던 장면에서 출발합니다. \n글을 잘 쓰거나 유창하게 발표하는 것보다 자신의 생각과 감정을 끝까지 말해보고, 다른 사람의 목소리에 귀 기울여봅니다."
+      ]
+    },
+    {
+      "id": "tw-04",
+      "spaceId": "chaeum",
+      "spaceName": "청소년예술공간 채움",
+      "accentColor": "yellow",
+      "sessionNumber": "04",
+      "date": "연결_극",
+      "title": "[400 연결1] 서가를 열며",
+      "keywords": [
+        "합반",
+        "처음_만나는_날",
+        "아시테지"
+      ],
+      "summary": "『잠들고 싶지 않아!』",
+      "bodyParagraphs": [
+        "『잠들고 싶지 않아!』의 줄거리와 공연 내용을 참고하여 이 작품을 단체 관람 작품으로 선정하게 되었습니다.",
+        "도봉 꿈의극단 단원들은 1학기 연극수업을 통해 연극이 움직임, 음악, 문학, 미술 등 다양한 예술 요소가 유기적으로 결합된 종합예술이라는 점을 경험했습니다. 이를 위해 움직임(놀이 및 즉흥연기), 현대무용, 문학(글쓰기), 주제곡 배우기 등 다양한 예술 활동을 경험하며 말이 아닌 여러 표현의 언어를 탐구하는 시간을 가졌습니다.",
+        "그 과정에서 움직임을 통한 이미지와 이야기 창작, 자신의 감정을 문장으로 표현하는 글쓰기, 조명을 활용한 빛의 감각 탐색, 공간을 입체적으로 경험하는 시각예술적 탐색 등을 통해 감각이 하나의 이야기로 전환되는 과정을 경험했습니다.",
+        "이러한 경험을 바탕으로 단원들이 체험한 다양한 예술 요소가 실제 공연 안에서 어떻게 하나의 '연극'으로 완성되는지를 직접 경험할 수 있도록 전문 극단의 공연을 단체 관람 프로그램으로 기획했습니다. 이를 통해 자신들이 배운 표현 방식들이 공연 안에서 어떻게 확장되고 연결되는지 탐색하고, 2학기부터 본격적으로 진행될 연극 창작 과정에서 자신의 상상력과 표현 가능성을 더욱 넓혀갈 수 있는 계기가 되기를 기대합니다.",
+        "『잠들고 싶지 않아!』는 말 중심의 대사보다는 신체를 중심으로 이야기가 전개되지만, 단순한 무용극이 아닌 '연극'이라는 장르 안에서 다양한 표현 언어를 활용하여 서사를 만들어 가는 작품입니다. 놀이, 움직임, 빛, 공간, 인물 등 여러 연극적 요소를 유기적으로 배치하여 어린이들이 공감할 수 있는 '잠들고 싶지 않은 어느 밤'의 이야기를 따뜻하고 유쾌하게 풀어냅니다.",
+        "특히 말 이외의 다양한 표현 방식을 통해 관객과 소통하는 이 작품은 도봉 꿈의극단 단원들이 1학기 동안 탐구했던 예술적 경험과도 맞닿아 있습니다. 따라서 이번 공연 관람은 단원들이 자신들의 경험을 실제 공연과 연결해 보고, 연극이 지닌 다양한 표현 가능성을 발견하며 앞으로의 창작 활동에 새로운 영감과 상상력을 확장하는 의미 있는 경험이 되었을 것으로 기대합니다.",
+        "_예술감독_하르"
+      ],
+      "photos": [],
+      "footnotes": [],
+      "works": [],
+      "chaeumPhotos": [
+        "image/uploaded/tw-ch-tw-04-1794847921081-0.webp"
+      ],
+      "huinPhotos": [
+        "image/uploaded/tw-hg-tw-04-1794847931932-0.webp"
+      ],
+      "leadQuote": "『잠들고 싶지 않아!』",
+      "chaeumPhotoLabel": "-",
+      "huinPhotoLabel": "-",
+      "paragraphs": [
+        "『잠들고 싶지 않아!』의 줄거리와 공연 내용을 참고하여 이 작품을 단체 관람 작품으로 선정하게 되었습니다.",
+        "도봉 꿈의극단 단원들은 1학기 연극수업을 통해 연극이 움직임, 음악, 문학, 미술 등 다양한 예술 요소가 유기적으로 결합된 종합예술이라는 점을 경험했습니다. 이를 위해 움직임(놀이 및 즉흥연기), 현대무용, 문학(글쓰기), 주제곡 배우기 등 다양한 예술 활동을 경험하며 말이 아닌 여러 표현의 언어를 탐구하는 시간을 가졌습니다.",
+        "그 과정에서 움직임을 통한 이미지와 이야기 창작, 자신의 감정을 문장으로 표현하는 글쓰기, 조명을 활용한 빛의 감각 탐색, 공간을 입체적으로 경험하는 시각예술적 탐색 등을 통해 감각이 하나의 이야기로 전환되는 과정을 경험했습니다.",
+        "이러한 경험을 바탕으로 단원들이 체험한 다양한 예술 요소가 실제 공연 안에서 어떻게 하나의 '연극'으로 완성되는지를 직접 경험할 수 있도록 전문 극단의 공연을 단체 관람 프로그램으로 기획했습니다. 이를 통해 자신들이 배운 표현 방식들이 공연 안에서 어떻게 확장되고 연결되는지 탐색하고, 2학기부터 본격적으로 진행될 연극 창작 과정에서 자신의 상상력과 표현 가능성을 더욱 넓혀갈 수 있는 계기가 되기를 기대합니다.",
+        "『잠들고 싶지 않아!』는 말 중심의 대사보다는 신체를 중심으로 이야기가 전개되지만, 단순한 무용극이 아닌 '연극'이라는 장르 안에서 다양한 표현 언어를 활용하여 서사를 만들어 가는 작품입니다. 놀이, 움직임, 빛, 공간, 인물 등 여러 연극적 요소를 유기적으로 배치하여 어린이들이 공감할 수 있는 '잠들고 싶지 않은 어느 밤'의 이야기를 따뜻하고 유쾌하게 풀어냅니다.",
+        "특히 말 이외의 다양한 표현 방식을 통해 관객과 소통하는 이 작품은 도봉 꿈의극단 단원들이 1학기 동안 탐구했던 예술적 경험과도 맞닿아 있습니다. 따라서 이번 공연 관람은 단원들이 자신들의 경험을 실제 공연과 연결해 보고, 연극이 지닌 다양한 표현 가능성을 발견하며 앞으로의 창작 활동에 새로운 영감과 상상력을 확장하는 의미 있는 경험이 되었을 것으로 기대합니다.",
+        "_예술감독_하르"
+      ]
+    },
+    {
+      "id": "tw-05",
+      "spaceId": "chaeum",
+      "spaceName": "청소년예술공간 채움",
+      "accentColor": "orange",
+      "sessionNumber": "05",
+      "date": "연결_소리",
+      "title": "[500 연결2] 서가를 열며",
+      "keywords": [
+        "특강",
+        "합창",
+        "소리채집"
+      ],
+      "summary": "우리들의 이야기 소리내어 부르기",
+      "bodyParagraphs": [
+        "-"
+      ],
+      "photos": [],
+      "footnotes": [],
+      "works": [
+        {
+          "id": "wk-1794848061656-140",
+          "title": "소리채집1",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794848061656-140.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794848061656-140.webp"
+        },
+        {
+          "id": "wk-1794848062018-833",
+          "title": "소리채집2",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794848062018-833.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794848062018-833.webp"
+        },
+        {
+          "id": "wk-1794848062452-52",
+          "title": "소리채집3",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794848062452-52.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794848062452-52.webp"
+        },
+        {
+          "id": "wk-1794848063010-616",
+          "title": "소리채집4",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794848063010-616.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794848063010-616.webp"
+        },
+        {
+          "id": "wk-1794848063418-595",
+          "title": "소리채집5",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794848063418-595.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794848063418-595.webp"
+        },
+        {
+          "id": "wk-1794848063924-109",
+          "title": "소리채집6",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794848063924-109.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794848063924-109.webp"
+        },
+        {
+          "id": "wk-1794848064322-460",
+          "title": "소리채집7",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794848064322-460.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794848064322-460.webp"
+        },
+        {
+          "id": "wk-1794848064724-406",
+          "title": "소리채집8",
+          "childName": "단원",
+          "author": "단원",
+          "workType": "작업 기록",
+          "description": "",
+          "image": "image/uploaded/tw-wk-wk-1794848064724-406.webp",
+          "imageUrl": "image/uploaded/tw-wk-wk-1794848064724-406.webp"
+        }
+      ],
+      "chaeumPhotos": [
+        "image/uploaded/tw-ch-tw-05-1794848162497-0.webp",
+        "image/uploaded/tw-ch-tw-05-1794848183600-0.webp",
+        "image/uploaded/tw-ch-tw-05-1794848193555-0.webp",
+        "image/uploaded/tw-ch-tw-05-1794848202234-0.webp",
+        "image/uploaded/tw-ch-tw-05-1794848221801-0.webp",
+        "image/uploaded/tw-ch-tw-05-1794848244104-0.webp",
+        "image/uploaded/tw-ch-tw-05-1794848259697-0.webp",
+        "image/uploaded/tw-ch-tw-05-1794848250982-0.webp"
+      ],
+      "huinPhotos": [
+        "image/uploaded/tw-hg-tw-05-1794848337130-0.webp",
+        "image/uploaded/tw-hg-tw-05-1794848287097-0.webp",
+        "image/uploaded/tw-hg-tw-05-1794848296768-0.webp",
+        "image/uploaded/tw-hg-tw-05-1794848354750-0.webp",
+        "image/uploaded/tw-hg-tw-05-1794848322343-0.webp",
+        "image/uploaded/tw-hg-tw-05-1794848328007-0.webp",
+        "image/uploaded/tw-hg-tw-05-1794848341818-0.webp",
+        "image/uploaded/tw-hg-tw-05-1794848360330-0.webp",
+        "image/uploaded/tw-hg-tw-05-1794848379426-0.webp",
+        "image/uploaded/tw-hg-tw-05-1794848388805-0.webp",
+        "image/uploaded/tw-hg-tw-05-1794848417573-0.webp"
+      ],
+      "leadQuote": "우리들의 이야기 소리내어 부르기",
+      "chaeumPhotoLabel": "특강_합창",
+      "huinPhotoLabel": "특강_소리채집",
+      "paragraphs": [
+        "-"
+      ]
+    },
+    {
+      "id": "tw-06",
+      "spaceId": "huingomusin",
+      "spaceName": "마을극장 흰고무신",
+      "accentColor": "blue",
+      "sessionNumber": "06",
+      "date": "연극제작_공주, 다롱, 하르, 담담, 파도",
+      "title": "[600 연극제작] 서가를 열며",
+      "keywords": [
+        "채움파트",
+        "흰고무신파트",
+        "연극제작"
+      ],
+      "summary": "마스킹테이프로 만든 무대",
+      "bodyParagraphs": [
+        "#일상의_재발견 \n연극은 우리 주변의 공간을 낯설고 새롭게 바라보는 것에서부터 시작합니다. 단원들은 채움이라는 공간 안에서 작은 흔적을 관찰하거나 벽과 바닥이 내는 소리에 귀를 기울였습니다. [*1]",
+        "#몸으로_엮어내는_세계 \n공간에서 발견한 단서들은 단원들의 움직임을 통해 입체적인 장면으로 확장되었습니다. 서로의 상상을 덧붙이며 단원들은 서로의 생각을 듣고, 협상하고 몸으로 부딪히며 함께 하나의 세계를 직조해 나갑니다.",
+        "#흔적_남기기 \n단원들이 감각하고 표현한 세계는 결국 모두의 흔적으로 남습니다. 단원들 각자가 공간에 남긴 반짝이는 흔적과 목소리가 하나로 어우러져 이번 공연 속에 고스란히 담겼기를 바랍니다.",
+        "_채움파트_협력_연출_담담",
+        "#사람책도서관의_시작 \n『사람책 도서관』은 누구나 고유한 이야기를 가진 한 권의 책이 될 수 있다는 관점에서 출발합니다. [*2]",
+        "#감각의_깨어남 \n무엇보다, '지금, 여기'에서 놀이와 움직임을 통해 몸의 감각을 활짝 깨우고, 자신과 타인, 그리고 극장 공간을 새롭게 인식하는 경험을 열어주었습니다.",
+        "#시선의_확장 \n마을극장 흰고무신의 역사와 공간에 남겨진 흔적을 관찰하며, 같은 공간 안에서도 서로 다르게 발견하고 해석하는 낯선 시선을 기르고",
+        "#관계의_재발견 \n자신에게 의미 있는 물건에 담긴 기억을 나누고 새로운 상황을 즉흥극으로 발전시키며, 친구들의 움직임과 이야기에 반응하고 호흡을 맞추는 법을 배워갔습니다.",
+        "#비밀의_가시화 \n자발적인 선택을 통해 나만의 '비밀 이야기'와 숨겨진 감정들을 무대 위 대사와 몸짓으로 과감하게 꺼내어놓는 과정에서, 스스로 선택하고 행동하는 주체적인 삶의 용기를 발견하기를 바랍니다.",
+        "_흰고무신파트_연출_및_극작_공주"
+      ],
+      "photos": [],
+      "footnotes": [
+        {
+          "id": "fn-06-1",
+          "marker": "*1",
+          "bgTheme": "blue",
+          "title": "일상과 무대",
+          "content": "마스킹테이프로 바닥에 무대의 경계를 만든다. 테이프로 그어진 선 안쪽과 바깥쪽. 그 안에서 지켜야 할 규칙을 정하고 배우로 머문다. 평소와 같은 교실이지만 바닥에 선을 긋는 순간 다른 공간이 생겨난다. 그곳에 서 있는 동안에는 조금 다른 몸과 태도가 필요하다.",
+          "body": "마스킹테이프로 바닥에 무대의 경계를 만든다. 테이프로 그어진 선 안쪽과 바깥쪽. 그 안에서 지켜야 할 규칙을 정하고 배우로 머문다. 평소와 같은 교실이지만 바닥에 선을 긋는 순간 다른 공간이 생겨난다. 그곳에 서 있는 동안에는 조금 다른 몸과 태도가 필요하다."
+        },
+        {
+          "id": "fn-06-2",
+          "marker": "*2",
+          "bgTheme": "yellow",
+          "title": "하루의 움직임",
+          "content": "매일 반복하는 수많은 동작들 가운데 어떤 움직임은 유난히 기억에 남는다. 하루를 돌아보고, 그중 하나를 골라 다시 무대 위에 올려놓는다. 특별한 사건이 아니어도 좋다. 나에게 의미가 있었다는 사실만으로 하나의 장면이 된다.",
+          "body": "매일 반복하는 수많은 동작들 가운데 어떤 움직임은 유난히 기억에 남는다. 하루를 돌아보고, 그중 하나를 골라 다시 무대 위에 올려놓는다. 특별한 사건이 아니어도 좋다. 나에게 의미가 있었다는 사실만으로 하나의 장면이 된다."
+        }
+      ],
+      "works": [],
+      "chaeumPhotos": [
+        "image/uploaded/tw-ch-tw-06-1794849340727-0.webp",
+        "image/uploaded/tw-ch-tw-06-1794849366342-0.webp",
+        "image/uploaded/tw-ch-tw-06-1794849334212-0.webp",
+        "image/uploaded/tw-ch-tw-06-1794849348403-0.webp",
+        "image/uploaded/tw-ch-tw-06-1794849378016-0.webp",
+        "image/uploaded/tw-ch-tw-06-1794849385992-0.webp",
+        "image/uploaded/tw-ch-tw-06-1794849405784-0.webp",
+        "image/uploaded/tw-ch-tw-06-1794849412783-0.webp",
+        "image/uploaded/tw-ch-tw-06-1794849326626-0.webp"
+      ],
+      "huinPhotos": [
+        "image/uploaded/tw-hg-tw-06-1794849468326-0.webp",
+        "image/uploaded/tw-hg-tw-06-1794849468823-1.webp",
+        "image/uploaded/tw-hg-tw-06-1794849494490-0.webp",
+        "image/uploaded/tw-hg-tw-06-1794849480057-0.webp",
+        "image/uploaded/tw-hg-tw-06-1794849480554-1.webp",
+        "image/uploaded/tw-hg-tw-06-1794849563483-0.webp",
+        "image/uploaded/tw-hg-tw-06-1794849551636-0.webp",
+        "image/uploaded/tw-hg-tw-06-1794849501555-0.webp",
+        "image/uploaded/tw-hg-tw-06-1794849510896-0.webp"
+      ],
+      "leadQuote": "마스킹테이프로 만든 무대",
+      "chaeumPhotoLabel": "청소년예술공간 채움",
+      "huinPhotoLabel": "마을극장 흰고무신",
+      "paragraphs": [
+        "#일상의_재발견 \n연극은 우리 주변의 공간을 낯설고 새롭게 바라보는 것에서부터 시작합니다. 단원들은 채움이라는 공간 안에서 작은 흔적을 관찰하거나 벽과 바닥이 내는 소리에 귀를 기울였습니다. [*1]",
+        "#몸으로_엮어내는_세계 \n공간에서 발견한 단서들은 단원들의 움직임을 통해 입체적인 장면으로 확장되었습니다. 서로의 상상을 덧붙이며 단원들은 서로의 생각을 듣고, 협상하고 몸으로 부딪히며 함께 하나의 세계를 직조해 나갑니다.",
+        "#흔적_남기기 \n단원들이 감각하고 표현한 세계는 결국 모두의 흔적으로 남습니다. 단원들 각자가 공간에 남긴 반짝이는 흔적과 목소리가 하나로 어우러져 이번 공연 속에 고스란히 담겼기를 바랍니다.",
+        "_채움파트_협력_연출_담담",
+        "#사람책도서관의_시작 \n『사람책 도서관』은 누구나 고유한 이야기를 가진 한 권의 책이 될 수 있다는 관점에서 출발합니다. [*2]",
+        "#감각의_깨어남 \n무엇보다, '지금, 여기'에서 놀이와 움직임을 통해 몸의 감각을 활짝 깨우고, 자신과 타인, 그리고 극장 공간을 새롭게 인식하는 경험을 열어주었습니다.",
+        "#시선의_확장 \n마을극장 흰고무신의 역사와 공간에 남겨진 흔적을 관찰하며, 같은 공간 안에서도 서로 다르게 발견하고 해석하는 낯선 시선을 기르고",
+        "#관계의_재발견 \n자신에게 의미 있는 물건에 담긴 기억을 나누고 새로운 상황을 즉흥극으로 발전시키며, 친구들의 움직임과 이야기에 반응하고 호흡을 맞추는 법을 배워갔습니다.",
+        "#비밀의_가시화 \n자발적인 선택을 통해 나만의 '비밀 이야기'와 숨겨진 감정들을 무대 위 대사와 몸짓으로 과감하게 꺼내어놓는 과정에서, 스스로 선택하고 행동하는 주체적인 삶의 용기를 발견하기를 바랍니다.",
+        "_흰고무신파트_연출_및_극작_공주"
+      ]
+    },
+    {
+      "id": "tw-07",
+      "spaceId": "huingomusin",
+      "spaceName": "마을극장 흰고무신",
+      "accentColor": "green",
+      "sessionNumber": "07",
+      "date": "공연_꿈의극단도봉",
+      "title": "조명이 켜진 도서관",
+      "keywords": [
+        "다음역은_비밀서고입니다",
+        "사람책도서관:비밀서고_이야기",
+        "261118",
+        "261121"
+      ],
+      "summary": "두 개의 도서관에서 만날 수 있는 이야기들",
+      "bodyParagraphs": [
+        "공연에서 만나요!"
+      ],
+      "photos": [],
+      "footnotes": [],
+      "works": [],
+      "chaeumPhotos": [],
+      "huinPhotos": [],
+      "leadQuote": "두 개의 도서관에서 만날 수 있는 이야기들",
+      "chaeumPhotoLabel": "다음역은_비밀서고입니다",
+      "huinPhotoLabel": "사람책도서관:비밀서고_이야기",
+      "paragraphs": [
+        "공연에서 만나요!"
+      ]
+    }
+  ],
+  "libraryAssets": [
+    {
+      "id": "ast-c-01",
+      "fileName": "IMG_1213.JPG",
+      "filePath": "image/공간/채움/IMG_1213.JPG",
+      "realUrl": "image/공간/채움/IMG_1213.JPG",
+      "mediaType": "photo",
+      "spaceId": "chaeum",
+      "elementCategory": "통로 · 경계",
+      "dashboard": "monologue",
+      "linkedTargetId": "c-01",
+      "title": "[채움 01] 도봉산역 지하철 환승 무빙워크 통로",
+      "tags": [
+        "#채움",
+        "#지하철환승통로",
+        "#무빙워크",
+        "#김서연"
+      ],
+      "fileSize": "2.1 MB",
+      "createdAt": "2026-11-15"
+    },
+    {
+      "id": "ast-c-02",
+      "fileName": "IMG_1212.JPG",
+      "filePath": "image/공간/채움/IMG_1212.JPG",
+      "realUrl": "image/공간/채움/IMG_1212.JPG",
+      "mediaType": "photo",
+      "spaceId": "chaeum",
+      "elementCategory": "계단",
+      "dashboard": "monologue",
+      "linkedTargetId": "c-02",
+      "title": "[채움 02] 문장이 적힌 지하철 연결 계단과 에스컬레이터",
+      "tags": [
+        "#채움",
+        "#환승계단",
+        "#계단글자",
+        "#박지호"
+      ],
+      "fileSize": "2.3 MB",
+      "createdAt": "2026-11-15"
+    },
+    {
+      "id": "ast-c-03",
+      "fileName": "IMG_1145 2.JPG",
+      "filePath": "image/공간/채움/IMG_1145 2.JPG",
+      "realUrl": "image/공간/채움/IMG_1145 2.JPG",
+      "mediaType": "photo",
+      "spaceId": "chaeum",
+      "elementCategory": "기둥",
+      "dashboard": "monologue",
+      "linkedTargetId": "c-03",
+      "title": "[채움 03] 광역버스환승센터 거대 사각 기둥과 벤치",
+      "tags": [
+        "#채움",
+        "#버스환승센터",
+        "#기둥",
+        "#이도윤"
+      ],
+      "fileSize": "2.4 MB",
+      "createdAt": "2026-11-15"
+    },
+    {
+      "id": "ast-c-07",
+      "fileName": "IMG_1168 2.JPG",
+      "filePath": "image/공간/채움/IMG_1168 2.JPG",
+      "realUrl": "image/공간/채움/IMG_1168 2.JPG",
+      "mediaType": "photo",
+      "spaceId": "chaeum",
+      "elementCategory": "바닥 · 무대",
+      "dashboard": "monologue",
+      "linkedTargetId": "c-07",
+      "title": "[채움 07] CHAE UM 네온 우드월 & 전면 거울 무대 마루",
+      "tags": [
+        "#채움",
+        "#나무마루무대",
+        "#전면거울",
+        "#윤지우"
+      ],
+      "fileSize": "2.5 MB",
+      "createdAt": "2026-11-15"
+    },
+    {
+      "id": "ast-h-01",
+      "fileName": "IMG_1003.JPG",
+      "filePath": "image/공간/마을극장 흰고무신/IMG_1003.JPG",
+      "realUrl": "image/공간/마을극장 흰고무신/IMG_1003.JPG",
+      "mediaType": "photo",
+      "spaceId": "huingomusin",
+      "elementCategory": "벽 · 골목",
+      "dashboard": "monologue",
+      "linkedTargetId": "h-01",
+      "title": "[흰고무신 01] 700-06 골목길과 하얀 요철 돌기 외벽",
+      "tags": [
+        "#흰고무신",
+        "#요철외벽",
+        "#골목길",
+        "#송현우"
+      ],
+      "fileSize": "2.2 MB",
+      "createdAt": "2026-11-15"
+    },
+    {
+      "id": "ast-h-02",
+      "fileName": "IMG_1046.jpg",
+      "filePath": "image/공간/마을극장 흰고무신/IMG_1046.jpg",
+      "realUrl": "image/공간/마을극장 흰고무신/IMG_1046.jpg",
+      "mediaType": "photo",
+      "spaceId": "huingomusin",
+      "elementCategory": "놀이기구",
+      "dashboard": "monologue",
+      "linkedTargetId": "h-02",
+      "title": "[흰고무신 02] 은행나무 놀이터 원통형 미끄럼틀",
+      "tags": [
+        "#흰고무신",
+        "#놀이터",
+        "#원통미끄럼틀",
+        "#조은서"
+      ],
+      "fileSize": "1.9 MB",
+      "createdAt": "2026-11-15"
+    },
+    {
+      "id": "ast-h-08",
+      "fileName": "IMG_1057.JPG",
+      "filePath": "image/공간/마을극장 흰고무신/IMG_1057.JPG",
+      "realUrl": "image/공간/마을극장 흰고무신/IMG_1057.JPG",
+      "mediaType": "photo",
+      "spaceId": "huingomusin",
+      "elementCategory": "바닥 · 옥상",
+      "dashboard": "monologue",
+      "linkedTargetId": "h-08",
+      "title": "[흰고무신 08] 작은 야외 옥상 인조잔디 마당과 나무 벽화",
+      "tags": [
+        "#흰고무신",
+        "#작은옥상",
+        "#잔디마당",
+        "#문채원"
+      ],
+      "fileSize": "2.1 MB",
+      "createdAt": "2026-11-15"
+    },
+    {
+      "id": "ast-h-09",
+      "fileName": "IMG_1076.JPG",
+      "filePath": "image/공간/마을극장 흰고무신/IMG_1076.JPG",
+      "realUrl": "image/공간/마을극장 흰고무신/IMG_1076.JPG",
+      "mediaType": "photo",
+      "spaceId": "huingomusin",
+      "elementCategory": "바닥 · 무대",
+      "dashboard": "monologue",
+      "linkedTargetId": "h-09",
+      "title": "[흰고무신 09] 흰 배경막과 커튼이 드리운 나무 마루 무대",
+      "tags": [
+        "#흰고무신",
+        "#흰배경막무대",
+        "#서은호"
+      ],
+      "fileSize": "2.0 MB",
+      "createdAt": "2026-11-15"
+    },
+    {
+      "id": "ast-vid-01",
+      "fileName": "IMG_1052.MOV",
+      "filePath": "image/공간/마을극장 흰고무신/IMG_1052.MOV",
+      "realUrl": "image/공간/마을극장 흰고무신/IMG_1052.MOV",
+      "mediaType": "video",
+      "spaceId": "huingomusin",
+      "elementCategory": "수업기록",
+      "dashboard": "timework",
+      "linkedTargetId": "tw-03",
+      "title": "마을극장 흰고무신 외부 골목 & 공간 현장 촬영 영상 (IMG_1052.MOV)",
+      "tags": [
+        "#현장영상",
+        "#흰고무신",
+        "#공간기록"
+      ],
+      "fileSize": "14.2 MB",
+      "createdAt": "2026-11-15"
+    }
+  ],
+  "monologueSlidePhotos": [
+    {
+      "id": "ms-01",
+      "url": "image/공간/실제 공간/2026도봉꿈극-02.png",
+      "caption": "청소년예술공간 채움 — 공간 스틸 01"
+    },
+    {
+      "id": "ms-02",
+      "url": "image/공간/실제 공간/2026도봉꿈극-11.png",
+      "caption": "마을극장 흰고무신 — 공간 스틸 01"
+    },
+    {
+      "id": "ms-03",
+      "url": "image/공간/실제 공간/2026도봉꿈극-08.png",
+      "caption": "청소년예술공간 채움 — 공간 스틸 02"
+    },
+    {
+      "id": "ms-04",
+      "url": "image/공간/실제 공간/2026도봉꿈극-16.png",
+      "caption": "마을극장 흰고무신 — 공간 스틸 02"
+    },
+    {
+      "id": "ms-05",
+      "url": "image/공간/실제 공간/2026도봉꿈극-05.png",
+      "caption": "청소년예술공간 채움 — 공간 스틸 03"
+    },
+    {
+      "id": "ms-06",
+      "url": "image/공간/실제 공간/2026도봉꿈극-19.png",
+      "caption": "마을극장 흰고무신 — 공간 스틸 03"
+    }
+  ],
+  "publishHistory": [
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 3:10:19",
+      "author": "admin",
+      "note": "환경음 설정 라이브 퍼블리시"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 3:10:17",
+      "author": "admin",
+      "note": "환경음 설정이 저장 및 라이브에 즉시 반영되었습니다."
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 3:09:31",
+      "author": "admin",
+      "note": "환경음 설정 라이브 퍼블리시"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 3:09:30",
+      "author": "admin",
+      "note": "환경음 설정이 저장 및 라이브에 즉시 반영되었습니다."
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:24:03",
+      "author": "admin",
+      "note": "TimeWork 07페이지 라이브 퍼블리시"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:24:02",
+      "author": "admin",
+      "note": "TimeWork 07페이지 저장"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:19:49",
+      "author": "admin",
+      "note": "TimeWork 06페이지 라이브 퍼블리시"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:19:48",
+      "author": "admin",
+      "note": "TimeWork 06페이지 저장"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:19:44",
+      "author": "admin",
+      "note": "06페이지 마을극장(우측) 사진 순서 변경"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:19:38",
+      "author": "admin",
+      "note": "06페이지 마을극장(우측) 사진 순서 변경"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:19:26",
+      "author": "admin",
+      "note": "06페이지 마을극장(우측) 사진 순서 변경"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:19:23",
+      "author": "admin",
+      "note": "06페이지 우측 사진 1장 업로드"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:19:11",
+      "author": "admin",
+      "note": "06페이지 우측 사진 1장 업로드"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:19:05",
+      "author": "admin",
+      "note": "06페이지 우측 사진 삭제"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:19:02",
+      "author": "admin",
+      "note": "06페이지 우측 사진 1장 업로드"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:18:30",
+      "author": "admin",
+      "note": "06페이지 우측 사진 1장 업로드"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:18:21",
+      "author": "admin",
+      "note": "06페이지 우측 사진 1장 업로드"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:18:14",
+      "author": "admin",
+      "note": "06페이지 우측 사진 1장 업로드"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:18:00",
+      "author": "admin",
+      "note": "06페이지 우측 사진 2장 업로드"
+    },
+    {
+      "version": "v4.21",
+      "publishedAt": "2026. 11. 17. 오전 2:17:48",
+      "author": "admin",
+      "note": "06페이지 우측 사진 2장 업로드"
+    }
+  ],
+  "monologueHero": {
+    "badge": "2026 도봉꿈의극단",
+    "sub": "",
+    "title": "사 람          책\n도 서 관",
+    "titleSize": "106px",
+    "lead": "이야기와 함께 걷기",
+    "desc": "지도 위의 거점(원)을 누르면 그 공간의 요소와\n아이들의 생생한 독백으로 이어집니다.",
+    "align": "left"
+  }
+}
