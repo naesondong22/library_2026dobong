@@ -112,6 +112,12 @@ class MonologueAudioEngine {
     const effectiveVol = Math.max(0, Math.min(1, (track.volume ?? 0.45) * baseMaster));
 
     if (track.audioUrl && track.audioUrl.trim() !== '') {
+      const archiveData = window.ArchiveStore ? window.ArchiveStore.getData() : window.DEFAULT_ARCHIVE_DATA;
+      const libList = archiveData?.ambientSettings?.library || [];
+      const shouldAdvanceRandom = archiveData?.ambientSettings?.randomPlay !== false && libList.length > 1;
+      // 랜덤 연속 재생 시에는 loop를 끄고 onended에서 다음 트랙으로 넘김
+      this.ambientAudio.loop = !shouldAdvanceRandom;
+
       let src = track.audioUrl;
       if (src.startsWith('idb://') && window.LargeMediaDB) {
         src = window.LargeMediaDB.resolveUrlSync(src) || src;
@@ -130,10 +136,11 @@ class MonologueAudioEngine {
         this.ambientAudio.play().catch(() => { });
       }
       this.ambientAudio.onended = () => {
-        const archiveData = window.ArchiveStore ? window.ArchiveStore.getData() : window.DEFAULT_ARCHIVE_DATA;
-        if (archiveData?.ambientSettings?.randomPlay && archiveData.ambientSettings.library?.length > 1) {
-          const lib = archiveData.ambientSettings.library.filter((t) => t.id !== track.id);
-          const nextTrack = lib[Math.floor(Math.random() * lib.length)];
+        const freshData = window.ArchiveStore ? window.ArchiveStore.getData() : window.DEFAULT_ARCHIVE_DATA;
+        const freshLib = freshData?.ambientSettings?.library || [];
+        if (freshData?.ambientSettings?.randomPlay !== false && freshLib.length > 1) {
+          const candidates = freshLib.filter((t) => t.id !== track.id);
+          const nextTrack = candidates[Math.floor(Math.random() * candidates.length)];
           this.startAmbientTrack(nextTrack, masterVolume);
         }
       };

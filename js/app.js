@@ -632,6 +632,51 @@ class ArchiveApp {
       }
     };
 
+    const CHAEUM_MEMBERS = [
+      ['김온음', '슈아'], ['김채아', '채유'], ['서다인', '다은'],
+      ['이루리', '류리'], ['이루미', '히루'], ['이서연', '밥코'],
+      ['조유진', '유이'], ['우주혁', '승우'], ['최재성', '왜요']
+    ];
+    const HUIN_MEMBERS = [
+      ['김다예', '다낭'], ['김라온', '라면'], ['김아인', '인아'],
+      ['김윤우', '우유'], ['김카냐', '체리'], ['나라온', '나온'],
+      ['심수현', '수혈'], ['이다윤', '다유'], ['이서림', '후뿌'],
+      ['이소민', '소미'], ['조윤찬', '용찬'], ['최리나', '채린'],
+      ['홍아림', '예림'], ['김예담', '평화']
+    ];
+
+    const resolveWorkSpaceAndAlias = (w, tw, wIdx) => {
+      const combined = `${w.title || ''} ${w.author || ''} ${w.childName || ''} ${w.description || ''}`.normalize('NFC');
+      let detectedSpace = null;
+      const aliases = [];
+
+      for (const [name, nick] of HUIN_MEMBERS) {
+        if (combined.includes(name) || combined.includes(nick)) {
+          detectedSpace = 'huingomusin';
+          aliases.push(`${name} ${nick}`);
+        }
+      }
+      if (!detectedSpace) {
+        for (const [name, nick] of CHAEUM_MEMBERS) {
+          if (combined.includes(name) || combined.includes(nick)) {
+            detectedSpace = 'chaeum';
+            aliases.push(`${name} ${nick}`);
+          }
+        }
+      }
+      if (!detectedSpace) {
+        if (combined.includes('마극') || combined.includes('흰고무신') || combined.includes('고무신')) {
+          detectedSpace = 'huingomusin';
+        } else if (combined.includes('채움')) {
+          detectedSpace = 'chaeum';
+        }
+      }
+      return {
+        spaceId: detectedSpace || w.spaceId || tw.spaceId || (wIdx % 2 === 0 ? 'chaeum' : 'huingomusin'),
+        searchAlias: aliases.join(' ')
+      };
+    };
+
     this.timeworkPages = (raw.timeworks || raw.timeworkPages || []).map((tw, idx) => {
       const chPhotos = (tw.chaeumPhotos || tw.photos || []).map((p) =>
         typeof p === 'string' ? p : p.url || p.filePath || ''
@@ -658,17 +703,21 @@ class ArchiveApp {
           body: fn.content || fn.body || '',
           author: '아카이빙 기록'
         })),
-        works: (tw.works || []).map((w, wIdx) => ({
-          id: w.id || `${tw.id}-wk-${wIdx + 1}`,
-          spaceId: tw.spaceId || (wIdx % 2 === 0 ? 'chaeum' : 'huingomusin'),
-          title: w.title || '',
-          childName: w.author || w.childName || '',
-          workType: w.medium || w.workType || '작업 기록',
-          description: w.description || '',
-          image: w.imageUrl || w.image || '',
-          sizeVariant: w.sizeVariant || 'md',
-          pageId: tw.id || `tw-${idx + 1}`
-        }))
+        works: (tw.works || []).map((w, wIdx) => {
+          const resolved = resolveWorkSpaceAndAlias(w, tw, wIdx);
+          return {
+            id: w.id || `${tw.id}-wk-${wIdx + 1}`,
+            spaceId: resolved.spaceId,
+            searchAlias: resolved.searchAlias,
+            title: (w.title || '').normalize('NFC'),
+            childName: (w.author || w.childName || '').normalize('NFC'),
+            workType: w.medium || w.workType || '작업 기록',
+            description: (w.description || '').normalize('NFC'),
+            image: w.imageUrl || w.image || '',
+            sizeVariant: w.sizeVariant || 'md',
+            pageId: tw.id || `tw-${idx + 1}`
+          };
+        })
       };
     });
 
@@ -2504,6 +2553,10 @@ class ArchiveApp {
             <img src="${this.safeImgUrl('image/로고/꿈의극단도봉.png')}" alt="꿈의극단도봉" onerror="this.style.display='none'" style="max-height:44px; max-width:180px; object-fit:contain;" />
           </div>
         </div>
+
+        <div class="pi-footer-notice" style="text-align:center; margin-top:18px; padding-bottom:12px; font-size:13px; font-weight:700; color:var(--ink-muted); letter-spacing:-0.01em;">
+          본 아카이빙은 2026 꿈의 예술단 사업의 일환으로 제작되었습니다.
+        </div>
       </div>
     `;
 
@@ -2551,6 +2604,8 @@ class ArchiveApp {
           title: el.monologue.title,
           subtitle: el.childName || '',
           quote: el.monologue.quote,
+          fullStory: el.monologue.fullStory || el.monologueText || '',
+          searchAlias: '',
           photo: el.spaceWebUrl || el.photo,
           elementId: el.id
         });
@@ -2567,6 +2622,8 @@ class ArchiveApp {
           title: w.title,
           subtitle: w.childName,
           quote: w.description,
+          fullStory: '',
+          searchAlias: w.searchAlias || '',
           photo: w.image,
           pageId: p.id,
           workId: w.id
@@ -2578,8 +2635,10 @@ class ArchiveApp {
       if (this.indexFilterSpace !== 'all' && it.spaceId !== this.indexFilterSpace) return false;
       if (this.indexFilterType !== 'all' && it.kind !== this.indexFilterType) return false;
       if (this.indexSearchQuery.trim()) {
-        const q = this.indexSearchQuery.trim().toLowerCase();
-        const hay = `${it.code} ${it.title} ${it.subtitle} ${it.quote} ${it.spaceName}`.toLowerCase();
+        const q = this.indexSearchQuery.trim().normalize('NFC').toLowerCase();
+        const hay = `${it.code} ${it.title} ${it.subtitle} ${it.quote} ${it.fullStory} ${it.searchAlias} ${it.spaceName}`
+          .normalize('NFC')
+          .toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;
