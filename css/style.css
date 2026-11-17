@@ -1081,13 +1081,13 @@ a {
   vertical-align: middle;
 }
 
-/* 가로 애니메이션: 150초 동안 천천히 차분하게 흐름 */
+/* 가로 애니메이션: 천천히 부드럽게 흐름 (28초) */
 .vector-surface-text-track.flow-left .vector-surface-text-row {
-  animation: surfaceSlowLeft 150s linear infinite;
+  animation: surfaceSlowLeft 28s linear infinite;
 }
 
 .vector-surface-text-track.flow-right .vector-surface-text-row {
-  animation: surfaceSlowRight 150s linear infinite;
+  animation: surfaceSlowRight 28s linear infinite;
 }
 
 /* 2. 세로 방향 트랙 (flow-up, flow-down):
@@ -1140,13 +1140,13 @@ a {
     0 2px 12px rgba(0, 0, 0, 0.75);
 }
 
-/* 세로 애니메이션: 기존 20초에서 70초로 대폭 늘려 천천히 차분하게 스크롤 */
+/* 세로 애니메이션: 22초 동안 차분하고 부드럽게 스크롤 */
 .vector-surface-text-track.flow-up .vector-vertical-stream {
-  animation: verticalScrollUp 70s linear infinite;
+  animation: verticalScrollUp 22s linear infinite;
 }
 
 .vector-surface-text-track.flow-down .vector-vertical-stream {
-  animation: verticalScrollDown 70s linear infinite;
+  animation: verticalScrollDown 22s linear infinite;
 }
 
 @keyframes surfaceSlowLeft {

@@ -469,6 +469,28 @@ class ArchiveApp {
     window.addEventListener('archiveDataUpdated', () => reloadData(true));
     window.addEventListener('focus', () => reloadData(true));
 
+    // 시크릿 관리자 진입: Cmd+Shift+A (Mac) 또는 Ctrl+Shift+A (Win) 입력 시 이동
+    window.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        window.location.href = 'admin.html';
+      }
+    });
+
+    // 상단 '2026 도봉꿈의극단' 파란 태그 3회 연속 클릭 시 관리자 페이지로 이동
+    const brandTag = document.querySelector('.brand-tag-blue');
+    if (brandTag) {
+      let clicks = 0;
+      brandTag.style.cursor = 'default';
+      brandTag.addEventListener('click', (e) => {
+        e.stopPropagation();
+        clicks++;
+        if (clicks >= 3) {
+          window.location.href = 'admin.html';
+        }
+        setTimeout(() => { clicks = 0; }, 1800);
+      });
+    }
+
     if (typeof BroadcastChannel !== 'undefined') {
       this._syncChannel = new BroadcastChannel('dobong_archive_sync');
       this._syncChannel.onmessage = (e) => {
@@ -1208,13 +1230,20 @@ class ArchiveApp {
     this.monologueStage = 'space';
     const elements = this.spacesMap[spaceId]?.elements || [];
     this.frontElementId = elementId || (elements[0] ? elements[0].id : null);
-    this.activeElementId = null;
+    // 선택한 거점의 독백 스포트라이트와 움직이는 글자 즉시 활성화!
+    this.activeElementId = this.frontElementId;
 
     if (this.audio) {
       this.audio.stop();
+      const el = elements.find((e) => e.id === this.frontElementId);
+      if (el) {
+        this.audio.playSpotlightCue(this.selectedSpaceId);
+        this.audio.play(el);
+      }
     }
 
     this.renderMonologueView();
+    this.renderStoryPanel();
   }
 
   /* --------------------------------------------------------------------------
@@ -1257,7 +1286,7 @@ class ArchiveApp {
         const flowDir = el.flowDir || 'flow-left';
 
         // 관리자페이지에서 입력한 '아이들 한 줄 문구' 우선 적용
-        const childQuote = (el.monologue?.quote || el.quote || preset.quote || '').trim();
+        const childQuote = (el.monologue?.quote || el.quote || '').trim();
         const isVertical = flowDir === 'flow-up' || flowDir === 'flow-down';
 
         let surfaceContentHtml = '';
@@ -1285,6 +1314,8 @@ class ArchiveApp {
           const rowsHtml = Array.from({ length: rowCount })
             .map((_, rIdx) => `
               <div class="vector-surface-text-row ${rowCount > 1 && rIdx === 1 ? 'row-offset' : ''}">
+                ${phraseUnit}
+                ${phraseUnit}
                 ${phraseUnit}
                 ${phraseUnit}
               </div>
