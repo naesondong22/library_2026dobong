@@ -765,7 +765,7 @@ const DEFAULT_ARCHIVE_DATA = {
           "code": "C-09",
           "bookNumber": "채움 사람 책 09",
           "childName": "이루미 (히루)",
-          "monologueTitle": "",
+          "monologueTitle": "친구네 집",
           "projectionType": "stair",
           "orbitAngle": 320,
           "coords": {
