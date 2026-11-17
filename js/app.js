@@ -1305,12 +1305,24 @@ class ArchiveApp {
             </div>
           `;
         } else {
-          // 가로 재생: 벡터 영역을 거의 꽉 채우는 큼직한 텍스트 띠로 천천히 흐르도록 구성
-          const rowCount = (bbox.height && bbox.height > 48) ? 2 : 1;
+          // 가로 재생:
+          // 1) 초대형 벡터 영역 (높이 70% 이상: h-01, h-05, h-08, h-10): 3줄로 웅장하게 채워 남은 여백을 20%로 축소
+          // 2) 넓은 벡터 영역 (높이 48%~70%: c-01, c-02, c-03): 2줄 큼직하게 채워 남은 여백을 20%로 축소
+          // 3) 좁은 벡터 영역 (높이 48% 미만: c-07, c-08, h-02, h-03, h-04, h-06, h-09): 기존 크기 그대로 유지
+          let rowCount = 1;
+          let sizeClass = 'is-narrow-area';
+          if (bbox.height >= 70) {
+            rowCount = 3;
+            sizeClass = 'is-huge-area';
+          } else if (bbox.height >= 48) {
+            rowCount = 2;
+            sizeClass = 'is-large-area';
+          }
+
           const phraseUnit = `<span>“${childQuote}”</span><span class="vector-surface-divider">✦</span>`;
           const rowsHtml = Array.from({ length: rowCount })
             .map((_, rIdx) => `
-              <div class="vector-surface-text-row ${rowCount > 1 && rIdx === 1 ? 'row-offset' : ''}">
+              <div class="vector-surface-text-row ${rowCount > 1 && rIdx % 2 === 1 ? 'row-offset' : ''}">
                 ${phraseUnit}
                 ${phraseUnit}
                 ${phraseUnit}
@@ -1320,7 +1332,7 @@ class ArchiveApp {
             .join('');
 
           surfaceContentHtml = `
-            <div class="vector-surface-text-track horizontal ${flowDir} ${rowCount > 1 ? 'is-multi-row' : 'is-single-row'}">
+            <div class="vector-surface-text-track horizontal ${flowDir} ${sizeClass}">
               ${rowsHtml}
             </div>
           `;
@@ -1707,7 +1719,7 @@ class ArchiveApp {
             </button>
             <div class="voice-vol-wrap" style="display:inline-flex; align-items:center; gap:4px; margin-left:4px;" title="독백 볼륨 조절">
               <span style="font-size:12px; user-select:none;">🔊</span>
-              <input type="range" id="voiceVolumeSlider" min="0" max="1" step="0.05" value="${this.audio?.monologueVolume ?? 0.5}" style="width:64px; height:4px; accent-color:var(--c-blue); cursor:pointer;" />
+              <input type="range" id="voiceVolumeSlider" min="0" max="1" step="0.05" value="${this.audio?.monologueVolume ?? 0.4}" style="width:64px; height:4px; accent-color:var(--c-blue); cursor:pointer;" />
             </div>
             <span id="voiceProgressTime" style="font-size:11.5px; font-weight:800; margin-left:auto; color:var(--c-blue); font-variant-numeric:tabular-nums;">
               ${window.MonologueAudioEngine ? window.MonologueAudioEngine.formatTime(isPlayingThis ? this.audio.elapsed : 0) : '00:00'} / ${activeEl.monologue.duration || '00:00'}

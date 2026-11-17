@@ -1056,12 +1056,24 @@ a {
     0 3px 18px rgba(0, 0, 0, 0.88);
 }
 
-.vector-surface-text-track.horizontal.is-single-row {
-  font-size: clamp(52px, 5.6vw, 92px);
+/* 좁은 벡터 영역: 기존 크기 유지 (남은 여백 40% 미만) */
+.vector-surface-text-track.horizontal.is-narrow-area {
+  font-size: clamp(34px, 3.6vw, 56px);
+  line-height: 1.25;
 }
 
-.vector-surface-text-track.horizontal.is-multi-row {
-  font-size: clamp(38px, 4.0vw, 66px);
+/* 넓은 벡터 영역: 글자 크기를 키워 남은 여백을 20%로 축소 (2줄) */
+.vector-surface-text-track.horizontal.is-large-area {
+  font-size: clamp(52px, 5.5vw, 88px);
+  line-height: 1.15;
+  gap: 20px;
+}
+
+/* 초대형 벡터 영역: 글자 크기를 극대화하여 남은 여백을 20%로 축소 (3줄) */
+.vector-surface-text-track.horizontal.is-huge-area {
+  font-size: clamp(56px, 6.0vw, 98px);
+  line-height: 1.15;
+  gap: 24px;
 }
 
 .vector-surface-text-track.horizontal .vector-surface-text-row {
@@ -1088,13 +1100,13 @@ a {
   vertical-align: middle;
 }
 
-/* 가로 애니메이션: 큼직한 문구가 천천히 차분하게 흐름 (38초) */
+/* 가로 애니메이션: 기존 38초에서 75초로 대폭 늘려 매우 천천히 차분하고 우아하게 흐름 */
 .vector-surface-text-track.flow-left .vector-surface-text-row {
-  animation: surfaceSlowLeft 38s linear infinite;
+  animation: surfaceSlowLeft 75s linear infinite;
 }
 
 .vector-surface-text-track.flow-right .vector-surface-text-row {
-  animation: surfaceSlowRight 38s linear infinite;
+  animation: surfaceSlowRight 75s linear infinite;
 }
 
 /* 2. 세로 방향 트랙 (flow-up, flow-down):

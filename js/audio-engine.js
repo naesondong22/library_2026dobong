@@ -28,7 +28,7 @@ class MonologueAudioEngine {
     this.duration = 40;
     this.timerInterval = null;
     this.ambientNodes = [];
-    this.monologueVolume = 0.5; // 기본 독백 음량 최대의 50% 기본 설정
+    this.monologueVolume = 0.4; // 기본 독백 음량 최대의 40% 기본 설정
 
     // 환경음(Ambient) 상태
     this.activeAmbientChannelId = null;
