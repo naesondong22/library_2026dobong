@@ -509,7 +509,15 @@ class ArchiveApp {
     }
     const siteTitleEl = document.querySelector('.brand-main');
     if (siteTitleEl && this.rawData?.meta?.siteTitle) {
-      siteTitleEl.textContent = this.rawData.meta.siteTitle;
+      const fullTitle = this.rawData.meta.siteTitle;
+      const colonIdx = fullTitle.indexOf(':');
+      if (colonIdx !== -1) {
+        const mainPart = fullTitle.slice(0, colonIdx);
+        const subPart = fullTitle.slice(colonIdx);
+        siteTitleEl.innerHTML = `${mainPart}<span class="brand-main-sub">${subPart}</span>`;
+      } else {
+        siteTitleEl.textContent = fullTitle;
+      }
     }
   }
 
@@ -1229,20 +1237,13 @@ class ArchiveApp {
     this.monologueStage = 'space';
     const elements = this.spacesMap[spaceId]?.elements || [];
     this.frontElementId = elementId || (elements[0] ? elements[0].id : null);
-    // 선택한 거점의 독백 스포트라이트와 움직이는 글자 즉시 활성화!
-    this.activeElementId = this.frontElementId;
+    this.activeElementId = null;
 
     if (this.audio) {
       this.audio.stop();
-      const el = elements.find((e) => e.id === this.frontElementId);
-      if (el) {
-        this.audio.playSpotlightCue(this.selectedSpaceId);
-        this.audio.play(el);
-      }
     }
 
     this.renderMonologueView();
-    this.renderStoryPanel();
   }
 
   /* --------------------------------------------------------------------------
@@ -1440,6 +1441,7 @@ class ArchiveApp {
 
     this.updateSpaceExplorerState();
     this.bindSpaceExplorerEvents();
+    requestAnimationFrame(() => this.updateSpaceExplorerState());
   }
 
   /**
@@ -1466,9 +1468,9 @@ class ArchiveApp {
     const isSpotlightMode = Boolean(activeEl);
     viewport.classList.toggle('spotlight-mode', isSpotlightMode);
 
-    // 실제 렌더링된 슬롯의 너비와 간격을 측정해 데스크톱·모바일 모두에서 정확히 화면 중앙에 정렬
+    // scale(0.84) 왜곡이 없는 순수 레이아웃 너비(offsetWidth)를 측정하여 데스크톱·모바일 모두 정확히 정중앙에 배치
     const firstSlot = strip.querySelector('.user-vector-slot');
-    const measuredW = firstSlot ? firstSlot.getBoundingClientRect().width : 0;
+    const measuredW = firstSlot ? firstSlot.offsetWidth : 0;
     const slotWidth = measuredW > 0 ? measuredW : 720;
     const stripStyle = window.getComputedStyle(strip);
     const parsedGap = parseFloat(stripStyle.gap || stripStyle.columnGap || '90');
@@ -1604,7 +1606,7 @@ class ArchiveApp {
       window.addEventListener('mousemove', this._onWindowDragMove);
       window.addEventListener('mouseup', this._onWindowDragUp);
 
-      // 모바일 터치 스와이프 지원
+      // 모바일 터치 스와이프 및 탭 지원
       viewport.addEventListener('touchstart', (e) => {
         if (e.target.closest('button') || !e.touches || !e.touches.length) return;
         isDown = true;
@@ -1622,20 +1624,25 @@ class ArchiveApp {
         strip.style.transform = `translate3d(${baseOffset + deltaX}px, -50%, 0)`;
       }, { passive: true });
 
-      viewport.addEventListener('touchend', () => {
+      const finishTouch = () => {
         if (!isDown) return;
         isDown = false;
         strip.classList.remove('is-dragging');
         if (Math.abs(deltaX) > 45) {
           stepFrontElement(deltaX < 0 ? 1 : -1);
+          setTimeout(() => {
+            this.stripDragDeltaX = 0;
+          }, 50);
         } else {
           const baseOffset = this.currentCenterOffsetPx || -180;
           strip.style.transform = `translate3d(${baseOffset}px, -50%, 0)`;
-        }
-        setTimeout(() => {
           this.stripDragDeltaX = 0;
-        }, 40);
-      }, { passive: true });
+        }
+        deltaX = 0;
+      };
+
+      viewport.addEventListener('touchend', finishTouch, { passive: true });
+      viewport.addEventListener('touchcancel', finishTouch, { passive: true });
     }
 
     // 3) 벡터요소 슬롯 클릭:
@@ -1958,7 +1965,7 @@ class ArchiveApp {
              data-bookmark-id="${fn.id}">
           <span class="tw-bookmark-marker">${fn.marker || `*${idx + 1}`}</span>
           <div class="tw-bookmark-vert-chars">${vertChars}</div>
-          <span style="font-size:10px; font-weight:900;">NOTE</span>
+          <span class="tw-bookmark-note-label" style="font-size:10px; font-weight:900;">NOTE</span>
 
           <div class="tw-footnote-popover ${theme.pop}">
             <div style="display:flex; align-items:center; margin-bottom:6px;">
@@ -2064,8 +2071,8 @@ class ArchiveApp {
               .join('')}
           </div>
           <div class="tw-folio-arrows">
-            <button class="tw-arrow-step-btn" id="twPrevPageBtn">← 이전 쪽</button>
-            <button class="tw-arrow-step-btn" id="twNextPageBtn">다음 쪽 →</button>
+            <button class="tw-arrow-step-btn" id="twPrevPageBtn" aria-label="이전 쪽">←<span class="tw-arrow-label"> 이전 쪽</span></button>
+            <button class="tw-arrow-step-btn" id="twNextPageBtn" aria-label="다음 쪽"><span class="tw-arrow-label">다음 쪽 </span>→</button>
           </div>
         </div>
 
