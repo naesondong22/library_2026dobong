@@ -1039,22 +1039,29 @@ a {
 }
 
 /* 1. 가로 방향 트랙 (flow-left, flow-right):
-   - 같은 문장이 여러 번 반복되어 패턴처럼 보이지 않도록 1~2줄의 큼직한 텍스트 띠로 천천히 흐름 */
+   - 벡터 영역을 거의 꽉 채우는 큼직하고 웅장한 타이포그래피가 천천히 흐름 */
 .vector-surface-text-track.horizontal {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
   font-family: var(--font-sans);
-  font-weight: 800;
-  font-size: clamp(28px, 2.9vw, 42px);
-  line-height: 1.35;
-  letter-spacing: -0.01em;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
   color: #FFFFFF !important;
   text-shadow:
-    0 0 12px rgba(255, 255, 255, 0.98),
-    0 0 28px rgba(255, 255, 255, 0.88),
-    0 2px 12px rgba(0, 0, 0, 0.75);
+    0 0 16px rgba(255, 255, 255, 0.98),
+    0 0 36px rgba(255, 255, 255, 0.92),
+    0 3px 18px rgba(0, 0, 0, 0.88);
+}
+
+.vector-surface-text-track.horizontal.is-single-row {
+  font-size: clamp(52px, 5.6vw, 92px);
+}
+
+.vector-surface-text-track.horizontal.is-multi-row {
+  font-size: clamp(38px, 4.0vw, 66px);
 }
 
 .vector-surface-text-track.horizontal .vector-surface-text-row {
@@ -1066,33 +1073,33 @@ a {
 }
 
 .vector-surface-text-track.horizontal .vector-surface-text-row.row-offset {
-  margin-left: -160px;
+  margin-left: -180px;
 }
 
 .vector-surface-text-track.horizontal .vector-surface-text-row > span {
   display: inline-block;
-  padding-right: 54px;
+  padding-right: 64px;
 }
 
 .vector-surface-text-track.horizontal .vector-surface-divider {
   font-size: 0.55em;
-  opacity: 0.7;
-  padding-right: 54px;
+  opacity: 0.75;
+  padding-right: 64px;
   vertical-align: middle;
 }
 
-/* 가로 애니메이션: 천천히 부드럽게 흐름 (28초) */
+/* 가로 애니메이션: 큼직한 문구가 천천히 차분하게 흐름 (38초) */
 .vector-surface-text-track.flow-left .vector-surface-text-row {
-  animation: surfaceSlowLeft 28s linear infinite;
+  animation: surfaceSlowLeft 38s linear infinite;
 }
 
 .vector-surface-text-track.flow-right .vector-surface-text-row {
-  animation: surfaceSlowRight 28s linear infinite;
+  animation: surfaceSlowRight 38s linear infinite;
 }
 
 /* 2. 세로 방향 트랙 (flow-up, flow-down):
-   - 텍스트를 가로로 길게 늘어뜨리지 않고, 벡터 크기에 맞춰 가로 폭을 차지하며 줄바꿈
-   - 패턴처럼 반복되지 않고 하나의 정돈된 단락 형태로 천천히 스크롤 */
+   - 텍스트를 가로로 길게 늘어뜨리지 않고, 벡터 크기에 맞춰 가로 폭을 거의 꽉 채우며 줄바꿈
+   - 패턴처럼 반복되지 않고 하나의 큼직하고 정돈된 단락 형태로 천천히 스크롤 */
 .vector-surface-text-track.vertical {
   width: 100%;
   height: 100%;
@@ -1114,7 +1121,7 @@ a {
 .vector-vertical-unit {
   width: 100%;
   box-sizing: border-box;
-  padding: 44px 12px;
+  padding: 36px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1125,28 +1132,28 @@ a {
   margin: 0;
   width: 100%;
   font-family: var(--font-sans);
-  font-size: clamp(22px, 2.25vw, 34px);
-  font-weight: 800;
-  line-height: 1.62;
-  letter-spacing: -0.01em;
+  font-size: clamp(34px, 3.8vw, 58px);
+  font-weight: 900;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
   color: #FFFFFF !important;
   word-break: keep-all;
   overflow-wrap: break-word;
   white-space: normal;
   text-align: center;
   text-shadow:
-    0 0 12px rgba(255, 255, 255, 0.98),
-    0 0 26px rgba(255, 255, 255, 0.88),
-    0 2px 12px rgba(0, 0, 0, 0.75);
+    0 0 16px rgba(255, 255, 255, 0.98),
+    0 0 36px rgba(255, 255, 255, 0.92),
+    0 3px 18px rgba(0, 0, 0, 0.88);
 }
 
-/* 세로 애니메이션: 22초 동안 차분하고 부드럽게 스크롤 */
+/* 세로 애니메이션: 30초 동안 차분하고 부드럽게 스크롤 */
 .vector-surface-text-track.flow-up .vector-vertical-stream {
-  animation: verticalScrollUp 22s linear infinite;
+  animation: verticalScrollUp 30s linear infinite;
 }
 
 .vector-surface-text-track.flow-down .vector-vertical-stream {
-  animation: verticalScrollDown 22s linear infinite;
+  animation: verticalScrollDown 30s linear infinite;
 }
 
 @keyframes surfaceSlowLeft {

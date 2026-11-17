@@ -1276,24 +1276,6 @@ class ArchiveStudioAdmin {
                   </label>
                 </div>
 
-                <!-- 독백 정보창 작은 사진 (공간사진과 별개) -->
-                <div style="display:flex; gap:12px; align-items:center; padding:10px; background:#ffffff; border:1px solid var(--adm-border); margin-bottom:10px;">
-                  <div style="width:58px; height:58px; background:#f0f0f4; overflow:hidden; border:1px solid var(--adm-border); flex-shrink:0; display:flex; align-items:center; justify-content:center;">
-                    <img src="${this.safeImg(el.smallPhotoUrl || '')}" alt="" id="imgSmallPreview-${el.id}" style="width:100%; height:100%; object-fit:cover; display:${el.smallPhotoUrl ? 'block' : 'none'};" />
-                    <span id="txtSmallPlaceholder-${el.id}" style="font-size:10px; color:var(--adm-muted); display:${el.smallPhotoUrl ? 'none' : 'block'};">사진 없음</span>
-                  </div>
-                  <div style="flex:1;">
-                    <div style="font-size:11.5px; font-weight:800; margin-bottom:4px;">독백 정보창 작은 사진 (별도)</div>
-                    <div style="display:flex; gap:6px;">
-                      <label class="adm-btn sm primary" style="cursor:pointer; font-size:11px;">
-                        📷 작은 사진 업로드
-                        <input type="file" accept="image/*" data-elem-small-photo-upload="${el.id}" style="display:none;" />
-                      </label>
-                      ${el.smallPhotoUrl ? `<button class="adm-btn sm danger" data-elem-small-photo-del="${el.id}" style="font-size:11px;">삭제</button>` : ''}
-                    </div>
-                  </div>
-                </div>
-
                 <div class="form-group" style="margin-bottom:8px;">
                   <label style="font-size:11px;">아이 이름 (단원 이름)</label>
                   <input type="text" class="adm-input" value="${el.childName || ''}" data-elem-field="childName" data-target-id="${el.id}" placeholder="예: 권민서 (12세)" />
@@ -1419,60 +1401,6 @@ class ArchiveStudioAdmin {
         const img = document.getElementById(`imgPreview-${elId}`);
         if (img) img.src = dataUrl;
         this.saveDraft(`거점 사진이 업로드되었습니다.`);
-      });
-    });
-
-    // 독백 정보창 작은 사진 바로 업로드
-    container.querySelectorAll('[data-elem-small-photo-upload]').forEach((input) => {
-      input.addEventListener('change', async (e) => {
-        const elId = input.getAttribute('data-elem-small-photo-upload');
-        const file = e.target.files[0];
-        if (!file) return;
-        const dataUrl = await this.readFileAsDataURL(file);
-
-        const blobId = `smallphoto-${elId}`;
-        if (window.LargeMediaDB) {
-          await window.LargeMediaDB.saveBlob(blobId, dataUrl, { fileName: file.name, elId });
-        }
-
-        const spacesList = Array.isArray(this.data.spaces)
-          ? this.data.spaces
-          : Object.values(this.data.spaces || {});
-
-        for (const sp of spacesList) {
-          const target = (sp.elements || []).find((el) => el.id === elId);
-          if (target) {
-            target.smallPhotoUrl = `idb://${blobId}`;
-            target.secondaryPhotoUrl = `idb://${blobId}`;
-            break;
-          }
-        }
-        this.saveDraft(`독백 정보창 작은 사진이 업로드되었습니다.`);
-        this.renderMonologueWorkspace();
-      });
-    });
-
-    // 독백 정보창 작은 사진 삭제
-    container.querySelectorAll('[data-elem-small-photo-del]').forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const elId = btn.getAttribute('data-elem-small-photo-del');
-        if (window.LargeMediaDB) {
-          await window.LargeMediaDB.deleteBlob(`smallphoto-${elId}`);
-        }
-        const spacesList = Array.isArray(this.data.spaces)
-          ? this.data.spaces
-          : Object.values(this.data.spaces || {});
-
-        for (const sp of spacesList) {
-          const target = (sp.elements || []).find((el) => el.id === elId);
-          if (target) {
-            delete target.smallPhotoUrl;
-            delete target.secondaryPhotoUrl;
-            break;
-          }
-        }
-        this.saveDraft(`작은 사진이 삭제되었습니다.`);
-        this.renderMonologueWorkspace();
       });
     });
 

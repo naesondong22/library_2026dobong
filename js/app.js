@@ -1291,8 +1291,7 @@ class ArchiveApp {
         let surfaceContentHtml = '';
 
         if (isVertical) {
-          // 세로 재생 (기둥, 문, 신발장 등): 텍스트를 가로로 늘어뜨리지 않고,
-          // 벡터의 가로 폭에 맞춰 영역을 채우며 세로로 여유롭게 흐르는 타이포그래피
+          // 세로 재생: 벡터 영역을 거의 꽉 채우는 큼직한 타이포그래피
           surfaceContentHtml = `
             <div class="vector-surface-text-track vertical ${flowDir}">
               <div class="vector-vertical-stream">
@@ -1306,9 +1305,8 @@ class ArchiveApp {
             </div>
           `;
         } else {
-          // 가로 재생: 같은 문장이 여러 번 반복되어 패턴처럼 보이지 않도록,
-          // 벡터 영역 크기에 맞춰 1~2줄의 큼직하고 여유로운 단일 텍스트 띠로 천천히 흐르도록 구성
-          const rowCount = (bbox.height && bbox.height > 55) ? 2 : 1;
+          // 가로 재생: 벡터 영역을 거의 꽉 채우는 큼직한 텍스트 띠로 천천히 흐르도록 구성
+          const rowCount = (bbox.height && bbox.height > 48) ? 2 : 1;
           const phraseUnit = `<span>“${childQuote}”</span><span class="vector-surface-divider">✦</span>`;
           const rowsHtml = Array.from({ length: rowCount })
             .map((_, rIdx) => `
@@ -1322,7 +1320,7 @@ class ArchiveApp {
             .join('');
 
           surfaceContentHtml = `
-            <div class="vector-surface-text-track horizontal ${flowDir}">
+            <div class="vector-surface-text-track horizontal ${flowDir} ${rowCount > 1 ? 'is-multi-row' : 'is-single-row'}">
               ${rowsHtml}
             </div>
           `;
@@ -1365,7 +1363,7 @@ class ArchiveApp {
 
                 <!-- 벡터 내부 사물 표면을 따라 천천히 흐르는 흰 빛 타이포그래피 -->
                 <div class="vector-surface-text-box ${isVertical ? 'is-vertical-box' : 'is-horizontal-box'}"
-                     style="left:${bbox.left}%; top:calc(${bbox.top}% + 2px); width:${bbox.width}%; height:calc(${bbox.height}% - 2px);">
+                     style="left:${bbox.left}%; top:${bbox.top}%; width:${bbox.width}%; height:${bbox.height}%;">
                   <div class="vector-surface-angle ${isVertical ? 'is-vertical-angle' : ''}" style="transform: rotate(${isVertical ? 0 : angle}deg);">
                     ${surfaceContentHtml}
                   </div>
@@ -1697,16 +1695,6 @@ class ArchiveApp {
                   title="닫기">✕</button>
         </div>
 
-        ${
-          activeEl.smallPhotoUrl
-            ? `
-          <div class="story-small-photo-box">
-            <img src="${this.safeImgUrl(activeEl.smallPhotoUrl)}" alt="${activeEl.childName}" />
-          </div>
-        `
-            : ''
-        }
-
         <div class="voice-controls-row" style="flex-wrap:wrap; gap:8px; align-items:center; margin:14px 0 8px;">
           ${
             activeEl.audioUrl
@@ -1719,7 +1707,7 @@ class ArchiveApp {
             </button>
             <div class="voice-vol-wrap" style="display:inline-flex; align-items:center; gap:4px; margin-left:4px;" title="독백 볼륨 조절">
               <span style="font-size:12px; user-select:none;">🔊</span>
-              <input type="range" id="voiceVolumeSlider" min="0" max="1" step="0.05" value="${this.audio?.monologueVolume ?? 1}" style="width:64px; height:4px; accent-color:var(--c-blue); cursor:pointer;" />
+              <input type="range" id="voiceVolumeSlider" min="0" max="1" step="0.05" value="${this.audio?.monologueVolume ?? 0.5}" style="width:64px; height:4px; accent-color:var(--c-blue); cursor:pointer;" />
             </div>
             <span id="voiceProgressTime" style="font-size:11.5px; font-weight:800; margin-left:auto; color:var(--c-blue); font-variant-numeric:tabular-nums;">
               ${window.MonologueAudioEngine ? window.MonologueAudioEngine.formatTime(isPlayingThis ? this.audio.elapsed : 0) : '00:00'} / ${activeEl.monologue.duration || '00:00'}
