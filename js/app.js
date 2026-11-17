@@ -1466,10 +1466,13 @@ class ArchiveApp {
     const isSpotlightMode = Boolean(activeEl);
     viewport.classList.toggle('spotlight-mode', isSpotlightMode);
 
-    // 슬롯 폭 720px + 간격 90px = 810px 스텝, 슬롯 절반 폭 = 360px
-    // strip의 left: 50%, top: 50% 기준에서 frontIdx 슬롯의 정중앙이 정확히 50%에 오도록 계산
-    const slotWidth = 720;
-    const slotGap = 90;
+    // 실제 렌더링된 슬롯의 너비와 간격을 측정해 데스크톱·모바일 모두에서 정확히 화면 중앙에 정렬
+    const firstSlot = strip.querySelector('.user-vector-slot');
+    const measuredW = firstSlot ? firstSlot.getBoundingClientRect().width : 0;
+    const slotWidth = measuredW > 0 ? measuredW : 720;
+    const stripStyle = window.getComputedStyle(strip);
+    const parsedGap = parseFloat(stripStyle.gap || stripStyle.columnGap || '90');
+    const slotGap = !isNaN(parsedGap) ? parsedGap : 90;
     const slotStepPx = slotWidth + slotGap;
     const centerOffsetPx = -(frontIdx * slotStepPx + slotWidth / 2);
 
@@ -1544,7 +1547,7 @@ class ArchiveApp {
       );
     }
 
-    // 2) 마우스 드래그로 스트립을 좌우로 끌어 이동
+    // 2) 마우스 드래그 및 모바일 터치 스와이프로 스트립을 좌우로 끌어 이동
     if (viewport && strip) {
       let startX = 0;
       let deltaX = 0;
@@ -1556,6 +1559,15 @@ class ArchiveApp {
       if (this._onWindowDragUp) {
         window.removeEventListener('mouseup', this._onWindowDragUp);
       }
+      if (this._onWindowResizeSpace) {
+        window.removeEventListener('resize', this._onWindowResizeSpace);
+      }
+      this._onWindowResizeSpace = () => {
+        if (this.currentView === 'monologue' && this.monologueStage === 'space') {
+          this.updateSpaceExplorerState();
+        }
+      };
+      window.addEventListener('resize', this._onWindowResizeSpace);
 
       viewport.addEventListener('mousedown', (e) => {
         if (e.target.closest('button')) return;
@@ -1591,6 +1603,39 @@ class ArchiveApp {
 
       window.addEventListener('mousemove', this._onWindowDragMove);
       window.addEventListener('mouseup', this._onWindowDragUp);
+
+      // 모바일 터치 스와이프 지원
+      viewport.addEventListener('touchstart', (e) => {
+        if (e.target.closest('button') || !e.touches || !e.touches.length) return;
+        isDown = true;
+        startX = e.touches[0].clientX;
+        deltaX = 0;
+        this.stripDragDeltaX = 0;
+        strip.classList.add('is-dragging');
+      }, { passive: true });
+
+      viewport.addEventListener('touchmove', (e) => {
+        if (!isDown || !e.touches || !e.touches.length) return;
+        deltaX = e.touches[0].clientX - startX;
+        this.stripDragDeltaX = deltaX;
+        const baseOffset = this.currentCenterOffsetPx || -180;
+        strip.style.transform = `translate3d(${baseOffset + deltaX}px, -50%, 0)`;
+      }, { passive: true });
+
+      viewport.addEventListener('touchend', () => {
+        if (!isDown) return;
+        isDown = false;
+        strip.classList.remove('is-dragging');
+        if (Math.abs(deltaX) > 45) {
+          stepFrontElement(deltaX < 0 ? 1 : -1);
+        } else {
+          const baseOffset = this.currentCenterOffsetPx || -180;
+          strip.style.transform = `translate3d(${baseOffset}px, -50%, 0)`;
+        }
+        setTimeout(() => {
+          this.stripDragDeltaX = 0;
+        }, 40);
+      }, { passive: true });
     }
 
     // 3) 벡터요소 슬롯 클릭:
@@ -2035,10 +2080,6 @@ class ArchiveApp {
                 <h2 class="tw-book-blue-title">${page.title}</h2>
               </div>
               <div class="tw-book-header-right">
-                <div class="tw-book-folio-meta">
-                  <span>사람 책 도서관 · 수업 기록</span>
-                  <span>채움 &amp; 마을극장 흰고무신</span>
-                </div>
                 <p class="tw-book-blue-lead">“${page.leadQuote}”</p>
                 <div class="tw-book-keywords-row">
                   ${(page.keywords || [])
@@ -2325,18 +2366,19 @@ class ArchiveApp {
 
         <!-- 예술감독의 여는 글 (위 프로젝트 설명 칸과 동일한 포맷의 와이드 박스) -->
         <div class="pi-hero" style="margin-bottom:24px;">
-          <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+          <div class="pi-director-header" style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
             <span class="badge-blue-box">${info.directorLetterTag || '예술감독'}</span>
             <h2 style="font-size:clamp(20px, 2.2vw, 28px); font-weight:900; letter-spacing:-0.02em; color:var(--c-blue); margin:0;">
               ${info.directorLetterTitle || '예술감독의 여는 글'}
             </h2>
           </div>
-          <div style="font-size:15px; font-weight:500; line-height:1.9; color:var(--ink-dark); white-space:pre-line;">
+          <div class="pi-director-letter-wrap" id="piDirectorLetterWrap" style="font-size:15px; font-weight:500; line-height:1.9; color:var(--ink-dark); white-space:pre-line;">
             ${info.directorLetter || `어린 배우들의 발걸음이 머물렀던 공간은 단순한 연습실을 넘어 하나의 책이 됩니다.
 도봉산역 환승 통로의 노란 점자블록부터 마을극장 흰고무신의 작은 나무 액자까지, 아이들은 매일 지나치던 일상의 모퉁이에서 자신의 목소리를 길어 올렸습니다.
 〈사람 책 도서관: 이야기와 함께 걷기〉는 그들이 공간의 숨결과 마주하며 써 내려간 20편의 독백을 엮은 살아있는 아카이브입니다.
 이 지도 위를 천천히 걸으며, 아이들이 공간에 새겨둔 작고 단단한 마음의 소리에 귀 기울여 주시길 바랍니다.`}
           </div>
+          <button type="button" class="pi-director-toggle-btn" id="btnToggleDirectorLetter">계속 보기 ▾</button>
         </div>
 
         <!-- 함께한 사람들 (주최·주관, 크레딧) -->
@@ -2388,26 +2430,28 @@ class ArchiveApp {
         </div>
 
         <!-- 주최·주관·후원 기관 로고 (1줄: 주최/주관/후원, 2줄: 꿈의 예술단/성과/꿈의극단도봉) -->
-        <div class="pi-hero" style="margin-bottom:0; padding:28px 32px; background:#FFFFFF; border:2px solid var(--c-blue);">
+        <div class="pi-hero pi-logos-box" style="margin-bottom:0; padding:28px 32px; background:#FFFFFF; border:2px solid var(--c-blue);">
           <!-- 1줄: 주최 / 주관 / 후원 -->
-          <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-around; gap:28px; padding-bottom:22px; border-bottom:1.5px dashed rgba(32,185,226,0.35);">
-            <div style="display:flex; align-items:center; gap:12px;">
+          <div class="pi-logos-row-1" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-around; gap:28px; padding-bottom:22px; border-bottom:1.5px dashed rgba(32,185,226,0.35);">
+            <div class="pi-logo-group" style="display:flex; align-items:center; gap:12px;">
               <span style="font-size:12px; font-weight:900; color:var(--c-blue); letter-spacing:0.04em;">주최</span>
               <img src="${this.safeImgUrl('image/로고/문화체육관광부.png')}" alt="문화체육관광부" onerror="this.style.display='none'" style="max-height:38px; max-width:170px; object-fit:contain;" />
             </div>
-            <div style="display:flex; align-items:center; gap:12px;">
+            <div class="pi-logo-group pi-logo-group-jugwan" style="display:flex; align-items:center; gap:12px;">
               <span style="font-size:12px; font-weight:900; color:var(--c-blue); letter-spacing:0.04em;">주관</span>
-              <img src="${this.safeImgUrl('image/로고/한국문화예술교육진흥원.png')}" alt="한국문화예술교육진흥원" onerror="this.style.display='none'" style="max-height:38px; max-width:180px; object-fit:contain;" />
-              <img src="${this.safeImgUrl('image/로고/도봉문화재단.png')}" alt="도봉문화재단" onerror="this.style.display='none'" style="max-height:38px; max-width:160px; object-fit:contain;" />
+              <div class="pi-logo-jugwan-imgs" style="display:flex; align-items:center; gap:12px;">
+                <img src="${this.safeImgUrl('image/로고/한국문화예술교육진흥원.png')}" alt="한국문화예술교육진흥원" onerror="this.style.display='none'" style="max-height:38px; max-width:180px; object-fit:contain;" />
+                <img src="${this.safeImgUrl('image/로고/도봉문화재단.png')}" alt="도봉문화재단" onerror="this.style.display='none'" style="max-height:38px; max-width:160px; object-fit:contain;" />
+              </div>
             </div>
-            <div style="display:flex; align-items:center; gap:12px;">
+            <div class="pi-logo-group" style="display:flex; align-items:center; gap:12px;">
               <span style="font-size:12px; font-weight:900; color:var(--c-blue); letter-spacing:0.04em;">후원</span>
               <img src="${this.safeImgUrl('image/로고/도봉구.png')}" alt="도봉구" onerror="this.style.display='none'" style="max-height:38px; max-width:120px; object-fit:contain;" />
             </div>
           </div>
 
           <!-- 2줄: 꿈의 예술단 / 성과 / 꿈의극단도봉 -->
-          <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:44px; padding-top:22px;">
+          <div class="pi-logos-row-2" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:44px; padding-top:22px;">
             <img src="${this.safeImgUrl('image/로고/꿈의예술단.png')}" alt="꿈의 예술단" onerror="this.style.display='none'" style="max-height:44px; max-width:180px; object-fit:contain;" />
             <img src="${this.safeImgUrl('image/로고/성과.png')}" alt="성과" onerror="this.style.display='none'" style="max-height:44px; max-width:160px; object-fit:contain;" />
             <img src="${this.safeImgUrl('image/로고/꿈의극단도봉.png')}" alt="꿈의극단도봉" onerror="this.style.display='none'" style="max-height:44px; max-width:180px; object-fit:contain;" />
@@ -2415,6 +2459,15 @@ class ArchiveApp {
         </div>
       </div>
     `;
+
+    const toggleDirectorBtn = document.getElementById('btnToggleDirectorLetter');
+    const directorLetterWrap = document.getElementById('piDirectorLetterWrap');
+    if (toggleDirectorBtn && directorLetterWrap) {
+      toggleDirectorBtn.addEventListener('click', () => {
+        const isExpanded = directorLetterWrap.classList.toggle('is-expanded');
+        toggleDirectorBtn.textContent = isExpanded ? '접기 ▴' : '계속 보기 ▾';
+      });
+    }
 
     container.querySelectorAll('[data-pi-go-space]').forEach((btn) => {
       btn.addEventListener('click', () => {
