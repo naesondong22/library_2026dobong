@@ -1225,6 +1225,43 @@ class ArchiveApp {
         mapStage.scrollTop = scrollTop - walk;
       });
     }
+
+    // 모바일(<=768px) 지도 이미지 터치 이동 시 관성 미끄러짐을 억제하고 걷는 듯한 마찰감(0.7배) 적용
+    const mapWrap = document.querySelector('.monologue-right-map-wrap');
+    if (mapWrap && !mapWrap._hasMobileTouchPan) {
+      mapWrap._hasMobileTouchPan = true;
+      let tStartX = 0;
+      let tStartY = 0;
+      let sLeft = 0;
+      let sTop = 0;
+      let isTouchPan = false;
+
+      mapWrap.addEventListener('touchstart', (e) => {
+        if (window.innerWidth > 768 || !e.touches || e.touches.length !== 1) return;
+        isTouchPan = true;
+        tStartX = e.touches[0].clientX;
+        tStartY = e.touches[0].clientY;
+        sLeft = mapWrap.scrollLeft;
+        sTop = mapWrap.scrollTop;
+      }, { passive: true });
+
+      mapWrap.addEventListener('touchmove', (e) => {
+        if (!isTouchPan || window.innerWidth > 768 || !e.touches || e.touches.length !== 1) return;
+        const dx = (e.touches[0].clientX - tStartX) * 0.7;
+        const dy = (e.touches[0].clientY - tStartY) * 0.7;
+        if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+          e.preventDefault();
+          mapWrap.scrollLeft = sLeft - dx;
+          mapWrap.scrollTop = sTop - dy;
+        }
+      }, { passive: false });
+
+      const endTouchPan = () => {
+        isTouchPan = false;
+      };
+      mapWrap.addEventListener('touchend', endTouchPan, { passive: true });
+      mapWrap.addEventListener('touchcancel', endTouchPan, { passive: true });
+    }
   }
 
   /**
@@ -2358,9 +2395,10 @@ class ArchiveApp {
             <p style="font-size:16px; font-weight:700; line-height:1.75; color:var(--c-blue); margin-bottom:14px;">
               ${info.leadCopy || ''}
             </p>
-            <p style="font-size:14.5px; font-weight:500; line-height:1.85; color:var(--ink-dark);">
+            <div class="pi-concept-wrap" id="piConceptWrap" style="font-size:14.5px; font-weight:500; line-height:1.85; color:var(--ink-dark);">
               ${conceptParagraphs}
-            </p>
+            </div>
+            <button type="button" class="pi-director-toggle-btn" id="btnToggleConcept">계속 보기 ▾</button>
           </div>
 
           <!-- 우측: 도봉꿈의극단/image/선과요소/사용/로고.png를 과감하게 배치 -->
@@ -2466,6 +2504,15 @@ class ArchiveApp {
         </div>
       </div>
     `;
+
+    const toggleConceptBtn = document.getElementById('btnToggleConcept');
+    const conceptWrap = document.getElementById('piConceptWrap');
+    if (toggleConceptBtn && conceptWrap) {
+      toggleConceptBtn.addEventListener('click', () => {
+        const isExpanded = conceptWrap.classList.toggle('is-expanded');
+        toggleConceptBtn.textContent = isExpanded ? '접기 ▴' : '계속 보기 ▾';
+      });
+    }
 
     const toggleDirectorBtn = document.getElementById('btnToggleDirectorLetter');
     const directorLetterWrap = document.getElementById('piDirectorLetterWrap');
