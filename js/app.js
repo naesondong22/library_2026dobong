@@ -864,12 +864,11 @@ class ArchiveApp {
     if (url.startsWith('data:') || url.startsWith('http://') || url.startsWith('https://')) {
       return url;
     }
-    // Netlify(Linux) 호스팅 환경: Mac에서 업로드된 파일명은 NFD(자모 분리) 바이트로 저장되므로,
-    // 먼저 NFD로 정규화하여 요청 (실패 시 window.error 리스너에서 NFC로 자동 fallback)
+    // 웹 표준(Git/Vercel/GitHub Pages): NFC 완성형 한글 표준 적용
     try {
       const [path, query] = url.split('?');
-      const nfdPath = path.normalize('NFD');
-      const encoded = encodeURI(nfdPath);
+      const nfcPath = path.normalize('NFC');
+      const encoded = encodeURI(nfcPath);
       return query ? `${encoded}?${query}` : encoded;
     } catch (e) {
       return encodeURI(url);

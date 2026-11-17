@@ -4,8 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>사람 책 도서관: 이야기와 함께 걷기</title>
-  <link rel="stylesheet" href="css/style.css?v=33" />
+  <link rel="stylesheet" href="css/style.css?v=37" />
   <script>
+    // 브라우저에 빈 타임워크 사진으로 잘못 저장된 로컬 캐시 자동 치료
+    try {
+      if (typeof localStorage !== 'undefined') {
+        ['DOBONG_DREAM_THEATER_ARCHIVE_V8', 'DOBONG_DREAM_THEATER_ARCHIVE_DRAFT_V8'].forEach(function(k) {
+          var raw = localStorage.getItem(k);
+          if (raw && raw.indexOf('timeworks') !== -1) {
+            try {
+              var parsed = JSON.parse(raw);
+              var tw1 = parsed.timeworks && parsed.timeworks[0];
+              if (tw1 && (!tw1.chaeumPhotos || tw1.chaeumPhotos.length === 0)) {
+                localStorage.removeItem(k);
+              }
+            } catch(e) {}
+          }
+        });
+      }
+    } catch(e) {}
+
     // Mac(NFD) vs Linux/Web(NFC) 이미지 및 오디오 404 자동 상호 복구
     window.addEventListener('error', function(e) {
       var t = e.target;
@@ -107,8 +125,8 @@
 
   </main>
 
-  <script src="js/data.js?v=36"></script>
-  <script src="js/audio-engine.js?v=36"></script>
-  <script src="js/app.js?v=36"></script>
+  <script src="js/data.js?v=37"></script>
+  <script src="js/audio-engine.js?v=37"></script>
+  <script src="js/app.js?v=37"></script>
 </body>
 </html>

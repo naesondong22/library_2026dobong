@@ -37,26 +37,22 @@ class ArchiveStudioAdmin {
     }
     this.data = window.ArchiveStore.getData(true);
 
-    // 요청에 따라 TimeWork 1~7페이지의 기존 파일들을 1회 초기화 (양식 유지)
-    if (!localStorage.getItem('DOBONG_TW_FILES_CLEARED_V24')) {
-      (this.data.timeworks || []).forEach((tw) => {
-        tw.photos = [];
-        tw.chaeumPhotos = [];
-        tw.huinPhotos = [];
-        tw.works = [];
-      });
-      if (window.LargeMediaDB && window.LargeMediaDB.getAllItems) {
-        try {
-          const items = await window.LargeMediaDB.getAllItems();
-          for (const it of items) {
-            if (it && it.id && it.id.startsWith('tw-')) {
-              await window.LargeMediaDB.deleteBlob(it.id);
-            }
+    // 기본 영구 저장된 DEFAULT_ARCHIVE_DATA의 사진과 작품들이 누락되지 않도록 안전 보장
+    if (window.DEFAULT_ARCHIVE_DATA && window.DEFAULT_ARCHIVE_DATA.timeworks) {
+      window.DEFAULT_ARCHIVE_DATA.timeworks.forEach((defTw) => {
+        const tw = (this.data.timeworks || []).find((t) => t.id === defTw.id);
+        if (tw) {
+          if ((!tw.chaeumPhotos || !tw.chaeumPhotos.length) && defTw.chaeumPhotos && defTw.chaeumPhotos.length) {
+            tw.chaeumPhotos = JSON.parse(JSON.stringify(defTw.chaeumPhotos));
           }
-        } catch (e) {}
-      }
-      await window.ArchiveStore.saveDataAsync(this.data, 'TimeWork 1~7페이지 기존 파일 초기화');
-      localStorage.setItem('DOBONG_TW_FILES_CLEARED_V24', 'true');
+          if ((!tw.huinPhotos || !tw.huinPhotos.length) && defTw.huinPhotos && defTw.huinPhotos.length) {
+            tw.huinPhotos = JSON.parse(JSON.stringify(defTw.huinPhotos));
+          }
+          if ((!tw.works || !tw.works.length) && defTw.works && defTw.works.length) {
+            tw.works = JSON.parse(JSON.stringify(defTw.works));
+          }
+        }
+      });
     }
 
     this.setupLoginGate();
@@ -901,8 +897,8 @@ class ArchiveStudioAdmin {
     if (url.startsWith('data:') || url.startsWith('http://') || url.startsWith('https://')) return url;
     try {
       const [path, query] = url.split('?');
-      const nfdPath = path.normalize('NFD');
-      const encoded = encodeURI(nfdPath);
+      const nfcPath = path.normalize('NFC');
+      const encoded = encodeURI(nfcPath);
       return query ? `${encoded}?${query}` : encoded;
     } catch (e) {
       return encodeURI(url);

@@ -8,7 +8,7 @@ function formatAudioSrc(src) {
     return src;
   }
   try {
-    return encodeURI(src.normalize('NFD'));
+    return encodeURI(src.normalize('NFC'));
   } catch (e) {
     return encodeURI(src);
   }

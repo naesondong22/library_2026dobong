@@ -3281,6 +3281,23 @@ const ArchiveStore = {
         parsed.timeworks = (parsed.timeworks || []).filter(
           (tw) => !['tw-08', 'tw-09', 'tw-10'].includes(tw.id)
         );
+
+        // 영구 저장된 DEFAULT_ARCHIVE_DATA의 사진과 작품들이 빈 배열로 덮어씌워지지 않도록 병합 보장
+        (DEFAULT_ARCHIVE_DATA.timeworks || []).forEach((defTw) => {
+          const curTw = (parsed.timeworks || []).find((t) => t.id === defTw.id);
+          if (curTw) {
+            if ((!curTw.chaeumPhotos || !curTw.chaeumPhotos.length) && defTw.chaeumPhotos && defTw.chaeumPhotos.length) {
+              curTw.chaeumPhotos = JSON.parse(JSON.stringify(defTw.chaeumPhotos));
+            }
+            if ((!curTw.huinPhotos || !curTw.huinPhotos.length) && defTw.huinPhotos && defTw.huinPhotos.length) {
+              curTw.huinPhotos = JSON.parse(JSON.stringify(defTw.huinPhotos));
+            }
+            if ((!curTw.works || !curTw.works.length) && defTw.works && defTw.works.length) {
+              curTw.works = JSON.parse(JSON.stringify(defTw.works));
+            }
+          }
+        });
+
         return parsed;
       }
     } catch (e) {
