@@ -2432,7 +2432,7 @@ a {
     min-height: auto;
   }
   .project-info-container {
-    padding: 16px 12px 24px;
+    padding: 16px 12px 72px;
   }
   .pi-hero-bold-grid {
     grid-template-columns: 1fr;
