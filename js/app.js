@@ -2426,11 +2426,19 @@ class ArchiveApp {
     const chaeum = this.spacesMap.chaeum;
     const huin = this.spacesMap.huingomusin;
 
-    const conceptParagraphs = Array.isArray(info.conceptText)
-      ? info.conceptText.join('\n')
-      : (typeof info.conceptText === 'string' && info.conceptText.trim()
-          ? info.conceptText
-          : info.leadCopy || '');
+    let conceptHtml = '';
+    if (Array.isArray(info.conceptText) && info.conceptText.length > 0) {
+      conceptHtml = info.conceptText
+        .map(p => `<p style="margin:0 0 1.25em 0; white-space:pre-line; word-break:keep-all;">${p}</p>`)
+        .join('');
+    } else if (typeof info.conceptText === 'string' && info.conceptText.trim()) {
+      conceptHtml = info.conceptText
+        .split(/\n\s*\n/)
+        .map(p => `<p style="margin:0 0 1.25em 0; white-space:pre-line; word-break:keep-all;">${p.trim()}</p>`)
+        .join('');
+    } else if (info.leadCopy) {
+      conceptHtml = `<p style="margin:0 0 1.25em 0; white-space:pre-line; word-break:keep-all;">${info.leadCopy}</p>`;
+    }
 
     container.innerHTML = `
       <div class="project-info-container">
@@ -2446,8 +2454,8 @@ class ArchiveApp {
             <p style="font-size:16px; font-weight:700; line-height:1.75; color:var(--c-blue); margin-bottom:14px;">
               ${info.leadCopy || ''}
             </p>
-            <div class="pi-concept-wrap" id="piConceptWrap" style="font-size:14.5px; font-weight:500; line-height:1.85; color:var(--ink-dark);">
-              ${conceptParagraphs}
+            <div class="pi-concept-wrap" id="piConceptWrap" style="font-size:14.5px; font-weight:500; line-height:1.85; color:var(--ink-dark); white-space:pre-line; word-break:keep-all;">
+              ${conceptHtml}
             </div>
             <button type="button" class="pi-director-toggle-btn" id="btnToggleConcept">계속 보기 ▾</button>
           </div>

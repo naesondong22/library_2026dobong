@@ -1997,6 +1997,20 @@ a {
   display: block;
 }
 
+.pi-concept-wrap {
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+.pi-concept-wrap p {
+  margin: 0 0 1.25em 0;
+  line-height: 1.85;
+}
+
+.pi-concept-wrap p:last-child {
+  margin-bottom: 0;
+}
+
 .pi-spaces-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
